@@ -15,31 +15,16 @@
     <link rel="stylesheet" type="text/css" href="css/homePage.css">
 </head>
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="onInit()">
-    <div>
-        <?php include('allPageHeaderBar.php') ?> 
-    </div>
+    <div><?php include("allPageHeaderBar.php") ?></div>
     <div class="clothingAutowide">
         <div class='clothingModule' ng-repeat="photo in photoToDisplay">
             <div class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;'>
                 <img src='{{photo.clothing_image}}' alt=''/>
-                <p class='{{photo.clothing_description}}' align='center'>test</p>
-                <p class='{{photo.clothing_price}}' align='center'>test</p>
+                <p class='productTitle' align='center'>{{photo.clothing_description}}</p>
+                <p class='productPrice' align='center'>{{photo.clothing_price}}</p>
+                <button id="{{photo.clothing_id}}" type="button" class="btn btn-outline-dark" ng-click="previewButton($event)">Preview</button>
             </div>
         </div>
-        <!-- <div class='clothingModule'>
-            <div class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;'>
-                <img src='image/AB09.png' alt=''/>
-                <p class='productTitle' align='center'>test</p>
-                <p class='productPrice' align='center'>test</p>
-            </div>
-        </div>
-        <div class='clothingModule'>
-            <div class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;'>
-                <img src='image/AB10.png' alt=''/>
-                <p class='productTitle' align='center'>test</p>
-                <p class='productPrice' align='center'>test</p>
-            </div>
-        </div> -->
     </div>
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
@@ -55,15 +40,15 @@
 
                 $scope.onInit = function() {
                     $http.post('modelSql/displayIndexPhotos.php').then(function(response){
-                        alert(JSON.stringify(response.data));
+                        //alert(JSON.stringify(response.data));
                         $scope.photoToDisplay =response.data;
                         // $scope.blockIfVideoPresent ="block";
                     });
                 };
 
-                // $scope.logout = function(){
-                //     window.location.href = "logout.php";
-                // }
+                $scope.previewButton = function(){
+                    
+                }
             });
     </script>
 </body>
