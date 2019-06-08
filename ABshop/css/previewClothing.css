@@ -44,7 +44,7 @@ width: 100%;
 height: 400px;
 position: relative;
 border-radius: 3px;
-background: no-repeat url(http://www.cyw51.com/file/upload/201302/22/18-49-19-74-127.jpg) center center;
+/* background: no-repeat url(http://www.cyw51.com/file/upload/201302/22/18-49-19-74-127.jpg) center center; */
 background-size: cover;
 }
 section .all .slider .item-box:after {
@@ -134,7 +134,7 @@ height: 100px;
 border-radius: 3px;
 border: solid 3px #e6ecf2;
 cursor: pointer;
-background: no-repeat url(http://www.cyw51.com/file/upload/201302/22/18-49-19-74-127.jpg) center center;
+/* background: no-repeat url(http://www.cyw51.com/file/upload/201302/22/18-49-19-74-127.jpg) center center; */
 background-size: cover;
 }
 section .all .slider-two .item.active {
