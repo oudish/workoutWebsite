@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+    
+    <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"> -->
+    
+    
+    <style>
+        body{
+          overflow-x: hidden;
+        }
+
+        #parallax-image{
+            background-image: url("image/model03.jpg");
+            height: 100vh;
+            /* margin-bottom: 50px; */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        #parallax-image2{
+            background-image: url("image/model02.jpg");
+            height: 100vh;
+            /* margin-bottom: 50px; */
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+        }
+        h1{
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+            color: aliceblue;
+            font-size: 50px;
+        }
+        p{
+            color: black;
+        }
+
+        h1 {
+            font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+            font-size: 2rem;
+            display: inline-block;
+            padding: 1rem;
+            font-weight: 400;
+            position: relative;
+            opacity: 1;
+            transform: scale(1);
+            transition: transform 0.5s ease, opacity 1s ease;
+        }
+
+        .loadTitleClass h1 {
+            transform: scale(0.9);
+            opacity: 0;
+        }
+
+        h1:before,
+        h1:after {
+            height: 2px;
+            width: 100%;
+            content: "";
+            background: white;
+            display: block;
+            position: absolute;
+            transition: width 0.4s ease;
+            transition-delay: 0.8s;
+        }
+
+        h1:before {
+            top: 0;
+            left: 0;
+        }
+
+        h1:after {
+            bottom: 0;
+            right: 0;
+        }
+
+        .loadTitleClass h1:before,
+        .loadTitleClass h1:after {
+            width: 0;
+        }
+
+
+        /* ------------------------------------------------------------------------------------- */
+
+        :root {
+          --transition: all 1s;
+        }
+
+        /* html {
+          box-sizing: border-box;
+          font-family: sans-serif;
+          font-weight: lighter;
+        } */
+        *, *::before, *::after {
+          box-sizing: inherit;
+        }
+        /* body {
+          margin: 0;
+        } */
+        /* .hero {
+          width: 100%;
+          height: 100vh;
+          background-image: url(https://images.unsplash.com/photo-1482823984759-365bf06eb5fb?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=3a7cf5e983a69ee60a3590077e2684fd);
+          background-position: center;
+          background-size: cover;
+        }
+
+        .header {
+          position: fixed;
+          width: 100%;
+          left: 50%;
+          top: 50%;
+          text-transform: uppercase;
+          text-align: center;
+          margin: 0;
+          color: #fff;
+          opacity: 1;
+          transform: translate(-50%, -50%);
+
+          transition: var(--transition);
+        }
+
+        .headline, .subheadline {
+          font-weight: lighter;
+          transform: translateY(10%);
+          opacity: 0;
+          transition: var(--transition);
+        }
+        .headline {
+          font-size: 4em;
+          letter-spacing: 25px;
+
+        }
+        .subheadline {
+          letter-spacing: 15px;
+        } */
+
+        /* class added to header on first scroll */
+        /* .header-slide-in {
+          transform: translate(0);
+          opacity: 1;
+        }
+        .header-fade-out {
+          opacity: 0;
+        } */
+
+        .panels {
+          width: 20%;
+          margin: 10% auto;
+          line-height: 1.5;
+          margin-top: 30%;
+          margin-left: 10%;
+        }
+
+        .panel {
+          display: flex;
+          margin: 2em 0;
+          align-items: center;
+          
+          opacity: 0;
+          transform: translateY(10%);
+          
+          transition: var(--transition);
+        }
+
+        .panel div {
+          width: 50%;
+          padding: 2em;
+        }
+
+        .panel img {
+          width: 100%;
+          box-shadow: 0 20px 25px -10px rgba(0,0,0,.6);
+        }
+
+        .panel-fade-in {
+          opacity: 1;
+          transform: translate(0);
+        }
+    </style>
+</head>
+<body>
+    <div id="parallax-image">
+        <div class="row h-100">
+            <div class="col-md-12 align-self-center">
+                <div id="loadTitleId" class="loadTitleClass">
+                    <h1 id="loadTitleH1Id">
+                        ADISH BALKISSOON
+                    </h1>
+                </div>
+
+                <section class="panels">
+                    <div class="panel" style="background: rgba(0, 0, 0, 0.2);">
+                        <!-- <div>
+                        <img alt="" src="https://images.unsplash.com/photo-1520724495107-cda542a7e329?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=5cb2856f3150b54655d9748327974f21"/>
+                        </div> -->
+                        <div>
+                          <p>VIEW OUR STYLES</p>
+                        </div>
+                    </div>
+                    
+                    <!-- <div class="panel">
+                        <div>
+                        <p>With practice comes confidence. These things happen automatically. All you have to do is just let them happen. There are no mistakes. You can fix anything that happens. So often we avoid running water, and running water is a lot of fun.</p>
+                        </div>
+                        <div>
+                        <img alt="" src="https://images.unsplash.com/photo-1508721623045-872b68c1cb03?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=42deb20e5ee1ab100328560feeb85fa0"/>
+                        </div>
+                    </div>
+                    
+                    <div class="panel">
+                        <div>
+                        <img alt="" src="https://images.unsplash.com/photo-1516010121015-cd1bf5995e93?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=925b6903115c1d9507dbb33819f64ebc"/>
+                        </div>
+                        <div>
+                        <p>And that's when it becomes fun - you don't have to spend your time thinking about what's happening - you just let it happen. Learn when to stop. You can work and carry-on and put lots of little happy things in here. I spend a lot of time walking around in the woods and talking to trees, and squirrels, and little rabbits and stuff. All you need is a dream in your heart, and an almighty knife. Do an almighty painting with us.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="panel">
+                        <div>
+                        <p>Volunteering your time; it pays you and your whole community fantastic dividends. I started painting as a hobby when I was little. I didn't know I had any talent. I believe talent is just a pursued interest. Anybody can do what I do.</p>
+                        </div>
+                        <div>
+                        <img alt="" src="https://images.unsplash.com/photo-1521624759875-6a7bf5489d9e?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e45392c1348502b86001603488d19cd0"/>
+                        </div>
+                    </div> -->
+                    
+                </section>
+            </div>
+        </div>
+      </div>
+
+    <div id="parallax-image2">
+        <div class="row">
+          <div class="col-md-12 align-self-center">
+            <section class="panels">
+                <div class="panel" style="background: rgba(0, 0, 0, 0.2);">
+                    <div>
+                    <img alt="" src="https://images.unsplash.com/photo-1520724495107-cda542a7e329?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=5cb2856f3150b54655d9748327974f21"/>
+                    </div>
+                    <div>
+                      <p></p>
+                    </div>
+                </div>
+              </section>  
+          </div>
+        </div>
+    </div>
+
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <!-- <script src="js/javaScript.js"></script> -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $("#loadTitleId").removeClass("loadTitleClass");
+            }, 100)
+        });
+
+
+        // helper for limiting window scroll event listener calls
+function debounce(func, wait = 10, immediate = true) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+const header = document.querySelector('.header');
+const headline = document.querySelector('.headline');
+const subheadline = document.querySelector('.subheadline');
+
+const headlineSlideIn = function() {
+  headline.classList.add('header-slide-in');
+}
+const subheadlineSlideIn = function() {
+  subheadline.classList.add('header-slide-in');
+}
+
+const headerToggleFade = function() {
+  if (window.scrollY > 100) {
+    header.classList.add('header-fade-out');
+  } else {
+    header.classList.remove('header-fade-out');
+  }
+}
+
+const panels = document.querySelectorAll('.panel');
+
+const panelSlideIn = function() {
+  // for each panel, check if window bottom has scrolled past start of panel -> if yes, add .panel-fade-in class
+  panels.forEach(panel => {
+    const slideInAt = (window.scrollY + window.innerHeight) - panel.offsetHeight / 4;
+    const panelMidpoint = panel.offsetTop + panel.offsetHeight / 4;
+    if (slideInAt > panelMidpoint) {
+      panel.classList.add('panel-fade-in');
+    }
+  })
+}
+
+setTimeout(headlineSlideIn, 1000);
+setTimeout(subheadlineSlideIn, 2000);
+window.addEventListener('scroll', debounce(function() {
+  panelSlideIn();
+  headerToggleFade();
+}));
+
+    </script>
+</body>
+
+</html>
