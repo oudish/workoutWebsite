@@ -21,9 +21,9 @@
     <div class="clothingAutowide">
         <div class='clothingModule' ng-repeat="photo in photoToDisplay">
             <div class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;'>
-                <img src='photo.clothing_image' alt=''/>
-                <p class='photo.clothing_description' align='center'>test</p>
-                <p class='photo.clothing_price' align='center'>test</p>
+                <img src='{{photo.clothing_image}}' alt=''/>
+                <p class='{{photo.clothing_description}}' align='center'>test</p>
+                <p class='{{photo.clothing_price}}' align='center'>test</p>
             </div>
         </div>
         <!-- <div class='clothingModule'>
