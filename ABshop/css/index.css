@@ -1,0 +1,78 @@
+/* 1 column: 320px */
+.clothingAutowide {
+    margin: 0 auto;
+      width: 98%;
+  }
+  
+  .clothingAutowide .clothingModule {
+    background-color: #fff;
+    border-radius: .25rem;
+    margin-bottom: 30px;
+    margin-left: 0%;
+    margin-right: 0%;
+  }
+  /* .clothingAutowide .clothingModule p {
+    padding: 1px;
+  } */
+  
+  .clothingAutowide .clothingModule .productTitle{
+    padding: 1px;
+    padding-top: 2%;
+    color:rgb(39, 39, 39);
+    font-size: 90%;
+  }
+  .clothingAutowide .clothingModule .productPrice{
+    padding: 1px;
+    font-weight: bold;
+    color:rgb(116, 114, 114);
+   
+  }
+  
+  .clothingModule img{
+    display: inline-block;
+      max-width: 100%;
+      height: auto;
+      width: 100%;
+      margin: 0%;
+  }
+  
+  /* 2 columns: 600px =>200px */
+  @media only screen and (min-width: 200px) {
+    .clothingAutowide .clothingModule {
+          float: left;
+          margin-right: 0.8%;
+      /* width: 48.717948717948715%; */
+      width: 49.6%;
+      }
+      .clothingAutowide .clothingModule:nth-child(2n+0) {
+          margin-right: 0;
+      }
+  }
+  
+  /* 3 columns: 768px */
+  @media only screen and (min-width: 768px) {
+    .clothingAutowide .clothingModule {
+      /* width: 31.623931623931625%; */
+      width: 32.8%;
+      }
+      .clothingAutowide .clothingModule:nth-child(2n+0) {
+          margin-right: 0.8%;
+      }
+      .clothingAutowide .clothingModule:nth-child(3n+0) {
+          margin-right: 0;
+      }
+  }
+  
+  /* 4 columns: 992px and up */
+  @media only screen and (min-width: 992px) {
+    .clothingAutowide .clothingModule {
+      /* width: 23.076923076923077%; */
+      width: 24.4%; 
+      }
+      .clothingAutowide .clothingModule:nth-child(3n+0) {
+          margin-right: 0.8%;
+      }
+      .clothingAutowide .clothingModule:nth-child(4n+0) {
+          margin-right: 0;
+      }
+  }
