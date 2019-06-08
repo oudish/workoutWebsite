@@ -11,8 +11,13 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/header.css">
+    <link rel="stylesheet" type="text/css" href="css/homePage.css">
 </head>
 <body ng-app="myApp" ng-controller="myCtrl" ng-init="onInit()">
+    <div>
+        <?php include('allPageHeaderBar.php') ?> 
+    </div>
     <div class="clothingAutowide">
         <div class='clothingModule' ng-repeat="photo in photoToDisplay">
             <div class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;'>
