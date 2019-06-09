@@ -1,20 +1,78 @@
-<button  onclick="topFunction()" id="myBtnTop" title="Go to top">
-        <span style="font-weight:bold;" class="glyphicon">&#xe129;</span>
+<style>
+    #myBtnTop {
+  /* display: none; */
+  position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px;
+}
+#btnTop{
+  /* position: fixed;
+  bottom: 20px;
+  right: 30px;
+  z-index: 99;
+  font-size: 18px;
+  border: none;
+  outline: none;
+  background-color: red;
+  color: black;
+  cursor: pointer;
+  padding: 15px;
+  border-radius: 4px; */
+  position: fixed;
+    bottom: 20px;
+    right: 20px;
+    z-index: 99;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    text-align: center;
+    background-color: red;
+    color: white;
+    cursor: pointer;
+    padding: 15px;
+    border-radius: 4px;
+    background: rgba(0, 0, 0, 0.7);
+    width: 50px;
+    height: 50px;
+    text-decoration: none;
+    -webkit-border-radius: 35px;
+    -moz-border-radius: 35px;
+    border-radius: 35px;
+    display: none;
+}
+
+#btnTop:hover {
+  background-color: #555;
+}
+</style>
+
+
+<button  onclick="topFunction()" id="btnTop" title="Go to top" >
+        <span style="font-weight:bold;"  class="fa fa-arrow-up" ></span>
 </button> 
 
 <div id="myHeader">
-    <div class="headerTab" id='myDIV' style="background-color:black;"><!-- CKA-10/02/19-Added id -->
-        <?php include('searchBar.php') ?>
-    </div>
+    <!-- <div class="headerTab" id='myDIV' style="background-color:black;"> CKA-10/02/19-Added id  -->
+       <!-- /*include('searchBar.php')*/  -->
+    <!-- </div>  -->
 
-    <div id="MEN" class="headerTabcontent">
+    <div id="MEN" class="headerTabcontent" style="display: block;">
         <div id="headerMEN"><?php include('headerMEN.php') ?></div>
         <div id="sideNavMobileMEN"><?php include('sideNavMobile.php') ?></div>
     </div>
-    <div id="WOMEN" class="headerTabcontent">
-        <div id="headerWOMEN"><?php include('headerWOMEN.php') ?></div>
-        <div id="sideNavMobileWOMEN"><?php include('sideNavMobile.php') ?></div>
-    </div>
+   <!-- <div id="WOMEN" class="headerTabcontent">
+         <div id="headerWOMEN">/*include('headerWOMEN.php')*/ ?></div> 
+        <div id="sideNavMobileWOMEN">/*include('sideNavMobile.php')*/ ?></div>
+    </div> -->
 </div>
 
 <script>
@@ -49,11 +107,11 @@
                 document.getElementById("sideNavMobileMEN").style = "visibility: visible";
                 document.getElementById("headerMEN").style = "visibility: hidden";
             }
-            else if(document.getElementById("WOMEN").style.display == "block"){
-                //alert("women min");
-                document.getElementById("sideNavMobileWOMEN").style = "visibility: visible";
-                document.getElementById("headerWOMEN").style = "visibility: hidden";
-            }
+            // else if(document.getElementById("WOMEN").style.display == "block"){
+            //     //alert("women min");
+            //     document.getElementById("sideNavMobileWOMEN").style = "visibility: visible";
+            //     document.getElementById("headerWOMEN").style = "visibility: hidden";
+            // }
         } 
         else {
             if(document.getElementById("MEN").style.display == "block"){
@@ -61,11 +119,11 @@
                 document.getElementById("headerMEN").style = "visibility: visible";
                 document.getElementById("sideNavMobileMEN").style = "visibility: hidden";
             }
-            else if(document.getElementById("WOMEN").style.display == "block"){
-                //alert("women max");
-                document.getElementById("headerWOMEN").style = "visibility: visible";
-                document.getElementById("sideNavMobileWOMEN").style = "visibility: hidden";
-            }	
+            // else if(document.getElementById("WOMEN").style.display == "block"){
+            //     //alert("women max");
+            //     document.getElementById("headerWOMEN").style = "visibility: visible";
+            //     document.getElementById("sideNavMobileWOMEN").style = "visibility: hidden";
+            // }	
         }
     }
 
@@ -103,11 +161,11 @@
                     document.getElementById("sideNavMobileMEN").style.visibility = "visible";
                     document.getElementById("headerMEN").style.visibility = "hidden";
                 }
-                else if(document.getElementById("WOMEN").style.display == "block"){
-                    //alert("women min fix");
-                    document.getElementById("sideNavMobileWOMEN").style.visibility = "visible";
-                    document.getElementById("headerWOMEN").style.visibility = "hidden";
-                }
+                // else if(document.getElementById("WOMEN").style.display == "block"){
+                //     //alert("women min fix");
+                //     document.getElementById("sideNavMobileWOMEN").style.visibility = "visible";
+                //     document.getElementById("headerWOMEN").style.visibility = "hidden";
+                // }
             } 
             else {
                 if(document.getElementById("MEN").style.display == "block"){
@@ -115,27 +173,27 @@
                     document.getElementById("headerMEN").style.visibility = "visible";
                     document.getElementById("sideNavMobileMEN").style.visibility = "hidden";
                 }
-                else if(document.getElementById("WOMEN").style.display == "block"){
-                    //alert("women max fix");
-                    document.getElementById("headerWOMEN").style.visibility = "visible";
-                    document.getElementById("sideNavMobileWOMEN").style.visibility = "hidden";
-                }	
+                // else if(document.getElementById("WOMEN").style.display == "block"){
+                //     //alert("women max fix");
+                //     document.getElementById("headerWOMEN").style.visibility = "visible";
+                //     document.getElementById("sideNavMobileWOMEN").style.visibility = "hidden";
+                // }	
             }
         }
         evt.currentTarget.className += " active";
     }
 
-    // CKA-10/02/19--Add active class to the current button (highlight it)
-    var header = document.getElementById("myDIV");
-    var btns = header.getElementsByClassName("btn");
-    var count = btns.length;
-    for (var i = 0; i < count; i++) {
-        btns[i].addEventListener("click", function() {
-            var current = document.getElementsByClassName("active");
-            current[0].className = current[0].className.replace(" active", "");
-            this.className += " active";
-        });
-    }
+    // // CKA-10/02/19--Add active class to the current button (highlight it)
+    // var header = document.getElementById("myDIV");
+    // var btns = header.getElementsByClassName("btn");
+    // var count = btns.length;
+    // for (var i = 0; i < count; i++) {
+    //     btns[i].addEventListener("click", function() {
+    //         var current = document.getElementsByClassName("active");
+    //         current[0].className = current[0].className.replace(" active", "");
+    //         this.className += " active";
+    //     });
+    // }
 
     // When the user scrolls down 40px from the top of the document, show the button
     window.onscroll = function() {scrollFunction()};
@@ -145,17 +203,17 @@
 
     function scrollFunction() {
         if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
-        document.getElementById("myBtnTop").style.display = "block";
+        document.getElementById("btnTop").style.display = "block";
         } 
-        else if (window.pageYOffset > sticky) {
-            header.classList.add("sticky");
-        } 
+        // else if (window.pageYOffset > sticky) {
+        //     header.classList.add("sticky");
+        // } 
         else if(document.body.scrollTop < 200 || document.documentElement.scrollTop < 200)  {
-        document.getElementById("myBtnTop").style.display = "none";
+        document.getElementById("btnTop").style.display = "none";
         }
-        else {
-            header.classList.remove("sticky");
-        }
+        // else {
+        //     header.classList.remove("sticky");
+        // }
     }
 
     // When the user clicks on the button, scroll to the top of the document
@@ -165,7 +223,7 @@
     }
 
 
-    // <script>
+  
     // window.onscroll = function() {myFunction()};
 
     // var header = document.getElementById("myHeader");
@@ -178,6 +236,6 @@
     // header.classList.remove("sticky");
     // }
     // }
-    // 
+    
 
 </script>

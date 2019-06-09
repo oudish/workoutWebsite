@@ -11,10 +11,10 @@
         <div id="headerMEN"><?php include('headerMEN.php') ?></div>
         <div id="sideNavMobileMEN"><?php include('sideNavMobile.php') ?></div>
     </div>
-    <div id="WOMEN" class="headerTabcontent">
+    <!-- <div id="WOMEN" class="headerTabcontent">
         <div id="headerWOMEN"><?php include('headerWOMEN.php') ?></div>
         <div id="sideNavMobileWOMEN"><?php include('sideNavMobile.php') ?></div>
-    </div>
+    </div> -->
 </div>
 
 <script>

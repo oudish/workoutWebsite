@@ -1,7 +1,7 @@
 <div class="content">
-	 
-	<ul class="exo-menu">
-		<li><a class="active" href="#"><i class="fa"></i> Home</a></li>
+
+<ul class="exo-menu">
+		<li><a href="#"><i class="fa"></i> Home</a></li>
 
 		<li class="mega-drop-down"><a href="#"><i class="fa"></i>Clothing</a>
 			<div class="animated fadeIn mega-menu">
@@ -247,7 +247,7 @@
 		
 			</div>
 		</li>
-		<li><a href="#"><i class="fa"></i> MEN</a>
+		<!-- <li><a href="#"><i class="fa"></i> MEN</a> -->
 		</li>
 		<!-- <a class="active" href="#"> CKA-06/02/19-dd/mm/yy-removed <li> and class -->
 			<!-- <form method='post' action='/logout'> -->
@@ -255,7 +255,7 @@
 			<!-- </form>	 -->
 			
 		<!-- </a> -->
-		<a href="#" class="toggle-menu visible-xs-block">|||</a>		
+		<!-- <a href="#" class="toggle-menu visible-xs-block"></a>		 -->
 	</ul>
 
 </div>

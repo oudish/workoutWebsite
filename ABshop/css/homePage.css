@@ -51,8 +51,8 @@ ul{
   width: 100%;
   float: left;
   list-style: none;
-  position:relative;
-  background: rgb(100, 99, 99);/*CKA-03/02/19-dd/mm/yy-change menubar color to grey*/
+  position:fixed;
+  background: rgb(36, 36, 36);/*CKA-03/02/19-dd/mm/yy-change menubar color to grey black*/
 
 }
 
@@ -61,9 +61,9 @@ ul{
   color: white;
   text-decoration: none;
   text-transform: uppercase;
-  font: 400 12px sans-serif;
+  /* font: 400 12px sans-serif; */
 /* border-right: 1px #365670 dotted; */
-  border-right: 1px rgb(100, 99, 99) ;/*CKA-03/02/19-dd/mm/yy-change blue to grey*/
+  border-right: 1px rgb(36, 36, 36) ;/*CKA-03/02/19-dd/mm/yy-change blue to grey*/
   -webkit-transition: color 0.2s linear, background 0.2s linear;
   -moz-transition: color 0.2s linear, background 0.2s linear;
   -o-transition: color 0.2s linear, background 0.2s linear;
@@ -251,7 +251,7 @@ ul.stander li a:hover {
 
 /*CKA-03/02/19-dd/mm/yy-New Added feature-text color grey*/
 ul.stander li a{
-  color:rgb(65, 64, 64);
+  color:rgb(36, 36, 36);
 } 
 
 ul.description li {
