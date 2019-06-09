@@ -182,7 +182,7 @@
     </head>
     <body>
         <ul class="nav-mobile">
-            <li>Open, Sesame!</li>        
+            <!-- <li></li>        
             <li class="menu-container"> 
               <input id="menu-toggle" type="checkbox">
               <label for="menu-toggle" class="menu-button">  
@@ -226,7 +226,7 @@
                   </ul>              
                 </li>                                         
               </ul> 
-            </li>
+            </li> -->
           </ul>
     </body>
 </html>

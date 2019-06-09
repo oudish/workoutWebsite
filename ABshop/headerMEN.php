@@ -247,8 +247,12 @@
 		
 			</div>
 		</li>
-		<!-- <li><a href="#"><i class="fa"></i> MEN</a> -->
+
+		<li style="float:right;"><a href="#">Sign out<i class="fa fa-sign-out"></i></a>
+			
 		</li>
+		<!-- <li><a href="#"><i class="fa"></i> MEN</a> 
+		</li>-->
 		<!-- <a class="active" href="#"> CKA-06/02/19-dd/mm/yy-removed <li> and class -->
 			<!-- <form method='post' action='/logout'> -->
 				<!-- <button class="btn btn-primary" style = 'float:right'>Logout</button> CKA-06/02/19-dd/mm/yy-Added style -->
