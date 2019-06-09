@@ -19,7 +19,7 @@
     <div><?php include("allPageHeaderBar.php") ?></div>
     <div class="clothingAutowide">
         <div class='clothingModule' ng-repeat="photo in photoToDisplay">
-            <div id="{{photo.clothing_id}}" class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;cursor: pointer;' data-ng-click="previewButton(photo.clothing_id)">
+            <div id="{{photo.clothing_id}}" class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;cursor: pointer;' data-ng-click="previewButton(photo.clothing_id,photo.clothing_image1,photo.clothing_image2,photo.clothing_image3,photo.clothing_image4,photo.clothing_image5)">
                 <img id="photos" src='{{photo.clothing_image}}' alt=''/>
                 <p class='productTitle' align='center'>{{photo.clothing_description}}</p>
                 <p class='productPrice' align='center'>{{photo.clothing_price}}</p>
@@ -46,9 +46,9 @@
                     });
                 };
 
-                $scope.previewButton = function(id){
+                $scope.previewButton = function(id,image1,image2,image3,image4,image5){
                     //alert(id);
-                    location.href = "previewClothing.php?id="+id;
+                    location.href = "previewClothing.php?id="+id+"&image1="+image1+"&image2="+image2+"&image3="+image3+"&image4="+image4+"&image5="+image5;
                 }
             });
     </script>

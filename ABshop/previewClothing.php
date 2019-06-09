@@ -16,180 +16,52 @@
     <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Bitter:400,700,400italic">
 
 	<link rel="stylesheet" type="text/css" href="carousel/css/lightSlider.css">
-	<link rel="stylesheet" type="text/css" href="dist/angular-photoswipe.css">
-	<link rel="stylesheet" type="text/css" href="dist/angular-photoswipe.min.css">
 
-	<style>
-	
-.pswp__caption__center {
-	  text-align: center;
-	  align-content: center;
-}
-figure {
-	display: inline-block;
-	/* width: 33.333%; */
-	/* width: 100vw;
-	height: 100vh; */
-	/* max-width:100%; */
-	/* max-height:100%; */
-	/* float: left; */
-}
-img {
-	height:100%;
-	width: auto;
-	display:block;
-	margin:auto;
-	text-align: center;
-}
-.spacer {
-	height: 5em;
-}</style>
-
-    <!-- <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe.min.js"></script>
-	<script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe-ui-default.min.js"></script> -->
-	<!-- <script>
-    	$(document).ready(function() {
-			$("#content-slider").lightSlider({
-                loop:true,
-                keyPress:true
-            });
-            $('#image-gallery').lightSlider({
-                gallery:true,
-                item:1,
-                thumbItem:9,
-                slideMargin: 0,
-                speed:1000,
-                // auto:true,
-                loop:true,
-                onSliderLoad: function() {
-                    $('#image-gallery').removeClass('cS-hidden');
-                }  
-            });
-		});
-
-		'use strict';
-		/* global jQuery, PhotoSwipe, PhotoSwipeUI_Default, console */
-		(function($) {
-			// Init empty gallery array
-			var container = [];
-			// Loop over gallery items and push it to the array
-			$('#gallery').find('figure').each(function() {
-				var $link = $(this).find('a'),
-				item = {
-					src: $link.attr('href'),
-					w: $link.data('width'),
-					h: $link.data('height'),
-					title: $link.data('caption')
-				};
-				container.push(item);
-			});
-
-  			// Define click event on gallery item
-  			$('a').click(function(event) {
-				  alert("test");
-				// Prevent location change
-				event.preventDefault();
-				// Define object and gallery options
-				// var id = $(this).attr('id');
-				// var indexNum = parseInt(id);
-				//alert(id);
-				var $pswp = $('.pswp')[0],
-				options = {
-					index: $(this).parent('figure').index(),
-					//index: 1,
-					bgOpacity: 0.85,
-					showHideOpacity: true
-				};
-    			// Initialize PhotoSwipe
-    			var gallery = new PhotoSwipe($pswp, PhotoSwipeUI_Default, container, options);
-    			gallery.init();
-  			});
-		}(jQuery));
-
-    </script> -->
-
+	<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script> -->
 </head>
 <body style="overflow-x: hidden;" ng-app="myApp" ng-controller="myCtrl" ng-init="onInit()">
   	<div class="row">
     	<div class="col-sm-6" align='center'>
       		<div class="demo">
-			  
 			  	<div id="gallery" class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
           			<div class="item">            
             			<div class="clearfix" align="center">
 							<ul id='image-gallery' class='gallery list-unstyled cS-hidden' align='center'>
-								<li data-thumb="image/AB04.png"> 
+								<li data-thumb="<?php echo $_GET['image1']; ?>"> 
 									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="1" href="image/AB04.png"  data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="image/AB04.png" itemprop="thumbnail" alt="Image description" class="img-responsive">
+										<a id="image1ATag" href="<?php echo $_GET['image1']; ?>"  data-width="900" data-height="1200" itemprop="contentUrl">
+											<img id="image1ImgTag" src="<?php echo $_GET['image1']; ?>" itemprop="thumbnail" alt="Image description">
 										</a>
 									</figure>
-								</li>	
-								<!-- <li data-thumb="image/AB04.png"> 
+								</li><!--data-caption="Sunset in the wheat field<br><em class='text-muted'>© Jordan McQueen</em>"-->
+								<li data-thumb="<?php echo $_GET['image2']; ?>"> 
 									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="2" href="image/AB04.png"  data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="image/AB04.png" itemprop="thumbnail" alt="Image description" class="img-responsive">
-										</a>
-									</figure>
-								</li>	 -->
-								<!-- <li data-thumb="image/model02Re.jpg"> 
-									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="3" href="image/model02Re.jpg" data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="image/model02Re.jpg" itemprop="thumbnail" alt="Image description" class="img-responsive">
+										<a id="image1ATag" href="<?php echo $_GET['image2']; ?>" data-width="900" data-height="1200" itemprop="contentUrl">
+											<img id="image1ImgTag" src="<?php echo $_GET['image2']; ?>" itemprop="thumbnail" alt="Image description">
 										</a>
 									</figure>
 								</li>
-								<li data-thumb="image/AB09.png"> 	
+								<li data-thumb="<?php echo $_GET['image3']; ?>"> 
 									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="4" href="image/AB09.png"  data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="image/AB09.png" itemprop="thumbnail" alt="Image description" class="img-responsive">
-										</a>
-									</figure>
-								</li>	
-								<li data-thumb="image/AB10.png"> 
-									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="5" href="image/AB10.png"  data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="image/AB10.png" itemprop="thumbnail" alt="Image description" class="img-responsive">
+										<a id="image1ATag" href="<?php echo $_GET['image3']; ?>" data-width="900" data-height="1200" itemprop="contentUrl">
+											<img id="image1ImgTag" src="<?php echo $_GET['image3']; ?>" itemprop="thumbnail" alt="Image description">
 										</a>
 									</figure>
 								</li>
-								<li data-thumb="image/AB10.png"> 
+								<li data-thumb="<?php echo $_GET['image4']; ?>"> 
 									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="1" href="image/AB10.png" data-caption="{{photoDetailsDisplay[0].clothing_name}}" data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="image/AB10.png" itemprop="thumbnail" alt="Image description" class="img-responsive">
-										</a>
-									</figure>
-								</li>	 -->
-									
-								<!-- </li>
-								<li data-thumb="{{photoDetailsDisplay[0].clothing_image2}}"> 
-									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="1" href="{{photoDetailsDisplay[0].clothing_image2}}" data-caption="{{photoDetailsDisplay[0].clothing_name}}" data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="{{photoDetailsDisplay[0].clothing_image2}}" itemprop="thumbnail" alt="Image description" class="img-responsive">
+										<a id="image1ATag" href="<?php echo $_GET['image4']; ?>" data-width="900" data-height="1200" itemprop="contentUrl">
+											<img id="image1ImgTag" src="<?php echo $_GET['image4']; ?>" itemprop="thumbnail" alt="Image description">
 										</a>
 									</figure>
 								</li>
-								<li data-thumb="{{photoDetailsDisplay[0].clothing_image3}}"> 
+								<li data-thumb="<?php echo $_GET['image5']; ?>"> 
 									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="1" href="{{photoDetailsDisplay[0].clothing_image3}}" data-caption="{{photoDetailsDisplay[0].clothing_name}}" data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="{{photoDetailsDisplay[0].clothing_image3}}" itemprop="thumbnail" alt="Image description" class="img-responsive">
+										<a id="image1ATag" href="<?php echo $_GET['image5']; ?>" data-width="900" data-height="1200" itemprop="contentUrl">
+											<img id="image1ImgTag" src="<?php echo $_GET['image5']; ?>" itemprop="thumbnail" alt="Image description">
 										</a>
 									</figure>
 								</li>
-								<li data-thumb="{{photoDetailsDisplay[0].clothing_image4}}"> 
-									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="1" href="{{photoDetailsDisplay[0].clothing_image4}}" data-caption="{{photoDetailsDisplay[0].clothing_name}}" data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="{{photoDetailsDisplay[0].clothing_image4}}" itemprop="thumbnail" alt="Image description" class="img-responsive">
-										</a>
-									</figure>	
-								</li>
-								<li data-thumb="{{photoDetailsDisplay[0].clothing_image5}}"> 
-									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
-										<a id="1" href="{{photoDetailsDisplay[0].clothing_image5}}" data-caption="{{photoDetailsDisplay[0].clothing_name}}" data-width="900" data-height="1200" itemprop="contentUrl">
-											<img src="{{photoDetailsDisplay[0].clothing_image5}}" itemprop="thumbnail" alt="Image description" class="img-responsive">
-										</a>
-									</figure>	
-								</li> -->
             				</ul>
           				</div>
         			</div><!-- end of item -->
@@ -198,13 +70,11 @@ img {
     	</div><!--end of col-->
 
 		<div class="col-sm-6" align='center'>
-			<h4>Name Of Product : <input type="text" value="My product" readonly></h4>
+			<h4>Name Of Product : <input type="text" value="{{photoDetailsDisplay[0].clothing_name}}" readonly></h4>
             <br>
-            <h4>Price Of Product : <input type="text" value="Price" readonly></h4>
+            <h4>Price Of Product : <input type="text" value="{{photoDetailsDisplay[0].clothing_price}}" readonly></h4>
             <br>
-            <h4>Colour Of Product : <input type="text" value="Colour" readonly></h4>
-            <br>
-            <h4>Name Of Product : <input type="text" value="My product" readonly></h4>
+            <h4>Colour Of Product : <input type="text" value="{{photoDetailsDisplay[0].clothing_colour}}" readonly></h4>
             <br>
 		</div><!--end of col-->
   	</div><!--end of row-->    
@@ -263,7 +133,6 @@ img {
   </div>
 </div>
        
-
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.5/angular.min.js"></script> 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
@@ -274,8 +143,6 @@ img {
     <script src="//cdnjs.cloudflare.com/ajax/libs/photoswipe/4.1.0/photoswipe-ui-default.min.js"></script>
     
 	<script src="carousel/js/lightSlider.js"></script>
-	<script src="dist/angular-photoswipe.js"></script>
-	<script src="dist/angular-photoswipe.min.js"></script>
 
     <script>
         var app = angular.module('myApp', []);
@@ -283,35 +150,95 @@ img {
 			$scope.onInit = function() {
 				var params = new URLSearchParams(window.location.search);  
 				var photoId = params.get("id"); 
-				//alert(photoId);
 				$http.post('modelSql/displayPreviewPhotos.php',{photoId: photoId}).then(function(response){
-					//alert(response);
-					//alert(JSON.stringify(response.data));
-					var jsonVal = response.data;
-					$scope.photoDetailsDisplay =response.data;
-					//alert(JSON.stringify(jsonVal[0].clothing_image1));
+					//var jsonVal = response.data;
 					// var clothing_name = jsonVal[0].clothing_name;
 					// var image1 = jsonVal[0].clothing_image1;
-					// var image2 = JSON.stringify(jsonVal[0].clothing_image2);
-					// var image3 = JSON.stringify(jsonVal[0].clothing_image3);
-					// var image4 = JSON.stringify(jsonVal[0].clothing_image4);
-					// var image5 = JSON.stringify(jsonVal[0].clothing_image5);
-					//  var photos = "<li data-thumb='"+image1+"'><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject'><a id='1' href='"+image1+"' data-caption='"+clothing_name+"' data-width='900' data-height='1200' itemprop='contentUrl'><img src='"+image1+"' itemprop='thumbnail' alt='Image description' class='img-responsive'></a></figure></li>";
-					// $("#image-gallery").append(photos);
-					// <li data-thumb='"+image1+"'><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject'><a id='1' href='"+image1+"' data-caption='"+clothing_name+"' data-width='900' data-height='1200' itemprop='contentUrl'><img src='"+image1+"' itemprop='thumbnail' alt='Image description' class='img-responsive'></a></figure></li>
-					 
-					//  <li data-thumb='"+image2+"'><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject'><a id='2' href='"+image2+"' data-caption='"+clothing_name+"' data-width='900' data-height='1200' itemprop='contentUrl'><img src='"+image2+"' itemprop='thumbnail' alt='Image description' class='img-responsive'></a></figure></li>
-					 
-					//  <li data-thumb='"+image3+"'><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject'><a id='3' href='"+image3+"' data-caption='"+clothing_name+"' data-width='900' data-height='1200' itemprop='contentUrl'><img src='"+image3+"' itemprop='thumbnail' alt='Image description' class='img-responsive'></a></figure></li>
-					 
-					//  <li data-thumb='"+image4+"'><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject'><a id='4' href='"+image4+"' data-caption='"+clothing_name+"' data-width='900' data-height='1200' itemprop='contentUrl'><img src='"+image4+"' itemprop='thumbnail' alt='Image description' class='img-responsive'></a></figure></li>
-					 
-					//  <li data-thumb='"+image5+"'><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject'><a id='5' href='"+image5+"' data-caption='"+clothing_name+"' data-width='900' data-height='1200' itemprop='contentUrl'><img src='"+image5+"' itemprop='thumbnail' alt='Image description' class='img-responsive'></a></figure></li>
+
+					// var photos = "<li data-thumb='"+image1+"'><figure itemprop='associatedMedia' itemscope itemtype='http://schema.org/ImageObject'><a id='1' href='"+image1+"' data-caption='"+clothing_name+"' data-width='900' data-height='1200' itemprop='contentUrl'><img src='"+image1+"' itemprop='thumbnail' alt='Image description' class='img-responsive'></a></figure></li>";
+
+					// // $("#image-gallery").append(photos);
 					
-					// $scope.blockIfVideoPresent ="block";
+					$scope.photoDetailsDisplay =response.data;
+					
 				});
 			};
 		});
+
+		var container = [];
+
+		// Loop over gallery items and push it to the array
+		$('#gallery').find('figure').each(function() {
+			var $link = $(this).find('a'),
+			item = {
+				src: $link.attr('href'),
+				w: $link.data('width'),
+				h: $link.data('height'),
+				title: $link.data('caption')
+			};
+			container.push(item);
+		});
+
+		// Define click event on gallery item
+		$('a').click(function(event) {
+			// alert("ok");
+			// Prevent location change
+			event.preventDefault();
+
+			// Define object and gallery options
+			var $pswp = $('.pswp')[0],
+			options = {
+				index: $(this).parent('figure').index(),
+				bgOpacity: 0.85,
+				showHideOpacity: true
+			};
+
+			// Initialize PhotoSwipe
+			var gallery = new PhotoSwipe($pswp, PhotoSwipeUI_Default, container, options);
+			gallery.init();
+		});
+
+		// 'use strict';
+
+		// /* global jQuery, PhotoSwipe, PhotoSwipeUI_Default, console */
+
+		// (function($) {
+
+		// // Init empty gallery array
+		// var container = [];
+
+		// // Loop over gallery items and push it to the array
+		// $('#gallery').find('figure').each(function() {
+		// 	var $link = $(this).find('a'),
+		// 	item = {
+		// 		src: $link.attr('href'),
+		// 		w: $link.data('width'),
+		// 		h: $link.data('height'),
+		// 		title: $link.data('caption')
+		// 	};
+		// 	container.push(item);
+		// });
+
+		// // Define click event on gallery item
+		// $('a').click(function(event) {
+		// 	alert("ok");
+		// 	// Prevent location change
+		// 	event.preventDefault();
+
+		// 	// Define object and gallery options
+		// 	var $pswp = $('.pswp')[0],
+		// 	options = {
+		// 		index: $(this).parent('figure').index(),
+		// 		bgOpacity: 0.85,
+		// 		showHideOpacity: true
+		// 	};
+
+		// 	// Initialize PhotoSwipe
+		// 	var gallery = new PhotoSwipe($pswp, PhotoSwipeUI_Default, container, options);
+		// 	gallery.init();
+		// });
+
+		// }(jQuery));
     </script>
 	<script>
     	$(document).ready(function() {
@@ -332,46 +259,6 @@ img {
                 }  
             });
 		});
-
-		'use strict';
-		/* global jQuery, PhotoSwipe, PhotoSwipeUI_Default, console */
-		(function($) {
-			// Init empty gallery array
-			var container = [];
-			// Loop over gallery items and push it to the array
-			$('#gallery').find('figure').each(function() {
-				var $link = $(this).find('a'),
-				item = {
-					src: $link.attr('href'),
-					w: $link.data('width'),
-					h: $link.data('height'),
-					title: $link.data('caption')
-				};
-				container.push(item);
-			});
-
-  			// Define click event on gallery item
-  			$('a').click(function(event) {
-				//   alert("test");
-				// Prevent location change
-				event.preventDefault();
-				// Define object and gallery options
-				// var id = $(this).attr('id');
-				// var indexNum = parseInt(id);
-				//alert(id);
-				var $pswp = $('.pswp')[0],
-				options = {
-					index: $(this).parent('figure').index(),
-					//index: 1,
-					bgOpacity: 0.85,
-					showHideOpacity: true
-				};
-    			// Initialize PhotoSwipe
-    			var gallery = new PhotoSwipe($pswp, PhotoSwipeUI_Default, container, options);
-    			gallery.init();
-  			});
-		}(jQuery));
-
     </script>
 </body>
 </html>
