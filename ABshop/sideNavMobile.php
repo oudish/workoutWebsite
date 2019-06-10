@@ -1,6 +1,9 @@
 <html>
     <head><meta name="viewport" content="width=device-width, initial-scale=1.0">	
     <style>
+      html {
+  scroll-behavior: smooth;
+      }
       html,body{font-family:Verdana,sans-serif;font-size:12px;line-height:1.5}html{overflow-x:hidden}
       html{-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}body{margin:0}
       html{box-sizing:border-box}*,*:before,*:after{box-sizing:inherit}
@@ -33,39 +36,43 @@
 a:hover, #btn:hover {
   background-color: rgb(192,192,192);
 }
-
+#btn2:active {
+  background-color: #3e8e41;
+  /* box-shadow: 0 5px #666; */
+  transform: translateY(2px);
+}
     </style>
      
     </head>
     <body>
       
-            <div class="ab-sidebar ab-bar-block ab-animate-left" style="display:none;z-index:5" id="mySidebar">
-              <button id="btn" class="ab-bar-item ab-button ab-large" onclick="ab_close()">Close &times;</button>
-              <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 1</a>
-              <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 2</a>
-              <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 3</a>
-            </div>
-         
-            <!-- Page Content -->
-<div class="ab-overlay ab-animate-opacity" onclick="ab_close()" style="cursor:pointer" id="myOverlay"></div>
+      <div class="ab-sidebar ab-bar-block ab-animate-left" style="display:none;z-index:5" id="mySidebar">
+        <button id="btn" class="ab-bar-item ab-button ab-large" onclick="ab_close()">Close &times;</button>
+        <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 1</a>
+        <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 2</a>
+        <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 3</a>
+      </div>
+    
+      <!-- Page Content -->
+      <div class="ab-overlay ab-animate-opacity" onclick="ab_close()" style="cursor:pointer" id="myOverlay"></div>
 
-<div>
-  <button  class="ab-button ab-white ab-xlarge" onclick="ab_open()">&#9776;</button>
-  <div class="ab-container">
-  
-  </div>
-</div>
+      <div>
+        <button id="btn2" class="ab-button ab-white ab-xlarge" onclick="ab_open()">&#9776;</button>
+        <div class="ab-container">
+        
+        </div>
+      </div>
      
-<script>
-function ab_open() {
-  document.getElementById("mySidebar").style.display = "block";
-  document.getElementById("myOverlay").style.display = "block";
-}
+    <script>
+      function ab_open() {
+        document.getElementById("mySidebar").style.display = "block";
+        document.getElementById("myOverlay").style.display = "block";
+      }
 
-function ab_close() {
-  document.getElementById("mySidebar").style.display = "none";
-  document.getElementById("myOverlay").style.display = "none";
-}
-</script>
+      function ab_close() {
+        document.getElementById("mySidebar").style.display = "none";
+        document.getElementById("myOverlay").style.display = "none";
+      }
+    </script>
     </body>
 </html>

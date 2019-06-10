@@ -20,7 +20,7 @@
     <div class="clothingAutowide">
         <div class='clothingModule' ng-repeat="photo in photoToDisplay">
             <div id="{{photo.clothing_id}}" class='showProductInDetail' role='button' style='border-style: solid;border-width: 0px;cursor: pointer;' data-ng-click="previewButton(photo.clothing_id)">
-                <img src='{{photo.clothing_image}}' alt=''/>
+                <img id="photos" src='{{photo.clothing_image}}' alt=''/>
                 <p class='productTitle' align='center'>{{photo.clothing_description}}</p>
                 <p class='productPrice' align='center'>{{photo.clothing_price}}</p>
             </div>
