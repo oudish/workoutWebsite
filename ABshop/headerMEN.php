@@ -242,15 +242,15 @@
 			</div>
 		
 		</li> -->
-		<li><a href="#"><i class="fa"></i> Contact</a>
+		<!-- <li><a href="#"><i class="fa"></i> Contact</a>
 			<div class="contact">
 		
 			</div>
-		</li>
+		</li> -->
 
-		<li style="float:right;"><a href="#">Sign out<i class="fa fa-sign-out"></i></a>
-			
-		</li>
+		<li id="logInBtn" style="float:right; display: none"><a href="" ng-click="loginFunc()" data-toggle="modal" data-target="#myModal"><i class="fa"></i>LOG IN</a></li>
+
+		<li id="logOutBtn" style="float:right; display: none"><a href="logout.php">LOG OUT<i class="fa fa-sign-out"></i></a></li>
 		<!-- <li><a href="#"><i class="fa"></i> MEN</a> 
 		</li>-->
 		<!-- <a class="active" href="#"> CKA-06/02/19-dd/mm/yy-removed <li> and class -->
@@ -263,3 +263,54 @@
 	</ul>
 
 </div>
+
+
+  <!-- The Modal -->
+  <div class="modal fade" id="myModal">
+    <div class="modal-dialog modal-sm">
+      <div class="modal-content">
+      
+        <!-- Modal Header -->
+        <div class="modal-header">
+          <h4 class="modal-title">LOGIN</h4>
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+        
+        <!-- Modal body -->
+        <div class="modal-body">
+		<div class="card rounded-0">
+			
+			<div class="card-body">
+				<form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+					<div class="form-group">
+						<label for="uname1">Username</label>
+						<input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="">
+						<div class="invalid-feedback">Oops, you missed this one.</div>
+					</div>
+					<div class="form-group">
+						<label>Password</label>
+						<input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password">
+						<div class="invalid-feedback">Enter your password too!</div>
+					</div>
+					<div>
+						<label class="custom-control custom-checkbox">
+						<input type="checkbox" class="custom-control-input">
+						<span class="custom-control-indicator"></span>
+						<!-- <span class="custom-control-description small text-dark">Remember me on this computer</span> -->
+						</label>
+					</div>
+					<button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" ng-click="submitForm($event)">Login</button>
+				</form>
+			</div>
+			<!--/card-block-->
+		</div>
+        </div>
+        
+        <!-- Modal footer -->
+        <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div> -->
+        
+      </div>
+	</div>
+  </div>

@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
-  
+<?php   
+session_start(); //to ensure you are using same session
+?>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,15 +38,14 @@
     <script>
         var app = angular.module('myApp', []);
             app.controller('myCtrl', function($scope,$http) {
-                $scope.firstName = "John";
-                $scope.lastName = "Doe";
-
                 $scope.onInit = function() {
                     $http.post('modelSql/displayIndexPhotos.php').then(function(response){
-                        //alert(JSON.stringify(response.data));
-                        document.getElementById("logInBtn").style.display = "block";
                         $scope.photoToDisplay =response.data;
-                        // $scope.blockIfVideoPresent ="block";
+
+                        var displaySession = "<li style='float:right;'><a href=''><?php echo $_SESSION['name'] ?><i></i></a></li>";
+                        $(".exo-menu").append(displaySession);
+                        document.getElementById("logInBtn").style.display = "none";
+                        document.getElementById("logOutBtn").style.display = "block";
                     });
                 };
 
@@ -52,20 +53,21 @@
                     //alert(id);
                     location.href = "previewClothing.php?id="+id+"&image1="+image1+"&image2="+image2+"&image3="+image3+"&image4="+image4+"&image5="+image5;
                 }
-
-                $scope.submitForm = function(event) {
-                    var username = $("#uname1").val();
-                    var password = $("#pwd1").val();
-                    //alert(username+" "+password);
-                    $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
-                        if(response.data == "login successfull"){
-                            window.location.href = "userLogon.php";
-                        }
-                        else{
-                            alert(JSON.stringify( response.data));
-                        }
-                    });
-                };
+                // $scope.submitForm = function(event) {
+                //     var username = $("#uname1").val();
+                //     var password = $("#pwd1").val();
+                //     //alert(username+" "+password);
+                //     $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
+                //         if(response.data == "login successfull"){
+                //             window.location.href = "index.php";
+                //             $(".exo-menu")
+                //             var displaySession = "<li style='float:right;'><a href=''>"++"<i></i></a></li>";
+                //         }
+                //         else{
+                //             alert(JSON.stringify( response.data));
+                //         }
+                //     });
+                // };
             });
     </script>
 </body>
