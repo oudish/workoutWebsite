@@ -42,7 +42,7 @@ session_start(); //to ensure you are using same session
                     $http.post('modelSql/displayIndexPhotos.php').then(function(response){
                         $scope.photoToDisplay =response.data;
 
-                        var displaySession = "<li style='float:right;'><a href=''><?php echo $_SESSION['name'] ?><i></i></a></li>";
+                        var displaySession = "<li style='float:right;'><a style ='color:white;' ><?php echo $_SESSION['name'] ?><i></i></a></li>";
                         $(".exo-menu").append(displaySession);
                         document.getElementById("logInBtn").style.display = "none";
                         document.getElementById("logOutBtn").style.display = "block";
@@ -51,7 +51,7 @@ session_start(); //to ensure you are using same session
 
                 $scope.previewButton = function(id,image1,image2,image3,image4,image5){
                     //alert(id);
-                    location.href = "previewClothing.php?id="+id+"&image1="+image1+"&image2="+image2+"&image3="+image3+"&image4="+image4+"&image5="+image5;
+                    location.href = "previewClothing2.php?id="+id+"&image1="+image1+"&image2="+image2+"&image3="+image3+"&image4="+image4+"&image5="+image5;
                 }
                 // $scope.submitForm = function(event) {
                 //     var username = $("#uname1").val();

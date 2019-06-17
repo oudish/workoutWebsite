@@ -33,8 +33,8 @@
 .ab-container:after,.ab-container:before,.ab-panel:after,.ab-panel:before,.ab-row:after,.ab-row:before,.ab-row-padding:after,.ab-row-padding:before,
 .ab-cell-row:before,.ab-cell-row:after,.ab-clear:after,.ab-clear:before,.ab-bar:before,.ab-bar:after{content:"";display:table;clear:both}
 .ab-tiny{font-size:10px!important}.ab-small{font-size:12px!important}.ab-medium{font-size:15px!important}.ab-large{font-size:18px!important}
-a:hover, #btn:hover {
-  background-color: rgb(192,192,192);
+#link1:hover, #btn:hover {
+  background-color: rgb(233,225,225);
 }
 #btn2:active {
   background-color: #3e8e41;
@@ -48,9 +48,9 @@ a:hover, #btn:hover {
       
       <div class="ab-sidebar ab-bar-block ab-animate-left" style="display:none;z-index:5" id="mySidebar">
         <button id="btn" class="ab-bar-item ab-button ab-large" onclick="ab_close()">Close &times;</button>
-        <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 1</a>
-        <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 2</a>
-        <a href="#" class="ab-bar-item ab-button" style="color:black;">Link 3</a>
+        <a id="link1" href="#" class="ab-bar-item ab-button" style="color:black;">Link 1</a>
+        <a id="link1" href="#" class="ab-bar-item ab-button" style="color:black;">Link 2</a>
+        <a id="link1" href="#" class="ab-bar-item ab-button" style="color:black;">Link 3</a>
       </div>
     
       <!-- Page Content -->
