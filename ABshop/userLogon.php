@@ -41,8 +41,8 @@ session_start(); //to ensure you are using same session
                 $scope.onInit = function() {
                     $http.post('modelSql/displayIndexPhotos.php').then(function(response){
                         $scope.photoToDisplay =response.data;
-
                         var displaySession = "<li style='float:right;'><a style ='color:white;' ><?php echo $_SESSION['firstname']." ".$_SESSION['lastname'] ?><i></i></a></li>";
+
                         $(".exo-menu").append(displaySession);
                         document.getElementById("logInBtn").style.display = "none";
                         document.getElementById("logOutBtn").style.display = "block";

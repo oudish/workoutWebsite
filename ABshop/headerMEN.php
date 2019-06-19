@@ -49,7 +49,8 @@
 			</div>
 		</li>
 
-		<li class="mega-drop-down"><a href=""><i class="fa"></i>WORKOUT</a>
+
+		<li class="mega-drop-down"><a href="#" data-toggle="modal" data-target="#myModalWorkout"><i class="fa"></i>WORKOUT</a>
 			<div class="animated fadeIn mega-menu">
 				<div class="mega-menu-wrap">
 					<div class="row">
@@ -103,9 +104,9 @@
 		
 			</div>
 		</li> -->
-		<li id="logInBtn" style="float:right; display: none"><a href="" ng-click="loginFunc()" data-toggle="modal" data-target="#myModal"><i class="fa"></i>LOG IN</a></li>
-
 		<li id="logInBtn" style="float:right; display: none"><a href="" ng-click="loginFunc()" data-toggle="modal" data-target="#myModal">LOG IN<i class="fa fa-sign-in"></i></a></li>
+		
+		<li id="signUpBtn" style="float:right; display: none"><a href="" ng-click="signUpFunc()" data-toggle="modal" data-target="#mySignUpModal"><i class="fa"></i>SIGN UP</a></li>
 
 		<li id="logOutBtn" style="float:right; display: none"><a href="logout.php">LOG OUT<i class="fa fa-sign-out"></i></a></li>
 
