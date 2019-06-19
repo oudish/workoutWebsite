@@ -42,7 +42,7 @@ session_start(); //to ensure you are using same session
                     $http.post('modelSql/displayIndexPhotos.php').then(function(response){
                         $scope.photoToDisplay =response.data;
 
-                        var displaySession = "<li style='float:right;'><a style ='color:white;' ><?php echo $_SESSION['name'] ?><i></i></a></li>";
+                        var displaySession = "<li style='float:right;'><a style ='color:white;' ><?php echo $_SESSION['firstname']." ".$_SESSION['lastname'] ?><i></i></a></li>";
                         $(".exo-menu").append(displaySession);
                         document.getElementById("logInBtn").style.display = "none";
                         document.getElementById("logOutBtn").style.display = "block";
@@ -53,6 +53,43 @@ session_start(); //to ensure you are using same session
                     //alert(id);
                     location.href = "previewClothing2.php?id="+id+"&image1="+image1+"&image2="+image2+"&image3="+image3+"&image4="+image4+"&image5="+image5;
                 }
+
+                $scope.submitWorkoutForm = function(event) {
+                    var username = $("#uname1Work").val();
+                    var password = $("#pwd1Work").val();
+                    //alert(username+" "+password);
+                    $http.post('modelSql/verifyWorkoutLoginSql.php',{username: username, password: password}).then(function(response){
+                        //alert(JSON.stringify(response.data)+" "+JSON.stringify(response.data.message)+" "+JSON.stringify(response.data.user_email)+" "+JSON.stringify(response.data.user_code));
+                        if(response.data.message == "login successfull"){
+                            $("#userId").val(response.data.user_id);
+                            var email = response.data.user_email;
+                            var subject = "Verification Code";
+                            var message = "Your Verification Code is : "+response.data.user_code;
+                            //alert("login successfull");
+                            $http.post('phpmailer.php',{email: email, subject: subject, message: message}).then(function(response2){
+                                alert(response2.data);
+                            });
+                            
+                            document.getElementById("btnWorkoutLogin").style.display = "none";
+                            document.getElementById("verifyCodeDiv").style.display = "block";
+                        }
+                        else{
+                            alert(JSON.stringify( response.data));
+                        }
+                    });
+                };
+
+                $scope.submitWorkoutCode = function(event) {
+                    var user_id = document.getElementById("userId").value;
+                    var userCodeInput = document.getElementById("codeWork").value;
+                    //alert(userCodeInput);
+                    $http.post('modelSql/verifyWorkoutCodeSql.php',{user_id: user_id, userCodeInput: userCodeInput}).then(function(response){
+                        alert(response.data);
+                        if(response.data == "login successfull"){
+                            window.location.href = "workoutIndex.php";
+                        }
+                    });
+                };
                 // $scope.submitForm = function(event) {
                 //     var username = $("#uname1").val();
                 //     var password = $("#pwd1").val();

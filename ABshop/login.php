@@ -81,6 +81,7 @@
                 $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
                     if(response.data == "login successfull"){
                         window.location.href = "home.php";
+
                     }
                     else{
                         alert(JSON.stringify( response.data));
