@@ -1,0 +1,876 @@
+
+html {
+    box-sizing: border-box;
+    font-family: sans-serif;
+    font-weight: lighter;
+  }
+  *, *::before, *::after {
+    box-sizing: inherit;
+  }
+  
+  
+  body {
+    margin: 0;
+  }
+  .hero {
+    width: 100%;
+    height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1482823984759-365bf06eb5fb?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=3a7cf5e983a69ee60a3590077e2684fd);
+    background-position: center;
+    background-size: cover;
+  }
+  
+  .header {
+    position: fixed;
+    width: 100%;
+    left: 50%;
+    top: 50%;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0;
+    color: #fff;
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  
+    transition: var(--transition);
+  }
+  
+  .headline, .subheadline {
+    font-weight: lighter;
+    transform: translateY(10%);
+    opacity: 0;
+    transition: var(--transition);
+  }
+  .headline {
+    font-size: 4em;
+    letter-spacing: 25px;
+  
+  }
+  .subheadline {
+    letter-spacing: 15px;
+  }
+  
+  /* class added to header on first scroll */
+  .header-slide-in {
+    transform: translate(0);
+    opacity: 1;
+  }
+  .header-fade-out {
+    opacity: 0;
+  }
+  
+  .panels {
+    width: 80%;
+    margin: 10% auto;
+    line-height: 1.5;
+  }
+  
+  .panel {
+    display: flex;
+    margin: 2em 0;
+    align-items: center;
+    
+    opacity: 0;
+    transform: translateY(10%);
+    
+    transition: var(--transition);
+  }
+  
+  .panel div {
+    width: 50%;
+    padding: 2em;
+  }
+  
+  .panel img {
+    width: 100%;
+    box-shadow: 0 20px 25px -10px rgba(0,0,0,.6);
+  }
+  
+  .panel-fade-in {
+    opacity: 1;
+    transform: translate(0);
+  }
+  
+  
+  
+  
+  .container-fluid.main{
+    position: relative; /* To make the navbar positions relative to this container */
+    padding: 0;
+  }
+  
+  .navbar-default {
+    background-image: none;
+    background-color: transparent; /* Make the menu become transparent */
+    border-radius: 0px;
+    border: 0;
+    box-shadow: none;
+    padding: 10px;
+    position: absolute; /* Make the menu out of the document flow so it can placed anywhere without disturbing other widgets */
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 10; /* If you delete this line, your menu link won't be clicked because it is behind the background. Applying this code bring the menu in front of the background */
+  }
+  
+  .navbar-default .navbar-brand {
+    font-family: Verdana;
+    color: #ffffff;
+    font-size: 20px;
+  }
+  
+  .navbar-default .navbar-brand:hover,
+  .navbar-default .navbar-brand:focus {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  
+  .navbar-default .navbar-nav > li > a {
+    color: #ffffff;
+  }
+  
+  .navbar-default .navbar-nav > li > a:hover,
+  .navbar-default .navbar-nav > li > a:focus {
+    color: #ffffff;
+    background-color: transparent;
+  }
+  
+  .navbar-default .navbar-toggle {
+    border-color: transparent;
+  }
+  
+  .navbar-default .navbar-toggle:hover {
+    background-color: transparent;
+  }
+  
+  .navbar-default .navbar-toggle:focus {
+    background-color: transparent;
+  }
+  
+  .navbar-default .navbar-toggle .icon-bar {
+    background-color: #ffffff;
+  }
+  
+  .carousel .background {
+    background-position: center center;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    height: 700px;
+  }
+  
+  @media (max-width:991px) {
+    .carousel .background {
+      background-size: cover; /* To make the background image looks good */
+    }
+  }
+  
+  .carousel .background.a {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/92090/pexels-photo-92090-large.jpeg");
+  }
+  
+  .carousel .background.b {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/93750/pexels-photo-93750-large.jpeg");
+  }
+  
+  .carousel .background.c {
+    background-image: linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("https://static.pexels.com/photos/76827/bahia-ocean-bay-boat-76827-large.jpeg");
+  }
+  
+  .carousel-fade .carousel-inner .item {
+    opacity: 0;
+    transition: opacity 0.5s; /* The 0.5s describes the duration to make the opacity from 0 to 1 */
+  }
+  
+  .carousel-fade .carousel-inner .active {
+    opacity: 1;
+  }
+  
+  /* CSS Hack to trigger GPU for smooth transition */
+  @media all and (transform-3d),
+  (-webkit-transform-3d) {
+    .carousel-fade .carousel-inner > .item.next,
+    .carousel-fade .carousel-inner > .item.active.right {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.prev,
+    .carousel-fade .carousel-inner > .item.active.left {
+      opacity: 0;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+    .carousel-fade .carousel-inner > .item.next.left,
+    .carousel-fade .carousel-inner > .item.prev.right,
+    .carousel-fade .carousel-inner > .item.active {
+      opacity: 1;
+      -webkit-transform: translate3d(0, 0, 0);
+      transform: translate3d(0, 0, 0);
+    }
+  }
+  /* CSS Hack to trigger GPU for smooth transition */
+  
+  .covertext {
+    position: absolute; /* To make the div to be place anywhere. It is out of the document flow */
+    top: 200px; /* The distance between the div with the top of document */
+    left: 0px; /* Make the div full width */
+    right: 0px; /* Make the div full width */
+  }
+  
+  .title {
+    font-family: Verdana;
+    font-weight: 600;
+    font-size: 60px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .subtitle {
+    font-family: Verdana;
+    font-size: 23px;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .explore {
+    text-align: center;
+    margin-top: 10px;
+  }
+  
+  .explore .btn-lg,
+  .explore .btn-lg:hover {
+    border-radius: 30px;
+    padding: 15px 25px;
+    font-size: 22px;
+    background-image: none;
+    background-color: #FF4000;
+    border-color: #FF4000;
+    color: #ffffff;
+  }
+  
+  .btn,
+  .btn:hover {
+    border-radius: 0px;
+    background-image: none;
+    background-color: #FF4000;
+    border-color: #FF4000;
+    color: #ffffff;
+    margin-bottom: 20px;
+    box-shadow: none;
+    outline: none;
+  }
+  
+  .btn:focus,
+  .btn:active:focus,
+  .btn.active:focus,
+  .btn.focus,
+  .btn:active.focus,
+  .btn.active.focus {
+    color: #ffffff;
+    outline: none;
+  }
+
+
+
+          <style>
+
+#blackout {
+    top: 0;
+    opacity: 0;
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    visibility: hidden;
+    background: rgba(0, 0, 0, 0.8);
+    transition: z-index 500ms, visibility 800ms, opacity 1000ms;
+}
+#blackout.visable {
+    opacity: 1;
+    z-index: 8;
+    visibility: visible;
+}
+#popup {
+    opacity: 0;
+    top: -250px;
+    left: -300px;
+    width: 600px;
+    height: 250px;
+    padding: 15px;
+    position: fixed;
+    border-radius: 5px;
+    margin: -125px 0 0 50%;
+    background: rgb(248, 248, 248);
+    transition: top 550ms, opacity 500ms, z-index 500ms;
+}
+#popup.visable {
+    top: 50%;
+    opacity: 1;
+    z-index: 9;
+}
+#popup > .title{
+  margin: 0;
+  color: rgb(57, 57, 57);
+}
+#popup > .subtitle{
+  font-size: 20px;
+  margin: 0 0 0 15px;
+  color: rgb(157, 157, 157);
+}
+#popup > hr{
+  border: 0;
+  height: 1px;
+  margin: 10px -15px;
+  background: rgb(208, 208, 208);
+}
+#popup .close {
+    top: -10px;
+    width: 30px;
+    height: 30px;
+    right: -10px;
+    cursor: pointer;
+    position: absolute;
+    border-radius: 15px;
+    background: rgb(255, 255, 255);
+    background-image: url(http://imgh.us/close_1.svg);
+    background-size: contain;
+}
+#popup .close:hover {
+    background-image: url(http://imgh.us/close_hover.svg);
+}
+
+/* Not Part of Modal 
+===============================*/
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:400,700);
+/* body{
+	margin: 0;
+	padding: 0;
+  font-family: 'Open Sans';
+  background: url(https://i.imgur.com/r3rMtkw.jpg) no-repeat center center fixed;
+  background-size: cover;
+} */
+.open{
+    margin: 10px;
+    padding: 15px;
+    
+}
+        </style>
+
+
+        <html>
+    <head>
+        <%- include('head.ejs') %>
+        <link rel="stylesheet" type="text/css" href="mainPage.css">
+    </head>
+    <body> 
+      <!-- <%- include('allPageHeaderBar.ejs') %> 
+      show the top bar (html + js) -->
+      
+      <!-- <div id="main" class="is-loading">
+          <h1>
+              ADISH BALKISSOON
+          </h1>
+      </div> -->
+      
+       <div class="hero">
+       <!-- <div class="container-fluid main">
+          <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span> 
+                </button> -->
+                <!-- <a class="navbar-brand" href="#">Website</a> -->
+              <!-- </div> -->
+              <!-- <div class="collapse navbar-collapse" id="myNavbar">
+                <ul class="nav navbar-nav">
+                  <li><a href="#">About</a></li>
+                  <li><a href="#">Contact Us</a></li>
+                </ul>
+              </div> -->
+            <!-- </div>
+          </nav>
+              
+          <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
+            <div class="carousel-inner" role="listbox">
+              <div class="item active background a"></div>
+              <div class="item background b"></div>
+              <div class="item background c"></div>
+            </div>
+          </div> -->
+
+          <!-- <div class="covertext">
+            <div class="col-lg-10" style="float:none; margin:0 auto;">
+              <h1 class="title">ELINE</h1>
+              <h3 class="subtitle">A Tidy, Clean, Easy-to-Use, and Responsive Landing Page Template</h3>
+            </div>
+            <div class="col-xs-12 explore">
+              <a href="#"><button type="button" class="btn btn-lg explorebtn">EXPLORE</button></a>
+            </div>
+          </div> -->      
+        <!-- </div> -->
+
+        <div class="header">
+          <h1 class="headline">BALKISSOON</h1>
+          <h2 class="subheadline">ADISH</h2>
+        </div>
+      </div>
+              <section class="panels">
+                <div class="panel">
+                  <div>
+                    <img alt="" src="AB01.jpg"/>
+                  </div>
+                  <div>
+                    <!-- <p>This is a happy place, little squirrels live here and play. Trees grow however makes them happy. Almost everything is going to happen for you automatically - you don't have to spend any time working or worrying. We must be quiet, soft and gentle. Maybe there's a happy little waterfall happening over here.</p> -->
+                    <img alt="" src="AB02.jpg"/>
+                </div>
+                </div>
+                
+                <div class="panel">
+                  <div>
+                    <p>With practice comes confidence. These things happen automatically. All you have to do is just let them happen. There are no mistakes. You can fix anything that happens. So often we avoid running water, and running water is a lot of fun.</p>
+                  </div>
+                  <div>
+                    <img alt="" src="https://images.unsplash.com/photo-1508721623045-872b68c1cb03?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=42deb20e5ee1ab100328560feeb85fa0"/>
+                  </div>
+                </div>
+                
+                <div class="panel">
+                  <div>
+                    <img alt="" src="https://images.unsplash.com/photo-1516010121015-cd1bf5995e93?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=925b6903115c1d9507dbb33819f64ebc"/>
+                  </div>
+                  <div>
+                    <p>And that's when it becomes fun - you don't have to spend your time thinking about what's happening - you just let it happen. Learn when to stop. You can work and carry-on and put lots of little happy things in here. I spend a lot of time walking around in the woods and talking to trees, and squirrels, and little rabbits and stuff. All you need is a dream in your heart, and an almighty knife. Do an almighty painting with us.</p>
+                  </div>
+                </div>
+                
+                <div class="panel">
+                  <div>
+                    <p>Volunteering your time; it pays you and your whole community fantastic dividends. I started painting as a hobby when I was little. I didn't know I had any talent. I believe talent is just a pursued interest. Anybody can do what I do.</p>
+                  </div>
+                  <div>
+                    <img alt="" src="https://images.unsplash.com/photo-1521624759875-6a7bf5489d9e?ixlib=rb-0.3.5&q=85&fm=jpg&crop=entropy&cs=srgb&ixid=eyJhcHBfaWQiOjE0NTg5fQ&s=e45392c1348502b86001603488d19cd0"/>
+                  </div>
+                </div>
+              
+              </section>
+
+
+
+
+
+
+
+
+
+<div id="blackout"></div>
+<div id="popup">
+     <span class="close"></span>
+     <!-- <h1 class="title">Title Here</h1>
+     <h2 class="subtitle">Subtitle Here</h2> -->
+     <hr />
+    <!-- Start Items Here -->
+     <br />
+     <br />
+     <br />
+     <!-- Remove this crap -->
+     <br />
+     <br />
+     <br />    
+</div>
+
+<!-- Not Part of Modal -->
+<button class="open">Click to Show Modal</button>
+
+        <%- include('bottomJavaScriptLink.ejs') %>
+        <script>
+            $(document).ready(function() {
+                setTimeout(function() {
+                    $("#main").removeClass("is-loading");
+                }, 100)
+            });
+
+
+            // helper for limiting window scroll event listener calls
+function debounce(func, wait = 10, immediate = true) {
+	var timeout;
+	return function() {
+		var context = this, args = arguments;
+		var later = function() {
+			timeout = null;
+			if (!immediate) func.apply(context, args);
+		};
+		var callNow = immediate && !timeout;
+		clearTimeout(timeout);
+		timeout = setTimeout(later, wait);
+		if (callNow) func.apply(context, args);
+	};
+};
+
+const header = document.querySelector('.header');
+const headline = document.querySelector('.headline');
+const subheadline = document.querySelector('.subheadline');
+
+const headlineSlideIn = function() {
+  headline.classList.add('header-slide-in');
+}
+const subheadlineSlideIn = function() {
+  subheadline.classList.add('header-slide-in');
+}
+
+const headerToggleFade = function() {
+  if (window.scrollY > 100) {
+    header.classList.add('header-fade-out');
+  } else {
+    header.classList.remove('header-fade-out');
+  }
+}
+
+const panels = document.querySelectorAll('.panel');
+
+const panelSlideIn = function() {
+  // for each panel, check if window bottom has scrolled past start of panel -> if yes, add .panel-fade-in class
+  panels.forEach(panel => {
+    const slideInAt = (window.scrollY + window.innerHeight) - panel.offsetHeight / 4;
+    const panelMidpoint = panel.offsetTop + panel.offsetHeight / 4;
+    if (slideInAt > panelMidpoint) {
+      panel.classList.add('panel-fade-in');
+    }
+  })
+}
+
+setTimeout(headlineSlideIn, 1000);
+setTimeout(subheadlineSlideIn, 2000);
+window.addEventListener('scroll', debounce(function() {
+  panelSlideIn();
+  headerToggleFade();
+}));
+
+/* When your mouse cursor enter the background, the fading won't pause and keep playing */ 
+$('.carousel').carousel({
+    pause: "false" /* Change to true to make it paused when your mouse cursor enter the background */
+});
+
+
+
+
+// window.onload = function () {
+//   	document.getElementById('blackout').addEventListener('click', function () {
+//         document.getElementById('popup').className = "";
+//       	document.getElementById('blackout').className = "";
+//     }, false);
+//   	document.getElementsByClassName("open")[0].addEventListener('click', function () {
+// 				document.getElementById('popup').className = 'visable';
+//       	document.getElementById('blackout').className = 'visable';
+//     }, false);
+//     document.getElementsByClassName("close")[0].addEventListener('click', function () {
+//         document.getElementById('popup').className = "";
+//       	document.getElementById('blackout').className = "";
+//     }, false);
+// };
+
+
+/* jQuery version of JS
+=======================================*/
+//    $( document ).ready(function() {
+//    	$( ".open" ).click(function() {
+//    		$( "#blackout" ).addClass( "visable" );
+//    		$( "#popup" ).addClass( "visable" );
+//    	});
+//    	$( "#blackout, .close" ).click(function() {
+//    		$( "#blackout" ).removeClass( "visable" );
+//    		$( "#popup" ).removeClass( "visable" );
+//    	});
+//    });
+
+
+        </script>
+        <!-- <script src="js/clothingPageJs.js"></script> -->
+        <!-- <script>
+          $(function () {
+	$('.toggle-menu').click(function(){
+		$('.exo-menu').toggleClass('display');
+
+	});
+
+});
+
+$(document).ready(function() {
+  $("#videoWorkout").on("mouseover", function(event) {
+    this.play();
+
+  }).on('mouseout', function(event) {
+    this.pause();
+
+  });
+});
+
+        </script> -->
+
+            <!-- <div class="hero"> -->
+        <!-- <div class="container-fluid main">
+            <nav class="navbar navbar-default">
+              <div class="container-fluid">
+                <div class="navbar-header">
+                  <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span> 
+                  </button> -->
+                  <!-- <a class="navbar-brand" href="#">Website</a> -->
+                <!-- </div> -->
+                <!-- <div class="collapse navbar-collapse" id="myNavbar">
+                  <ul class="nav navbar-nav">
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                  </ul>
+                </div> -->
+              <!-- </div>
+            </nav>
+                
+            <div id="myCarousel" class="carousel carousel-fade slide" data-ride="carousel" data-interval="3000">
+              <div class="carousel-inner" role="listbox">
+                <div class="item active background a"></div>
+                <div class="item background b"></div>
+                <div class="item background c"></div>
+              </div>
+            </div> -->
+  
+            <!-- <div class="covertext">
+              <div class="col-lg-10" style="float:none; margin:0 auto;">
+                <h1 class="title">ELINE</h1>
+                <h3 class="subtitle">A Tidy, Clean, Easy-to-Use, and Responsive Landing Page Template</h3>
+              </div>
+              <div class="col-xs-12 explore">
+                <a href="#"><button type="button" class="btn btn-lg explorebtn">EXPLORE</button></a>
+              </div>
+            </div> -->      
+          <!-- </div> -->
+  
+          <!-- <div class="header">
+            <h1 class="headline">BALKISSOON</h1>
+            <h2 class="subheadline">ADISH</h2>
+          </div>
+        </div> -->
+        <div id="main" class="is-loading">
+            <h1>
+                ADISH BALKISSOON
+            </h1>
+        </div> 
+    
+                   
+       
+       <!-- Not Part of Modal -->
+       <button class="open">Click to Show Modal</button>
+       
+    
+    </body>
+</html>
+
+
+<style>
+/* START Title Style fading */
+body {
+    /* background: #445; */
+    color: black;
+}
+/* <!--, url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/336999/shinokubo_test.jpg);--> */
+#main {
+    /* background: linear-gradient(to bottom, rgba(0,0,0,0.66) 100%, transparent); */
+    background-size: cover, cover;
+    background-position: center, center;
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+h1 {
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", Osaka, "メイリオ", Meiryo, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+    font-size: 2rem;
+    display: inline-block;
+    padding: 1rem;
+    font-weight: 400;
+    position: relative;
+    opacity: 1;
+    transform: scale(1);
+    transition: transform 0.5s ease, opacity 1s ease;
+}
+
+.is-loading h1 {
+    transform: scale(0.9);
+    opacity: 0;
+}
+
+h1:before,
+h1:after {
+    height: 2px;
+    width: 100%;
+    content: "";
+    background: black;
+    display: block;
+    position: absolute;
+    transition: width 0.4s ease;
+    transition-delay: 0.8s;
+}
+
+h1:before {
+    top: 0;
+    left: 0;
+}
+
+h1:after {
+    bottom: 0;
+    right: 0;
+}
+
+.is-loading h1:before,
+.is-loading h1:after {
+    width: 0;
+}
+
+
+
+:root {
+  --transition: all 1s;
+}
+
+/* END Title Style fading */
+
+</style>
+
+<html>
+  <head>
+      <%- include('head.ejs') %>
+      <link rel="stylesheet" type="text/css" href="mainPage.css">
+  </head>
+  <body>
+
+      <%- include('bottomJavaScriptLink.ejs') %>
+ 
+      <script>
+        $(document).ready(function() {
+            setTimeout(function() {
+                $("#main").removeClass("is-loading");
+            }, 100)
+        });
+        // helper for limiting window scroll event listener calls
+        function debounce(func, wait = 10, immediate = true) {
+          var timeout;
+          return function() {
+            var context = this, args = arguments;
+            var later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+            };
+            var callNow = immediate && !timeout;
+            clearTimeout(timeout);
+            timeout = setTimeout(later, wait);
+            if (callNow) func.apply(context, args);
+          };
+        };
+
+        const header = document.querySelector('.header');
+        const headline = document.querySelector('.headline');
+        const subheadline = document.querySelector('.subheadline');
+
+        const headlineSlideIn = function() {
+          headline.classList.add('header-slide-in');
+        }
+        const subheadlineSlideIn = function() {
+          subheadline.classList.add('header-slide-in');
+        }
+
+        const headerToggleFade = function() {
+          if (window.scrollY > 100) {
+            header.classList.add('header-fade-out');
+          } else {
+            header.classList.remove('header-fade-out');
+          }
+        }
+
+        const panels = document.querySelectorAll('.panel');
+
+        const panelSlideIn = function() {
+          // for each panel, check if window bottom has scrolled past start of panel -> if yes, add .panel-fade-in class
+          panels.forEach(panel => {
+            const slideInAt = (window.scrollY + window.innerHeight) - panel.offsetHeight / 4;
+            const panelMidpoint = panel.offsetTop + panel.offsetHeight / 4;
+            if (slideInAt > panelMidpoint) {
+              panel.classList.add('panel-fade-in');
+            }
+          })
+        }
+
+        setTimeout(headlineSlideIn, 1000);
+        setTimeout(subheadlineSlideIn, 2000);
+        window.addEventListener('scroll', debounce(function() {
+          panelSlideIn();
+          headerToggleFade();
+        }));
+
+        /* When your mouse cursor enter the background, the fading won't pause and keep playing */ 
+        $('.carousel').carousel({
+            pause: "false" /* Change to true to make it paused when your mouse cursor enter the background */
+        });
+      
+      </script>
+
+<!-- 
+
+        // window.onload = function () {
+        //   	document.getElementById('blackout').addEventListener('click', function () {
+        //         document.getElementById('popup').className = "";
+        //       	document.getElementById('blackout').className = "";
+        //     }, false);
+        //   	document.getElementsByClassName("open")[0].addEventListener('click', function () {
+        // 				document.getElementById('popup').className = 'visable';
+        //       	document.getElementById('blackout').className = 'visable';
+        //     }, false);
+        //     document.getElementsByClassName("close")[0].addEventListener('click', function () {
+        //         document.getElementById('popup').className = "";
+        //       	document.getElementById('blackout').className = "";
+        //     }, false);
+        // };
+
+
+        /* jQuery version of JS
+        =======================================*/
+        //    $( document ).ready(function() {
+        //    	$( ".open" ).click(function() {
+        //    		$( "#blackout" ).addClass( "visable" );
+        //    		$( "#popup" ).addClass( "visable" );
+        //    	});
+        //    	$( "#blackout, .close" ).click(function() {
+        //    		$( "#blackout" ).removeClass( "visable" );
+        //    		$( "#popup" ).removeClass( "visable" );
+        //    	});
+        //    }); -->
+
+        <!-- //<script src="js/clothingPageJs.js"></script> 
+      // <script> -->
+      <!-- //   $(function () {
+      //     $('.toggle-menu').click(function(){
+      //       $('.exo-menu').toggleClass('display');
+
+      //     });
+
+      //   });
+
+      //   $(document).ready(function() {
+      //     $("#videoWorkout").on("mouseover", function(event) {
+      //       this.play();
+
+      //     }).on('mouseout', function(event) {
+      //       this.pause();
+
+      //     });
+      //   });
+
+      // -->
+      
+  </body>
+
+</html>

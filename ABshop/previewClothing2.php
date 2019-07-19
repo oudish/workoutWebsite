@@ -8,7 +8,7 @@
     <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css">
     <link rel="stylesheet" type="text/css" href="css/previewClothing.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.3/animate.min.css">
     <link href='https://fonts.googleapis.com/css?family=Roboto:400,300,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 
@@ -19,11 +19,11 @@
 	<link rel="stylesheet" type="text/css" href="carousel/css/lightSlider.css">
 </head>
 <body  ng-app="myApp"  ng-controller="myCtrl" ng-init="onInit()">
-<div><?php include("allPageHeaderBar.php") ?></div> 
+	<div><?php include("allPageHeaderBar.php") ?></div> 
 
-<div class="row">
-    	<div class="col-sm-6" align='center'>
-      		<div class="demo">
+	<div class="row">
+		<div class="col-sm-6">
+			<div class="demo">
 			  	<div id="gallery" class="gallery" itemscope itemtype="http://schema.org/ImageGallery">
           			<div class="item">            
             			<div class="clearfix" align="center">
@@ -34,7 +34,8 @@
 											<img id="image1ImgTag" src="<?php echo $_GET['image1']; ?>" itemprop="thumbnail" alt="Image description">
 										</a>
 									</figure>
-								</li><!--data-caption="Sunset in the wheat field<br><em class='text-muted'>© Jordan McQueen</em>"-->
+								</li>
+								<!--data-caption="Sunset in the wheat field<br><em class='text-muted'>© Jordan McQueen</em>"-->
 								<li data-thumb="<?php echo $_GET['image2']; ?>"> 
 									<figure itemprop="associatedMedia" itemscope itemtype="http://schema.org/ImageObject">
 										<a id="image1ATag" href="<?php echo $_GET['image2']; ?>" data-width="900" data-height="1200" itemprop="contentUrl">
@@ -65,22 +66,30 @@
 								</li>
             				</ul>
           				</div>
-        			</div><!-- end of item -->
-      			</div><!-- end of gallery -->
+        			</div><!--end of item-->
+      			</div><!--end of gallery-->
 			</div><!--end of demo-->
-    	</div><!--end of col-->
+		</div>
 
-		<!-- <div class="col-sm-6" align='center'>
-			<h4>Name Of Product : <input type="text" value="{{photoDetailsDisplay[0].clothing_name}}" readonly></h4>
+		<div class="col-sm-3" align='left' style="border: solid 1px black;">
+			<h4>{{photoDetailsDisplay[0].clothing_name}}</h4>
             <br>
-            <h4>Price Of Product : <input type="text" value="{{photoDetailsDisplay[0].clothing_price}}" readonly></h4>
+            <h5>Rs {{photoDetailsDisplay[0].clothing_price}}</h5>
             <br>
-            <h4>Colour Of Product : <input type="text" value="{{photoDetailsDisplay[0].clothing_colour}}" readonly></h4>
+            <label><b>COLOUR : </b>{{photoDetailsDisplay[0].clothing_colour}}</label>
+			<br>
+			<label for="sel1"><b>SIZE : </b></label>
+			<select class="form-control" id="sel1" name="sellist1">
+				<option>1</option>
+				<option>2</option>
+				<option>3</option>
+				<option>4</option>
+			</select>
+			<br>
             <br>
-		</div>end of col -->
-  	</div><!--end of row-->    
- 
-      <!-- Some spacing 😉 -->
+		</div>
+	</div><!-- end of row -->
+			
 <div class="spacer"></div>
 
 

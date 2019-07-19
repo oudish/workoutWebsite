@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">	
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <style>
+        #slider {
+            width: 200px;
+            margin: 50px auto;
+        }
+
+        #boxout {
+        
+        width: 200px;
+        height: 200px;
+        margin: 0 auto;
+        }
+
+        #box {
+        
+        width: 10%;
+        height: 10%;
+        background: red;
+        }
+    </style>
+
+</head>
+<body>
+    <div id="slider"></div>
+    <div id="boxout">
+      <div id="box"></div>
+    </div>
+
+    <div>
+        <video id="myVideo" width="320" height="176" controls>
+            <source src="video/ABvideo.mp4" type="video/mp4">
+            <!-- <source src="mov_bbb.ogg" type="video/ogg"> -->
+            <!-- Your browser does not support HTML5 video. -->
+        </video>
+    </div>
+
+    
+    <script>
+        $(function() {
+            var vid = document.getElementById("myVideo");
+            $("#slider").slider({    
+                min:0, max: 20,
+                slide: function(event,ui){
+                    //$("#box").css('width',(ui.value*5) + '%');
+                    //alert(vid.currentTime++);
+                    vid.currentTime = vid.currentTime + 0.1;
+                },
+            });
+
+            
+            
+        });
+    </script>
+</body>
+</html>
