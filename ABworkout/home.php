@@ -1,7 +1,7 @@
 <!DOCTYPE html>
-<?php   
+<!-- <?php   
 session_start(); //to ensure you are using same session
-?>
+?>  -->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -211,8 +211,8 @@ session_start(); //to ensure you are using same session
         <div id="parallax-image">
             <div class="row">
                 <div class="col-md-12">
-                <div style="font-size: 1.5em;color: grey; position: absolute;top: 0%;left: 2%;">Welcome <?php echo $_SESSION['firstname']." ".$_SESSION['lastname'] ?></div>
-                <i id="logoutBtn" class="fa fa-sign-out" aria-hidden="true" style="font-size: 2em; color:grey; position: absolute; top:0%; right:3%; cursor: pointer;" ng-click="logout()"></i>
+                <!-- <div style="font-size: 1.5em;color: grey; position: absolute;top: 0%;left: 2%;">Welcome <?php echo $_SESSION['firstname']." ".$_SESSION['lastname'] ?></div> -->
+                <!-- <i id="logoutBtn" class="fa fa-sign-out" aria-hidden="true" style="font-size: 2em; color:grey; position: absolute; top:0%; right:3%; cursor: pointer;" ng-click="logout()"></i> -->
                     <div class="btn">
                         <div id="main" class="is-loading" style="position: fixed">
                             <h1>
@@ -259,18 +259,49 @@ session_start(); //to ensure you are using same session
                 </div>
                 
                 <div class="content">
-                    <!-- <div id="testDivBox" style="width:100px;height: 100px;border: 1px solid;display:none"></div>
-                    <div><p id="pContentDiv" align="center" style="display:none"></p></div> -->
+                    <div class="row">
+                        <div class="col" ng-repeat="work in workoutplan | limitTo : 2">
+                            <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
+                                <h1>{{work}}</h1>
+                                <div class="embed-responsive embed-responsive-21by9">
+                                    <video controls="true" class="embed-responsive-item">
+                                        <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
+                                    </video>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="accordion" role="tablist" aria-multiselectable="true">
+                        <div class="collapse-wrapper">
+                            <div class="card">  
+                                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
+                                    
+                                    <div class="row">
+                                        <div class="col" ng-repeat="work in workoutplan" ng-if="$index >= 2">
+                                            <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
+                                                <h1>{{work}}</h1>
+                                                <div class="embed-responsive embed-responsive-21by9">
+                                                    <video controls="true" class="embed-responsive-item">
+                                                        <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
+                                                    </video>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
 
-                    <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}" ng-repeat="work in workoutplan">
-                        <h1>{{work}}</h1>
-                        <div class="embed-responsive embed-responsive-21by9">
-                            <video controls="true" class="embed-responsive-item">
-                                <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
-                            </video>
+                                </div>
+                                <div class="card-header" role="tab" id="headingOne">
+                                    <h5 class="mb-0">
+                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="showMoreBtn" style="display: none">Show More</a>
+                                    </h5>
+                                </div>  
+                            </div>
                         </div>
                     </div>
                 </div>
+                
+
                 <div class="header">
                     <div class="progress">
                         <div class="progress-bar bg-dark" id="myBar"></div>
@@ -279,7 +310,7 @@ session_start(); //to ensure you are using same session
             </div><!-- end of col -->  
          
         </div><!-- end of row -->  
-    
+
         <!-- <div id="parallax-image2">
             <div class="row">
                 <div class="col-md-12">
@@ -295,6 +326,7 @@ session_start(); //to ensure you are using same session
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 
         <script>
             $(document).ready(function() {
@@ -302,7 +334,14 @@ session_start(); //to ensure you are using same session
                     $("#main").removeClass("is-loading");
                 }, 100);
 
-               
+                $("#showMoreBtn").click(function(){
+                    if($("#showMoreBtn").text() == "Show More"){
+                        $("#showMoreBtn").text("Show Less");
+                    }
+                    else{
+                        $("#showMoreBtn").text("Show More");
+                    }
+                });               
             });
 
             $( '.owl-carousel' ).owlCarousel({
@@ -353,7 +392,6 @@ session_start(); //to ensure you are using same session
                 $scope.lastName = "Doe";
                 $scope.workoutplan = [];
                 
-
                 $scope.week1day1 = [];$scope.week1day2 = [];$scope.week1day3 = [];$scope.week1day4 = [];$scope.week1day5 = [];$scope.week1day6 = [];$scope.week1day7 = [];
                 $scope.week2day1 = [];$scope.week2day2 = [];$scope.week2day3 = [];$scope.week2day4 = [];$scope.week2day5 = [];$scope.week2day6 = [];$scope.week2day7 = [];
                 $scope.week3day1 = [];$scope.week3day2 = [];$scope.week3day3 = [];$scope.week3day4 = [];$scope.week3day5 = [];$scope.week3day6 = [];$scope.week3day7 = [];
@@ -369,8 +407,6 @@ session_start(); //to ensure you are using same session
 
                 $scope.workoutplan = [];
 
-                
-                
                 $scope.onInitFunction = function(event) {
                     $http.post('modelSql/onInitFunction.php').then(function(response){
                         var responseLength = response.data.length;
@@ -593,6 +629,9 @@ session_start(); //to ensure you are using same session
                     if(week_id == "1"){
                         if(splitDayBtnId[1] == "1"){
                             $scope.workoutplan = $scope.week1day1; 
+                            if($scope.workoutplan.length > 2){
+                                document.getElementById("showMoreBtn").style.display = "block";
+                            }
                         }
                         else if(splitDayBtnId[1] == "2"){
                             $scope.workoutplan = $scope.week1day2;
@@ -814,6 +853,8 @@ session_start(); //to ensure you are using same session
                 $scope.logout = function(){
                     window.location.href = "logout.php";
                 }
+
+                
             });
 
         </script>

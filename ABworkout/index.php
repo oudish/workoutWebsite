@@ -12,6 +12,14 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+    <style>
+        #signUpBtn:hover, #forgotPasswordBtn:hover{
+            cursor: pointer;
+            transition: color 0.5s;
+            color: green;
+        }
+    </style>
 </head>
 <body ng-app="myApp" ng-controller="myCtrl" > 
     <div class="container py-5">
@@ -20,44 +28,33 @@
                 <h2 class="text-center text-white mb-4">Bootstrap 4 Login Form</h2>
                 <div class="row">
                     <div class="col-md-6 mx-auto">
-
                         <!-- form card login -->
-                        <div class="card rounded-0">
+                        <div class="card" style="border-radius: 10px">
                             <div class="card-header">
-                                <h3 class="mb-0">Login</h3>
+                                <h3 class="mb-0" >Members Login</h3>
                             </div>
                             <div class="card-body">
                                 <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
                                     <div class="form-group">
-                                        <label for="uname1">Username</label>
-                                        <input type="text" class="form-control form-control-lg rounded-0" name="uname1" id="uname1" required="">
+                                        <label class="font-weight-bold" for="uname1">Username or Email:</label>
+                                        <input type="text" class="form-control form-control-ms rounded-0" name="uname1" id="uname1" required="">
                                         <div class="invalid-feedback">Oops, you missed this one.</div>
                                     </div>
                                     <div class="form-group">
-                                        <label>Password</label>
-                                        <input type="password" class="form-control form-control-lg rounded-0" id="pwd1" required="" autocomplete="new-password">
+                                        <label class="font-weight-bold">Password:</label>
+                                        <input type="password" class="form-control form-control-ms rounded-0" id="pwd1" required="" autocomplete="new-password">
                                         <div class="invalid-feedback">Enter your password too!</div>
+                                        <span class="custom-control-description medium font-weight-bold" id="signUpBtn" role="button">Sign Up</span> | <span class="custom-control-description medium font-weight-bold" id="forgotPasswordBtn">Forgot Password ?</span>
                                     </div>
-                                    <div>
-                                        <label class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input">
-                                        <span class="custom-control-indicator"></span>
-                                        <!-- <span class="custom-control-description small text-dark">Remember me on this computer</span> -->
-                                        </label>
-                                    </div>
-                                    <button type="submit" class="btn btn-success btn-lg float-right" id="btnLogin" ng-click="submitForm($event)">Login</button>
+                                    <button type="submit" class="btn btn-dark btn-ms float-left rounded-0" id="btnLogin" ng-click="submitForm($event)">Login</button>
                                 </form>
                             </div>
                             <!--/card-block-->
                         </div>
                         <!-- /form card login -->
-
                     </div>
-
-
                 </div>
                 <!--/row-->
-
             </div>
             <!--/col-->
         </div>

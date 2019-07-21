@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 20, 2019 at 03:02 PM
+-- Generation Time: Jul 21, 2019 at 07:06 AM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -120,7 +120,9 @@ CREATE TABLE `workout_plan` (
 INSERT INTO `workout_plan` (`plan_id`, `plan_week`, `plan_day`, `plan_video_id`) VALUES
 (1, 1, 1, 'video/ABworkout.mp4'),
 (2, 1, 2, 'video/ABworkout.mp4'),
-(3, 1, 1, 'video/ABworkout.mp4');
+(3, 1, 1, 'video/ABworkout.mp4'),
+(4, 1, 1, 'video/ABworkout.mp4'),
+(5, 1, 1, 'video/ABworkout.mp4');
 
 -- --------------------------------------------------------
 
@@ -221,7 +223,7 @@ ALTER TABLE `clothing_user`
 -- AUTO_INCREMENT for table `workout_plan`
 --
 ALTER TABLE `workout_plan`
-  MODIFY `plan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `plan_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `workout_user`
