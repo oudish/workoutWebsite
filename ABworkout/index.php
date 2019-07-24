@@ -25,13 +25,12 @@
     <div class="container py-5">
         <div class="row">
             <div class="col-md-12">
-                <h2 class="text-center text-white mb-4">Bootstrap 4 Login Form</h2>
                 <div class="row">
                     <div class="col-md-6 mx-auto">
                         <!-- form card login -->
                         <div class="card" style="border-radius: 10px">
                             <div class="card-header">
-                                <h3 class="mb-0" >Members Login</h3>
+                                <h3 class="mb-0" style="text-align: center">Members Login</h3>
                             </div>
                             <div class="card-body">
                                 <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
@@ -62,9 +61,9 @@
     </div>
     <!--/container-->
 
+    <script src="library/bootstrap-4.3.1/js/bootstrap.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
@@ -85,6 +84,13 @@
                 });
             };
         });
+
+        $(document).ready(function() {
+            $("#signUpBtn").click(function(){
+                window.location.href = "signUp.php";
+            });
+        });
+        
     </script>
 </body>
 </html>

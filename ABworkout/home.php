@@ -8,15 +8,16 @@ session_start(); //to ensure you are using same session
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <title>ABworkout</title>
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+        <?php 
+            require('library/bootstrapCss.php');
+            require('library/fontAwesome.php');
+            require('library/OwlcarouselCss.php');
+            require('library/Angular.php'); 
+        ?>
+
         <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
-        <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.theme.default.min.css" rel="stylesheet" type="text/css"/>
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+        
         <style>
             body{
                 overflow-x: hidden;
@@ -206,6 +207,7 @@ session_start(); //to ensure you are using same session
             }
 
         </style>
+
     </head>
     <body ng-app="myApp" ng-controller="myCtrl" ng-init=onInitFunction()>
         <div id="parallax-image">
@@ -227,7 +229,30 @@ session_start(); //to ensure you are using same session
 
         <div class="row" style="right: 0;left: 0">
             <div class="col" style="background-color: ;"> 
+                <nav class="navbar navbar-expand-md navbar-dark fixed bg-dark">
+                    <a class="navbar-brand" href="#">AB</a>
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarCollapse">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Workout</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Nutrition</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">LOGIN</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">SIGNUP</a>
+                        </li>
+                    </ul>
+                    </div>
+                </nav>
                 <div align="center" style="padding-top: 5%">
+               
                     <p>Choose the week</p>
                     <div class="owl-carousel owl-theme" style="width: 50%;">
                         <button type="button" class="" id="week1" onclick="getWeekButtonId(this.id)">WEEK 1</button>
@@ -262,7 +287,7 @@ session_start(); //to ensure you are using same session
                     <div class="row">
                         <div class="col" ng-repeat="work in workoutplan | limitTo : 2">
                             <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
-                                <h1>{{work}}</h1>
+                                <h1>{{work.video_url}}</h1>
                                 <div class="embed-responsive embed-responsive-21by9">
                                     <video controls="true" class="embed-responsive-item">
                                         <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
@@ -310,7 +335,7 @@ session_start(); //to ensure you are using same session
             </div><!-- end of col -->  
          
         </div><!-- end of row -->  
-
+      
         <!-- <div id="parallax-image2">
             <div class="row">
                 <div class="col-md-12">
@@ -320,11 +345,13 @@ session_start(); //to ensure you are using same session
         </div>  -->
         
         
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
-        <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+        <?php 
+            require('library/jquery.php');
+            require('library/bootstrapJs.php');
+            require('library/OwlCarouselJs.php');
+        
+        ?>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
 
