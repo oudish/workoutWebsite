@@ -8,6 +8,7 @@
     <?php 
         require('library/bootstrapCss.php');
         require('library/fontAwesome.php'); 
+        // require('library/MDBootstrapCss.php'); 
     ?>
     <link href="https://fonts.googleapis.com/css?family=Raleway:200,100,400" rel="stylesheet" type="text/css" />
     <link href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/assets/owl.carousel.min.css" rel="stylesheet" type="text/css"/>
@@ -78,11 +79,64 @@
         </div>
     </div>
 
-    <?php require('library/bootstrapJs.php') ?>
+    <!-- bottom boostrap spacing  -->
+    <div class="pb-5"></div>
+
+    <div class="row">
+        <div class="col-md-12" align="center">
+            <div class="card rounded-0 shadow bg-white rounded">
+                <div class="card-header text-left">
+                    <h3 class="mb-2" >CUSTOMER INFO</h3>
+                </div>
+                <div class="card-body">
+                    <form>
+                        <div class="form-group row" align='left'>
+                            <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="firstName">
+                            </div>
+                        </div>
+                        <div class="form-group row" align='left'>
+                            <label for="lastName" class="col-sm-2 col-form-label">Last Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="lastName">
+                            </div>
+                        </div>
+                        <div class="form-group row" align='left'>
+                            <label for="emailAddress" class="col-sm-2 col-form-label">Email Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="emailAddress">
+                            </div>
+                        </div>
+                        <div class="form-group row" align='left'>
+                            <label for="emailAddressRetype" class="col-sm-2 col-form-label">Retype Email Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="emailAddressRetype">
+                            </div>
+                        </div>
+                        
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- bottom boostrap spacing  -->
+    <div class="pb-5"></div>
+
+    <?php 
+        require("footer.php");
+    ?>
+
+    <?php 
+        require('library/bootstrapJs.php');
+    ?>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
 </body>
+
 </html>
