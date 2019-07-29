@@ -72,16 +72,17 @@
         var app = angular.module('myApp', []);
         app.controller('myCtrl', function($scope,$http) {
             $scope.submitForm = function(event) {
-                var username = $("#uname1").val();
-                var password = $("#pwd1").val();
-                $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
-                    if(response.data == "login successfull"){
-                        window.location.href = "home.php";
-                    }
-                    else{
-                        alert(JSON.stringify( response.data));
-                    }
-                });
+                alert("good");
+                // var username = $("#uname1").val();
+                // var password = $("#pwd1").val();
+                // $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
+                //     if(response.data == "login successfull"){
+                //         window.location.href = "home.php";
+                //     }
+                //     else{
+                //         alert(JSON.stringify( response.data));
+                //     }
+                // });
             };
         });
 

@@ -24,6 +24,7 @@
         }
 
         .top-buffer { margin-top:20px; }
+        
     </style>
 </head>
 <body style="overflow-x: hidden" ng-app="myApp" ng-controller="myCtrl" ng-init="signUpOnInit()">
@@ -53,7 +54,7 @@
                                 <p class="card-text text-left pl-3" style="font-size: 1.5rem"><i class="fas fa-angle-double-right"></i>    Full meal plan for your body type</p>
                                 <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;">ONE TIME PAYMENT</p>
                                 <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;"><del>Rs 3500</del>   Rs 3000</p>
-                                <button class="btn btn-outline-secondary btn-lg rounded-0" ng-click="workoutPlusNutritionClick('WORKOUT + NUTRITION','3500');">BUY NOW</button>
+                                <button class="btn btn-outline-secondary btn-lg rounded-0" ng-click="workoutPlusNutritionClick('WORKOUT + NUTRITION','3000');">BUY NOW</button>
                             </div>
                         </div>
                     </div>
@@ -67,13 +68,13 @@
                         </div>
                         <div class="card-block">
                             <img src="image/nutrition.jpg" alt="" class="img-responsive" style="width: 300px;height: 250px">
-                                <div class="card-body">
-                                    <p class="card-text text-left pl-3" style="font-size: 1.5rem"><i class="fas fa-angle-double-right"></i>    Full meal plan for your body type</p>
-                                    <p class="card-text text-left pl-3" style="font-size: 1.5rem"><i class="fas fa-angle-double-right"></i>    Meal Explanation and details</p>
-                                    <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;">ONE TIME PAYMENT</p>
-                                    <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;"><del>Rs 2500</del>   Rs 2000</p>
-                                    <button class="btn btn-outline-secondary btn-lg rounded-0" ng-click="nutritionClick(' NUTRITION','2500');">BUY NOW</button>
-                                </div>
+                            <div class="card-body">
+                                <p class="card-text text-left pl-3" style="font-size: 1.5rem"><i class="fas fa-angle-double-right"></i>    Full meal plan for your body type</p>
+                                <p class="card-text text-left pl-3" style="font-size: 1.5rem"><i class="fas fa-angle-double-right"></i>    Meal Explanation and details</p>
+                                <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;">ONE TIME PAYMENT</p>
+                                <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;"><del>Rs 2500</del>   Rs 2000</p>
+                                <button class="btn btn-outline-secondary btn-lg rounded-0" ng-click="nutritionClick(' NUTRITION','2000');">BUY NOW</button>
+                            </div>
                         </div>
                     </div>
                 </div>

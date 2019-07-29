@@ -1,3 +1,8 @@
+// $(".dropdown-menu li a").click(function(){
+//     var selText = $(this).text();
+//     $(this).parents('.btn-group').find('.dropdown-toggle').html(selText+' <span class="caret"></span>');
+// });
+
 
 $(document).ready(function() {
     setTimeout(function() {
@@ -11,7 +16,13 @@ $(document).ready(function() {
         else{
             $("#showMoreBtn").text("Show More");
         }
-    });               
+    });    
+});
+
+$(document).ready(function() {
+    $("#signUpBtn").click(function(){
+        window.location.href = "signUp.php";
+    });
 });
 
 $( '.owl-carousel' ).owlCarousel({
@@ -56,11 +67,14 @@ $(function(){
 
 AOS.init();
 
+
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope,$http) {
     $scope.firstName = "John";
     $scope.lastName = "Doe";
     $scope.workoutplan = [];
+
+    $scope.blockIfVideoPresent;
     
     $scope.week1day1 = [];$scope.week1day2 = [];$scope.week1day3 = [];$scope.week1day4 = [];$scope.week1day5 = [];$scope.week1day6 = [];$scope.week1day7 = [];
     $scope.week2day1 = [];$scope.week2day2 = [];$scope.week2day3 = [];$scope.week2day4 = [];$scope.week2day5 = [];$scope.week2day6 = [];$scope.week2day7 = [];
@@ -77,7 +91,50 @@ app.controller('myCtrl', function($scope,$http) {
 
     $scope.workoutplan = [];
 
+    $scope.submitLoginForm = function(){
+        alert("testin");
+        // var username = $("#uname1").val();
+        // var password = $("#pwd1").val();
+        // $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
+        //     if(response.data == "login successfull"){
+        //         window.location.href = "home.php";
+        //     }
+        //     else{
+        //         alert(JSON.stringify( response.data));
+        //     }
+        // });
+    }
+
+    $scope.workoutMenu = function(){
+        $('html, body').animate({
+            scrollTop: $("#workoutMenuId").offset().top
+        }, 1000);
+    }
+    $scope.nutritionMenu = function(){
+        $('html, body').animate({
+            scrollTop: $("#nutritionMenuId").offset().top
+        }, 1000);
+    }
+
+    $("#gainWeight").click(function(){
+        showSignUpButton();
+    });
+    $("#loseWeight").click(function(){
+        showSignUpButton();
+    });
+    $("#shredding").click(function(){
+        showSignUpButton();
+    });
+
+    function showSignUpButton(){
+        $("#signUpButton").css("display","block");
+        $('html, body').animate({
+            scrollTop: $("#signUpButton").offset().top
+        }, 1000);
+    }
+
     $scope.onInitFunction = function(event) {
+        $scope.blockIfVideoPresent ="none";
         // alert("in init func");
         $http.post('modelSql/onInitFunction.php').then(function(response){
             var responseLength = response.data.length;
@@ -85,207 +142,207 @@ app.controller('myCtrl', function($scope,$http) {
             for(var i=0;i<responseLength;i++){
                 if(response.data[i].plan_week == "1"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week1day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
+                        $scope.week1day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title,video_title:response.data[i].plan_video_title});
                     }
                     else if(response.data[i].plan_day == "2"){
-                        $scope.week1day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week1day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week1day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week1day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week1day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week1day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week1day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week1day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week1day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week1day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week1day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week1day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "2"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week2day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week2day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week2day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week2day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week2day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week2day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week2day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week2day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week2day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week2day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week2day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week2day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week2day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week2day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "3"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week3day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week3day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week3day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week3day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week3day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week3day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week3day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week3day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week3day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week3day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week3day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week3day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week3day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week3day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "4"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week4day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week4day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week4day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week4day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week4day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week4day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week4day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week4day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week4day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week4day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week4day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week4day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week4day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week4day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "5"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week5day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week5day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week5day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week5day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week5day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week5day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week5day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week5day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week5day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week5day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week5day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week5day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week5day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week5day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "6"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week6day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week6day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week6day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week6day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week6day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week6day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week6day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week6day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week6day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week6day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week6day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week6day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week6day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week6day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "7"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week7day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week7day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week7day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week7day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week7day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week7day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week7day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week7day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week7day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week7day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week7day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week7day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week7day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week7day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "8"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week8day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week8day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week8day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week8day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week8day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week8day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week8day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week8day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week8day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week8day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week8day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week8day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week8day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week8day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "9"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week9day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week9day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week9day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week9day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week9day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week9day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week9day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week9day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week9day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week9day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week9day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week9day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week9day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week9day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "10"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week10day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week10day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week10day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week10day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week10day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week10day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week10day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week10day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week10day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week10day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week10day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week10day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week10day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week10day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "11"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week11day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week11day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week11day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week11day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week11day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week11day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week11day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week11day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week11day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week11day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week11day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week11day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week11day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week11day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }
                 else if(response.data[i].plan_week == "12"){
                     if(response.data[i].plan_day == "1"){
-                        $scope.week12day1.push({video_url:response.data[i].plan_video_id});
+                        $scope.week12day1.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "2"){
-                        $scope.week12day2.push({video_url:response.data[i].plan_video_id});
+                        $scope.week12day2.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "3"){
-                        $scope.week12day3.push({video_url:response.data[i].plan_video_id});
+                        $scope.week12day3.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "4"){
-                        $scope.week12day4.push({video_url:response.data[i].plan_video_id});
+                        $scope.week12day4.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "5"){
-                        $scope.week12day5.push({video_url:response.data[i].plan_video_id});
+                        $scope.week12day5.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "6"){
-                        $scope.week12day6.push({video_url:response.data[i].plan_video_id});
+                        $scope.week12day6.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }else if(response.data[i].plan_day == "7"){
-                        $scope.week12day7.push({video_url:response.data[i].plan_video_id});
+                        $scope.week12day7.push({video_url:response.data[i].plan_video_id,video_title:response.data[i].plan_video_title});
                     }
                 }  
             }

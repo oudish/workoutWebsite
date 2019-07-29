@@ -28,7 +28,7 @@ session_start(); //to ensure you are using same session
                 width: 100vw;
             }
 
-            .btn {
+            .btnMain {
                 position: absolute;
                 top: 25%;
                 left: 25%;
@@ -114,12 +114,13 @@ session_start(); //to ensure you are using same session
             }
 
             #parallax-image2{
-                background-image: url("image/model02.jpg");
+                background-image: url("image/model03.jpg");
                 height: 100vh;
                 background-attachment: fixed;
                 background-position: center;
                 background-repeat: no-repeat;
                 background-size: cover;
+                opacity: 0.6;
             }
 
             /* .button {
@@ -206,16 +207,39 @@ session_start(); //to ensure you are using same session
                 width: 80%;
             }
 
+
+            #signUpBtn:hover, #forgotPasswordBtn:hover{
+                cursor: pointer;
+                transition: color 0.5s;
+                color: green;
+            }
+
+            .top-buffer { margin-top:20px; }
+
+            hr {
+                margin-top: 1rem;
+                margin-bottom: 1rem;
+                border: 0;
+                border-top: 1px solid rgba(0, 0, 0, 0.5);
+                width: 95%;
+            }
+
+            #gainWeight:hover, #loseWeight:hover, #shredding:hover{
+                cursor: pointer;
+            }
+
+
         </style>
 
     </head>
     <body ng-app="myApp" ng-controller="myCtrl" ng-init=onInitFunction()>
         <div id="parallax-image">
+            
             <div class="row">
                 <div class="col-md-12">
                 <!-- <div style="font-size: 1.5em;color: grey; position: absolute;top: 0%;left: 2%;">Welcome <?php echo $_SESSION['firstname']." ".$_SESSION['lastname'] ?></div> -->
                 <!-- <i id="logoutBtn" class="fa fa-sign-out" aria-hidden="true" style="font-size: 2em; color:grey; position: absolute; top:0%; right:3%; cursor: pointer;" ng-click="logout()"></i> -->
-                    <div class="btn">
+                    <div class="btnMain">
                         <div id="main" class="is-loading" style="position: fixed">
                             <h1>
                                 ADISH BALKISSOON 
@@ -236,14 +260,17 @@ session_start(); //to ensure you are using same session
                     </button>
                     <div class="collapse navbar-collapse" id="navbarCollapse">
                     <ul class="navbar-nav mr-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="#">Workout</a>
+                        <li class="nav-item">
+                            <a class="nav-link" ng-click="workoutMenu()">Workout</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Nutrition</a>
+                            <a class="nav-link" ng-click="nutritionMenu()">Nutrition</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.php">LOGIN</a>
+                            <a class="nav-link" data-toggle="modal" data-target="#myModal" >LOGIN</a>
+                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                Open modal
+                            </button> -->
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="signUp.php">SIGNUP</a>
@@ -251,8 +278,21 @@ session_start(); //to ensure you are using same session
                     </ul>
                     </div>
                 </nav>
-                <div align="center" style="padding-top: 5%">
-               
+                <div align="center" style="padding-top: 5%" id="workoutMenuId">
+                    <h2 class="font-weight-bold">Workout Plan Schedule</h2>   
+
+                    <!-- <div class="btn-group-week">
+                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Country <span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <li class="dropdown-item"><a >Item I</a></li>
+                            <li class="dropdown-item"><a href="#">Item II</a></li>
+                            <li class="dropdown-item"><a href="#">Item III</a></li>
+                            <li class="dropdown-item"><a href="#"><span class="badge badge-primary badge-pill float-right mt-1">new</span> Item IV</a></li>
+                            <li class="dropdown-item"><a href="#">Item V</a></li>
+                            <li class="dropdown-item"><a href="#">Other</a></li>
+                        </ul>
+                    </div> -->
+
                     <p>Choose the week</p>
                     <div class="owl-carousel owl-theme" style="width: 50%;">
                         <button type="button" class="" id="week1" onclick="getWeekButtonId(this.id)">WEEK 1</button>
@@ -283,7 +323,7 @@ session_start(); //to ensure you are using same session
                     </div>
                 </div>
                 
-                <div class="content">
+                <div class="content" style="display:{{blockIfVideoPresent}}">
                     <div class="row">
                         <div class="col" ng-repeat="work in workoutplan | limitTo : 2">
                             <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
@@ -327,14 +367,69 @@ session_start(); //to ensure you are using same session
                 </div>
                 
 
-                <div class="header">
+                <!-- <div class="header">
                     <div class="progress">
                         <div class="progress-bar bg-dark" id="myBar"></div>
                     </div>  
-                </div>
+                </div> -->
             </div><!-- end of col -->  
          
         </div><!-- end of row -->  
+
+        <!-- bottom boostrap spacing  -->
+        <div class="pb-5"></div>
+        <hr/>
+        <!-- bottom boostrap spacing  -->
+        <div class="pb-5"></div>
+
+        <div class="row" style="right: 0;left: 0">
+            <div class="col-md-12" align="center" id="nutritionMenuId"> 
+                <h2 class="font-weight-bold ">Diet & Inspiration</h2>
+                <h4>Get nutritionist-approved recipes and motivational workout tips</h4>
+                <h4>from our experts.</h4>   
+
+                <!-- bottom boostrap spacing  -->
+                <div class="pb-2"></div>
+
+                <div class="row">
+                    <div class="col top-buffer" > 
+                        <div id="gainWeight" class="card rounded shadow bg-white rounded" style="width: 18rem;">
+                            <img class="card-img-top" src="image/gainMuscle.jpg" alt="Card image cap">
+                            <div class="card-body text-center">
+                                <label class="card-text font-weight-bold">Diet to gain weight</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col top-buffer"> 
+                        <div id="loseWeight" class="card rounded shadow bg-white rounded" style="width: 18rem;">
+                            <img class="card-img-top img-responsive" src="image/looseWeight.jpg" alt="Card image cap">
+                            <div class="card-body">
+                                <label class="card-text font-weight-bold">Diet to lose weight</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col top-buffer" > 
+                        <div id="shredding" class="card rounded shadow bg-white rounded" style="width: 18rem;">
+                            <img class="card-img-top" src="image/shredding.jpg" alt="Card image cap">
+                            <div class="card-body text-center">
+                                <label class="card-text font-weight-bold">Shredding diet</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col top-buffer" align="center">
+                        <button id="signUpButton" class="btn btn-success rounded-0" style="display:none">PLEASE SIGN UP</button>
+                    </div> 
+                </div>
+                
+
+                
+                
+            </div>
+        </div>
       
         <!-- <div id="parallax-image2">
             <div class="row">
@@ -350,6 +445,37 @@ session_start(); //to ensure you are using same session
         <?php 
             require("footer.php");
         ?>
+
+        <div class="modal" id="myModal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <!-- form card login -->
+                    <div class="card" style="border-radius: 10px">
+                        <div class="card-header">
+                            <h3 class="mb-0" style="text-align: center">Members Login<button type="button" class="close" data-dismiss="modal">&times;</button></h3> 
+                        </div>
+                        <div class="card-body">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                                <div class="form-group">
+                                    <label class="font-weight-bold" for="uname1">Username or Email:</label>
+                                    <input type="text" class="form-control form-control-ms rounded-0" name="uname1" id="uname1" required="">
+                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="font-weight-bold">Password:</label>
+                                    <input type="password" class="form-control form-control-ms rounded-0" id="pwd1" required="" autocomplete="new-password">
+                                    <div class="invalid-feedback">Enter your password too!</div>
+                                    <span class="custom-control-description medium font-weight-bold" id="signUpBtn" role="button">Sign Up</span> | <span class="custom-control-description medium font-weight-bold" id="forgotPasswordBtn">Forgot Password ?</span>
+                                </div>
+                                <button type="button" class="btn btn-dark btn-ms float-left rounded-0" id="btnLogin" ng-click="submitLoginForm()">Login</button>
+                            </form>
+                        </div>
+                        <!--/card-block-->
+                    </div>
+                    <!-- /form card login -->
+                </div>
+            </div>
+        </div>
         
         
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
