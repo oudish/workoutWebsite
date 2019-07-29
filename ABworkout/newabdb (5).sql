@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 21, 2019 at 07:06 AM
+-- Generation Time: Jul 29, 2019 at 02:44 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -110,19 +110,20 @@ CREATE TABLE `workout_plan` (
   `plan_id` int(11) NOT NULL,
   `plan_week` int(11) DEFAULT NULL,
   `plan_day` int(11) DEFAULT NULL,
-  `plan_video_id` varchar(255) DEFAULT NULL
+  `plan_video_id` varchar(255) DEFAULT NULL,
+  `plan_video_title` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `workout_plan`
 --
 
-INSERT INTO `workout_plan` (`plan_id`, `plan_week`, `plan_day`, `plan_video_id`) VALUES
-(1, 1, 1, 'video/ABworkout.mp4'),
-(2, 1, 2, 'video/ABworkout.mp4'),
-(3, 1, 1, 'video/ABworkout.mp4'),
-(4, 1, 1, 'video/ABworkout.mp4'),
-(5, 1, 1, 'video/ABworkout.mp4');
+INSERT INTO `workout_plan` (`plan_id`, `plan_week`, `plan_day`, `plan_video_id`, `plan_video_title`) VALUES
+(1, 1, 1, 'video/ABworkout.mp4', 'AB workout'),
+(2, 1, 2, 'video/ABworkout.mp4', 'AB workout'),
+(3, 1, 1, 'video/ABworkout.mp4', 'AB workout'),
+(4, 1, 1, 'video/ABworkout.mp4', 'AB workout'),
+(5, 1, 1, 'video/ABworkout.mp4', 'AB workout');
 
 -- --------------------------------------------------------
 

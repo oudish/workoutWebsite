@@ -22,9 +22,11 @@
             width: 85%;
             
         }
+
+        .top-buffer { margin-top:20px; }
     </style>
 </head>
-<body style="overflow-x: hidden">
+<body style="overflow-x: hidden" ng-app="myApp" ng-controller="myCtrl" ng-init="signUpOnInit()">
 
     <div class="embed-responsive embed-responsive-21by9">
         <video controls="true" class="embed-responsive-item">
@@ -33,14 +35,14 @@
     </div>
     
     <!-- bottom boostrap spacing  -->
-    <div class="pb-5"></div>
+    <div class="pb-4"></div>
 
-    <div class="row">
+    <div class="row" >
         <div class="col-md-12">
             <div class="row">
-                <div class="col-md-6" align="center">
+                <div class="col-md-6 top-buffer" align="center">
                     <div class="card rounded-0 shadow bg-white rounded">
-                        <div class="card-header">
+                        <div class="card-header" id="ABpackages">
                             <h3 class="mb-2" >WORKOUT + NUTRITION</h3>
                         </div>
                         <div class="card-block">
@@ -51,13 +53,13 @@
                                 <p class="card-text text-left pl-3" style="font-size: 1.5rem"><i class="fas fa-angle-double-right"></i>    Full meal plan for your body type</p>
                                 <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;">ONE TIME PAYMENT</p>
                                 <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;"><del>Rs 3500</del>   Rs 3000</p>
-                                <button class="btn btn-outline-secondary btn-lg rounded-0">BUY NOW</button>
+                                <button class="btn btn-outline-secondary btn-lg rounded-0" ng-click="workoutPlusNutritionClick('WORKOUT + NUTRITION','3500');">BUY NOW</button>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="col-md-6 mx-auto" align="center">
+                <div class="col-md-6 top-buffer mx-auto" align="center">
                     <!-- form card login -->
                     <div class="card rounded-0 shadow bg-white rounded">
                         <div class="card-header">
@@ -70,7 +72,7 @@
                                     <p class="card-text text-left pl-3" style="font-size: 1.5rem"><i class="fas fa-angle-double-right"></i>    Meal Explanation and details</p>
                                     <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;">ONE TIME PAYMENT</p>
                                     <p class="card-text text-center font-weight-bold" style="font-size: 1.7rem;"><del>Rs 2500</del>   Rs 2000</p>
-                                    <button class="btn btn-outline-secondary btn-lg rounded-0">BUY NOW</button>
+                                    <button class="btn btn-outline-secondary btn-lg rounded-0" ng-click="nutritionClick(' NUTRITION','2500');">BUY NOW</button>
                                 </div>
                         </div>
                     </div>
@@ -82,14 +84,14 @@
     <!-- bottom boostrap spacing  -->
     <div class="pb-5"></div>
 
-    <div class="row">
+    <div class="row" id="customerInfo" style="display: none"> 
         <div class="col-md-12" align="center">
             <div class="card rounded-0 shadow bg-white rounded">
                 <div class="card-header text-left">
-                    <h3 class="mb-2" >CUSTOMER INFO</h3>
+                    <h3 class="mb-2" id="customerInfoTitle"></h3>
                 </div>
                 <div class="card-body">
-                    <form>
+                    <form id="initialFormCustomerInfo" >
                         <div class="form-group row" align='left'>
                             <label for="firstName" class="col-sm-2 col-form-label">First Name</label>
                             <div class="col-sm-6">
@@ -114,7 +116,28 @@
                                 <input type="text" class="form-control" id="emailAddressRetype">
                             </div>
                         </div>
+                        <button type="button" class="btn btn-dark btn rounded-0" ng-click=customerInfoNext()>Next</button>
+                        <button type="button" class="btn btn-primary rounded-0" ng-click=customerInfoCancel()>Cancel</button>
+                    </form>
+                    <form id="FormCustomerInfoAfterConfirmation">
+                        <div class="form-group row" align='left'>
+                            <label for="fullNameConfirmed" class="col-sm-2 col-form-label">Full Name</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="fullNameConfirmed" readonly>
+                            </div>
+                        </div>
+                        <div class="form-group row" align='left'>
+                            <label for="emailAddressConfirmed" class="col-sm-2 col-form-label">Email Address</label>
+                            <div class="col-sm-6">
+                                <input type="text" class="form-control" id="emailAddressConfirmed" readonly>
+                            </div>
+                        </div>
+
                         
+
+                        <button type="submit" class="btn btn-success btn rounded-0">PAYMENT</button>
+                        <button type="button" class="btn btn-dark btn rounded-0" ng-click=customerInfoEdit()>EDIT</button>
+                        <button type="button" class="btn btn-primary rounded-0" ng-click=customerInfoCancel()>Cancel</button>
                     </form>
                 </div>
             </div>
@@ -136,6 +159,8 @@
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+
+    <script src="js/jsProject/SignUp.js"></script>
 
 </body>
 
