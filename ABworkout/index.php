@@ -253,7 +253,7 @@ session_start(); //to ensure you are using same session
 
         <div class="row" style="right: 0;left: 0">
             <div class="col"> 
-                <nav class="navbar navbar-expand-md navbar-dark fixed bg-dark">
+                <nav class="navbar navbar-expand-md navbar-dark fixed" style="background-color: #070617;">
                     <a class="navbar-brand" href="#">AB</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>

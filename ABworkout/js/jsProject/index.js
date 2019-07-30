@@ -108,12 +108,12 @@ app.controller('myCtrl', function($scope,$http) {
     $scope.workoutMenu = function(){
         $('html, body').animate({
             scrollTop: $("#workoutMenuId").offset().top
-        }, 1000);
+        }, 750);
     }
     $scope.nutritionMenu = function(){
         $('html, body').animate({
             scrollTop: $("#nutritionMenuId").offset().top
-        }, 1000);
+        }, 750);
     }
 
     $("#gainWeight").click(function(){
@@ -132,6 +132,10 @@ app.controller('myCtrl', function($scope,$http) {
             scrollTop: $("#signUpButton").offset().top
         }, 1000);
     }
+
+    $("#signUpButton").click(function(){
+        $(location).attr('href', 'signUp.php');
+    });
 
     $scope.onInitFunction = function(event) {
         $scope.blockIfVideoPresent ="none";
