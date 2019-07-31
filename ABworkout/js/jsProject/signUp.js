@@ -33,11 +33,8 @@ app.controller('myCtrl', function($scope,$http) {
     }
 
     $scope.nutritionClick = function(title, price){
-        $("#customerInfo").css("display", "block");
-        //$("#initialFormCustomerInfo").css("display", "block");
-        //$("#FormCustomerInfoAfterConfirmation").css("display", "none");
+        $("#customerInfoDiet").css("display", "block");
         $("#testDiet").css("display", "block");
-        //$("#customerInfoTitle").text("CUSTOMER INFO FOR " + title + " PACKAGE" + " -> Rs "+ price ); 
         $('html, body').animate({
             scrollTop: $("#customerInfo").offset().top
         }, 1000);
@@ -82,6 +79,9 @@ app.controller('myCtrl', function($scope,$http) {
             function() {
                 $("#infoPartOne").css("display", "none");
                 $("#infoPartTwo").css("display", "block");
+                $('html, body').animate({
+                    scrollTop: $("#infoPartTwo").offset().top
+                }, 1000);
             }, 500);
     }
 
@@ -93,6 +93,9 @@ app.controller('myCtrl', function($scope,$http) {
             function() {
                 $("#infoPartTwo").css("display", "none");
                 $("#infoPartThree").css("display", "block");
+                $('html, body').animate({
+                    scrollTop: $("#infoPartThree").offset().top
+                }, 1000);
             }, 500);
     }
 
@@ -109,6 +112,9 @@ app.controller('myCtrl', function($scope,$http) {
             function() {
                 $("#infoPartThree").css("display", "none");
                 $("#infoPartFour").css("display", "block");
+                $('html, body').animate({
+                    scrollTop: $("#infoPartFour").offset().top
+                }, 1000);
             }, 500);
     }
 
@@ -125,6 +131,9 @@ app.controller('myCtrl', function($scope,$http) {
             function() {
                 $("#infoPartFour").css("display", "none");
                 $("#infoPartFive").css("display", "block");
+                $('html, body').animate({
+                    scrollTop: $("#infoPartFive").offset().top
+                }, 1000);
             }, 500);
     }
 
@@ -141,6 +150,9 @@ app.controller('myCtrl', function($scope,$http) {
             function() {
                 $("#infoPartFive").css("display", "none");
                 $("#infoPartSix").css("display", "block");
+                $('html, body').animate({
+                    scrollTop: $("#infoPartSix").offset().top
+                }, 1000);
             }, 500);
     }
 
@@ -152,6 +164,9 @@ app.controller('myCtrl', function($scope,$http) {
             function() {
                 $("#infoPartSix").css("display", "none");
                 $("#infoPartSeven").css("display", "block");
+                $('html, body').animate({
+                    scrollTop: $("#infoPartSeven").offset().top
+                }, 1000);
             }, 500);
     }
 
@@ -161,16 +176,86 @@ app.controller('myCtrl', function($scope,$http) {
             isTrue.push($(this).val());
         });
         $scope.dietInfo.isTrue = isTrue;
-        //alert(JSON.stringify($scope.dietInfo));
-        // var element = document.getElementById("infoPartSeven");
-        // element.className = "col-md-12 animated zoomOut";
-        // setTimeout(
-        //     function() {
-        //         $("#infoPartSeven").css("display", "none");
-        //         $("#infoPartEight").css("display", "block");
-        //     }, 500);
+       // alert(JSON.stringify($scope.dietInfo));
+        var element = document.getElementById("infoPartSeven");
+        element.className = "col-md-12 animated zoomOut";
+        setTimeout(
+            function() {
+                $("#infoPartSeven").css("display", "none");
+                $("#infoPartEight").css("display", "block");
+                $('html, body').animate({
+                    scrollTop: $("#infoPartEight").offset().top
+                }, 1000);
+                updateGraph(100 / 100);
+            }, 500);
 
-            alert(JSON.stringify($scope.dietInfo));
+            var mySvg = document.querySelector('#my-svg');
+            var snap = Snap(mySvg);
+            var w = mySvg.width.baseVal.value, h = mySvg.height.baseVal.value, cx = w/2, cy = h/2;
+
+            var radius = 100;
+            var perimeter = 2 * Math.PI * radius;
+            var percent = .67;
+            var color = '#007ac1';
+
+            var circle = snap.circle(cx, cy, radius);
+            var text = document.querySelector('.percent-text');
+            text.style.color = color;
+
+            
+            //setTimeout(updateGraph(percent),000);
+
+            function updateGraph(perc) {
+                // Reset attributes
+                circle.attr({
+                    fill: 'none',
+                    stroke: color,
+                    strokeWidth: '0.5cm',
+                    strokeDasharray: '0 ' + perimeter,
+                    strokeDashoffset: perimeter * .25
+                });
+                
+                // Animate
+                Snap.animate(0, perc, (val) => {
+                    circle.attr({
+                    strokeDasharray: perimeter * val + ' ' + perimeter * (1 - val)
+                    });
+
+                    text.innerHTML = Math.round(val * 100) + '%';
+                }, 1500, mina.easeinout)
+            }
+
+            // Interaction
+            var myForm = document.querySelector("#change-form");
+            var myInput = document.querySelector("#num-input");
+
+            myForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            var p = parseInt(myInput.value);
+            if (isNaN(p) || p < 0 || p > 100) {
+                alert("Please enter a valid number between 0 and 100");
+            }
+            else {
+                updateGraph(p / 100);
+            }
+            });
+
+           // alert(JSON.stringify($scope.dietInfo));
+    }
+
+    $scope.goToPayment = function(title,price){
+        var element = document.getElementById("infoPartEight");
+        element.className = "col-md-12 animated zoomOut";
+        setTimeout(
+            function() {
+                $("#infoPartEight").css("display", "none");
+                $("#customerInfo").css("display", "block");
+                $("#customerInfoTitle").text("CUSTOMER INFO FOR " + title + " PACKAGE" + " -> Rs "+ price );
+                $("#initialFormCustomerInfo").css("display", "block"); 
+                $('html, body').animate({
+                    scrollTop: $("#customerInfo").offset().top
+                }, 1000);
+            }, 500);
     }
 
 
