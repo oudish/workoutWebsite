@@ -16,6 +16,8 @@
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
+    <script src="js/jsProject/SignUp.js"></script>
+
     <style>
         .card{
             text-align: center;
@@ -36,7 +38,7 @@
             display: inline-block;
             }
 
-            input[type="checkbox"][id^="cb"],[id^="meatcb"],[id^="veggiecb"],[id^="productcb"] {
+            input[type="checkbox"][id^="cb"],[id^="meatcb"],[id^="veggiecb"],[id^="productcb"],[id^="isTruecb"] {
             display: none;
             }
 
@@ -85,6 +87,12 @@
             }
 
             :checked + #labelId img {
+            transform: scale(0.9);
+            box-shadow: 0 0 5px #333;
+            z-index: -1;
+            }
+
+            :checked + #labelId button {
             transform: scale(0.9);
             box-shadow: 0 0 5px #333;
             z-index: -1;
@@ -293,8 +301,15 @@
                             <div class="row">
                             <div class="container"></div>,<div class="container"> 
                                 <form role="form" action="" method="post">
+                                    <div id="errorDisplay" style="display: none">
+                                        <div class="alert alert-danger alert-dismissible fade show">
+                                            <button type="button" class="close" data-dismiss="alert">&times;</button>
+                                            <strong id="errorMessage"></strong>
+                                        </div>
+                                    </div>
                                     <div class="row setup-content" id="step-1">
                                         <div class="col-md-12">
+                                            
                                             <h3> Step 1</h3>
                                             <div class="form-group">
                                                 <div id="infoPartOne" class="col-md-12" align="center">
@@ -505,38 +520,43 @@
                                     <div class="row setup-content" id="step-7">
                                         <div class="col-md-12">
                                             <h3> Step 7</h3>
-                                            <div id="infoPartSeven" class="col-md-12">
+                                            <div id="infoPartSeven" class="col-md-6" align="center">
                                                 <h1>WHICH OF THE FOLLOWING IS TRUE FOR YOU ?</h1>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" name="isTrue" value="I DO NOT GET ENOUGH SLEEP">I DO NOT GET ENOUGH SLEEP
+                                                
+                                                    <input type="checkbox" name="isTrue" id="isTruecb1" value="I MOSTLY STAY AT HOME"/>
+                                                    <label id="labelId" for="isTruecb1">
+                                                        <div style="border-radius: 25px;border: solid 1px">I MOSTLY STAY AT HOME</div>
                                                     </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" name="isTrue"  value="I EAT LATE AT NIGHT">I EAT LATE AT NIGHT
+
+                                                    <input type="checkbox" name="isTrue" id="isTruecb2" value="I DO NOT GET ENOUGH SLEEP"/>
+                                                    <label id="labelId" for="isTruecb2">
+                                                        <div style="border-radius: 25px;border: solid 1px">I DO NOT GET ENOUGH SLEEP</div>
                                                     </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" name="isTrue"  value="I CONSUME A LOT OF SALT">I CONSUME A LOT OF SALT 
+
+                                                    <input type="checkbox" name="isTrue" id="isTruecb3" value="I EAT LATE AT NIGHT"/>
+                                                    <label id="labelId" for="isTruecb3">
+                                                        <div style="border-radius: 25px;border: solid 1px">I EAT LATE AT NIGHT</div>
                                                     </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" name="isTrue"  value="I CANNOT GIVE UP EATING SWEETS">I CANNOT GIVE UP EATING SWEETS
+
+                                                    <input type="checkbox" name="isTrue" id="isTruecb4" value="I CONSUME A LOT OF SALT"/>
+                                                    <label id="labelId" for="isTruecb4">
+                                                        <div style="border-radius: 25px;border: solid 1px">I CONSUME A LOT OF SALT</div>
                                                     </label>
-                                                </div>
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" name="isTrue"  value="I LOVE SOFTDRINKS">I LOVE SOFTDRINKS
+
+                                                    <input type="checkbox" name="isTrue" id="isTruecb5" value="I CANNOT GIVE UP EATING SWEETS"/>
+                                                    <label id="labelId" for="isTruecb5">
+                                                        <div style="border-radius: 25px;border: solid 1px">I CANNOT GIVE UP EATING SWEETS</div>
                                                     </label>
-                                                </div> 
-                                                <div class="form-check">
-                                                    <label class="form-check-label">
-                                                        <input type="checkbox" class="form-check-input" name="isTrue"  value="NONE OF THE ABOVE">NONE OF THE ABOVE
+
+                                                    <input type="checkbox" name="isTrue" id="isTruecb6" value="I LOVE SOFTDRINKS"/>
+                                                    <label id="labelId" for="isTruecb6">
+                                                        <div style="border-radius: 25px;border: solid 1px">I LOVE SOFTDRINKS</div>
                                                     </label>
-                                                </div>
+
+                                                    <input type="checkbox" name="isTrue" id="isTruecb7" value="NONE OF THE ABOVE"/>
+                                                    <label id="labelId" for="isTruecb7">
+                                                        <div style="border-radius: 25px;border: solid 1px">NONE OF THE ABOVE</div>
+                                                    </label>
                                                 <br>
                                                 <button class="btn btn-primary prevBtn " type="button">Previous</button>
                                                 <button class="btn btn-outline-dark nextBtn" type="button"  ng-click="isTrue()">CONTINUE</button>
@@ -618,76 +638,20 @@
         require("footer.php");
     ?>
 
+  
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <?php 
         require('library/bootstrapJs.php');
     ?>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-    <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-
-    <script src="js/jsProject/SignUp.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.min.js"></script>
-
-    <script>
-        $(document).ready(function () {
-            var navListItems = $('div.setup-panel div a'),
-                allWells = $('.setup-content'),
-                allNextBtn = $('.nextBtn'),
-                allPrevBtn = $('.prevBtn');
-        
-            allWells.hide();
-        
-            navListItems.click(function (e) {
-                e.preventDefault();
-                var $target = $($(this).attr('href')),
-                    $item = $(this);
-        
-                if (!$item.hasClass('disabled')) {
-                    navListItems.removeClass('btn-primary').addClass('btn-default');
-                    $item.addClass('btn-primary');
-                    // alert(toString($(this)) );
-                    allWells.hide();
-                    $target.show();
-                    $target.find('input:eq(0)').focus();
-                }
-            });
-            
-            allPrevBtn.click(function(){
-                var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id"),
-                    prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
-        
-                    prevStepWizard.removeAttr('disabled').trigger('click');
-            });
-        
-            allNextBtn.click(function(){
-                var curStep = $(this).closest(".setup-content"),
-                    curStepBtn = curStep.attr("id"),
-                    nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
-                    curInputs = curStep.find("input[type='text'],input[type='url']"),
-                    isValid = true;
-        
-                $(".form-group").removeClass("has-error");
-                for(var i=0; i<curInputs.length; i++){
-                    if (!curInputs[i].validity.valid){
-                        isValid = false;
-                        $(curInputs[i]).closest(".form-group").addClass("has-error");
-                    }
-                }
-        
-                if (isValid)
-                    nextStepWizard.removeAttr('disabled').trigger('click');
-            });
-        
-            $('div.setup-panel div a.btn-primary').trigger('click');
-        });
-    </script>
 
 </body>
 

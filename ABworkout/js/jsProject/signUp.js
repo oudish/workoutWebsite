@@ -1,4 +1,3 @@
-
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope,$http) {
 
@@ -17,6 +16,7 @@ app.controller('myCtrl', function($scope,$http) {
     // };
 
     $scope.dietInfo = {};
+    $scope.dietDetailValid = true;
 
     $scope.signUpOnInit = function(){
         $("#initialFormCustomerInfo").css("display", "none");
@@ -147,21 +147,41 @@ app.controller('myCtrl', function($scope,$http) {
             });
     }
 
+    $scope.errorMessage = function(message){
+        $("#errorDisplay").css("display", "block");
+        $("#errorMessage").text(message);
+    }
+
     $scope.genderBtn = function(gender){
-        $scope.dietInfo.gender = gender;
-        $scope.setTimeoutForAnimation();
-        // $('html, body').animate({
-        //     scrollTop: $("#infoPartTwo").offset().top
-        // }, 1000);
-        // var element = document.getElementById("infoPartOne");
-        // element.className = "col-md-12 animated zoomOut";
-        
-        
+        if(gender != null){
+            if(gender != ""){
+                $scope.dietInfo.gender = gender;
+                $scope.dietDetailValid = true;
+                $scope.setTimeoutForAnimation();
+            }
+            else{
+                $scope.dietDetailValid = false;
+            }
+        }
+        else{
+            $scope.dietDetailValid = false;
+        }
     }
 
     $scope.physicalActivity = function(physicalActivity){
-        $scope.dietInfo.physicalActivity = physicalActivity;
-        $scope.setTimeoutForAnimation();
+        if(physicalActivity != null){
+            if(physicalActivity != ""){
+                $scope.dietInfo.physicalActivity = physicalActivity;
+                $scope.dietDetailValid = true;
+                $scope.setTimeoutForAnimation();
+            }
+            else{
+                $scope.dietDetailValid = false;
+            }
+        }
+        else{
+            $scope.dietDetailValid = false;
+        }
         // var element = document.getElementById("infoPartTwo");
         // element.className = "col-md-12 animated zoomOut";
         // setTimeout(
@@ -179,8 +199,37 @@ app.controller('myCtrl', function($scope,$http) {
         $.each($("input[name='foodMeat']:checked"), function(){            
             chosenfoodMeat.push($(this).val());
         });
-        $scope.dietInfo.chosenfoodMeat = chosenfoodMeat;
-        $scope.setTimeoutForAnimation();
+        if(chosenfoodMeat != null){
+            if(chosenfoodMeat.length != 0){
+                if(chosenfoodMeat.length > 1){
+                    if(chosenfoodMeat.indexOf("NO MEAT") == 1){
+                        $scope.errorMessage("If you choose \"NO MEAT\" \nYou should not choose the other options");
+                        $scope.dietDetailValid = false;
+                        $scope.setTimeoutForAnimation();
+                    }
+                    else if(chosenfoodMeat.indexOf("NO MEAT") != -1){
+                        $scope.dietInfo.chosenfoodMeat = chosenfoodMeat;
+                        $scope.dietDetailValid = true;
+                        $scope.setTimeoutForAnimation();
+                    }
+                }
+                else{
+                    $scope.dietInfo.chosenfoodMeat = chosenfoodMeat;
+                    $scope.dietDetailValid = true;
+                    $scope.setTimeoutForAnimation();
+                }  
+            }
+            else{
+                $scope.errorMessage("You should choose at least one of the options");
+                $scope.setTimeoutForAnimation();
+                $scope.dietDetailValid = false;
+            }
+        }
+        else{
+            $scope.dietDetailValid = false;
+        }
+        // $scope.dietInfo.chosenfoodMeat = chosenfoodMeat;
+        // $scope.setTimeoutForAnimation();
         //alert(JSON.stringify($scope.dietInfo));
         // var element = document.getElementById("infoPartThree");
         // element.className = "col-md-12 animated zoomOut";
@@ -199,8 +248,23 @@ app.controller('myCtrl', function($scope,$http) {
         $.each($("input[name='foodVeggie']:checked"), function(){            
             chosenfoodVeggie.push($(this).val());
         });
-        $scope.dietInfo.chosenfoodVeggie = chosenfoodVeggie;
-        $scope.setTimeoutForAnimation();
+        if(chosenfoodVeggie != null){
+            if(chosenfoodVeggie.length != 0){
+                $scope.dietInfo.chosenfoodVeggie = chosenfoodVeggie;
+                $scope.dietDetailValid = true;
+                $scope.setTimeoutForAnimation(); 
+            }
+            else{
+                $scope.errorMessage("You should choose at least one of the options");
+                $scope.setTimeoutForAnimation();
+                $scope.dietDetailValid = false;
+            }
+        }
+        else{
+            $scope.dietDetailValid = false;
+        }
+        // $scope.dietInfo.chosenfoodVeggie = chosenfoodVeggie;
+        // $scope.setTimeoutForAnimation();
         //alert(JSON.stringify($scope.dietInfo));
         // var element = document.getElementById("infoPartFour");
         // element.className = "col-md-12 animated zoomOut";
@@ -219,8 +283,23 @@ app.controller('myCtrl', function($scope,$http) {
         $.each($("input[name='foodProduct']:checked"), function(){            
             chosenfoodProduct.push($(this).val());
         });
-        $scope.dietInfo.chosenfoodProduct = chosenfoodProduct;
-        $scope.setTimeoutForAnimation();
+        if(chosenfoodProduct != null){
+            if(chosenfoodProduct.length != 0){
+                $scope.dietInfo.chosenfoodProduct = chosenfoodProduct;
+                $scope.dietDetailValid = true;
+                $scope.setTimeoutForAnimation(); 
+            }
+            else{
+                $scope.errorMessage("You should choose at least one of the options");
+                $scope.setTimeoutForAnimation();
+                $scope.dietDetailValid = false;
+            }
+        }
+        else{
+            $scope.dietDetailValid = false;
+        }
+        // $scope.dietInfo.chosenfoodProduct = chosenfoodProduct;
+        //$scope.setTimeoutForAnimation();
         //alert(JSON.stringify($scope.dietInfo));
         // var element = document.getElementById("infoPartFive");
         // element.className = "col-md-12 animated zoomOut";
@@ -235,8 +314,19 @@ app.controller('myCtrl', function($scope,$http) {
     }
 
     $scope.typicalDay = function(typicalDay){
-        $scope.dietInfo.typicalDay = typicalDay;
-        $scope.setTimeoutForAnimation();
+        if(typicalDay != null){
+            if(typicalDay != ""){
+                $scope.dietInfo.typicalDay = typicalDay;
+                $scope.dietDetailValid = true;
+                $scope.setTimeoutForAnimation();
+            }
+            else{
+                $scope.dietDetailValid = false;
+            }
+        }
+        else{
+            $scope.dietDetailValid = false;
+        }
         // var element = document.getElementById("infoPartSix");
         // element.className = "col-md-12 animated zoomOut";
         // setTimeout(
@@ -256,8 +346,23 @@ app.controller('myCtrl', function($scope,$http) {
         });
         $scope.dietInfo.isTrue = isTrue;
 
-        alert(JSON.stringify($scope.dietInfo));
-        $scope.setTimeoutForAnimationFinal();
+        //alert(JSON.stringify($scope.dietInfo));
+        //$scope.setTimeoutForAnimationFinal();
+        if(isTrue != null){
+            if(isTrue.length != 0){
+                $scope.dietInfo.isTrue = isTrue;
+                $scope.dietDetailValid = true;
+                $scope.setTimeoutForAnimationFinal(); 
+            }
+            else{
+                $scope.errorMessage("You should choose at least one of the options");
+                $scope.setTimeoutForAnimation();
+                $scope.dietDetailValid = false;
+            }
+        }
+        else{
+            $scope.dietDetailValid = false;
+        }
         
         // var element = document.getElementById("infoPartSeven");
         // element.className = "col-md-12 animated zoomOut";
@@ -292,7 +397,69 @@ app.controller('myCtrl', function($scope,$http) {
         //     }, 500);
     }
 
-
+    $(document).ready(function () {
+        var navListItems = $('div.setup-panel div a'),
+            allWells = $('.setup-content'),
+            allNextBtn = $('.nextBtn'),
+            allPrevBtn = $('.prevBtn');
+    
+        allWells.hide();
+    
+        navListItems.click(function (e) {
+            if($scope.dietDetailValid){
+                e.preventDefault();
+                var $target = $($(this).attr('href')),
+                    $item = $(this);
+        
+                if (!$item.hasClass('disabled')) {
+                    navListItems.removeClass('btn-primary').addClass('btn-default');
+                    $item.addClass('btn-primary');
+                    // alert(toString($(this)) );
+                    allWells.hide();
+                    $target.show();
+                    $target.find('input:eq(0)').focus();
+                }
+                $scope.dietDetailValid = false;
+            }
+            
+        });
+        
+        allPrevBtn.click(function(){
+            var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                prevStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().prev().children("a");
+    
+                prevStepWizard.removeAttr('disabled').trigger('click');
+        });
+    
+        allNextBtn.click(function(){
+            if($scope.dietDetailValid){
+                $("#errorDisplay").css("display", "none");
+                
+                var curStep = $(this).closest(".setup-content"),
+                curStepBtn = curStep.attr("id"),
+                nextStepWizard = $('div.setup-panel div a[href="#' + curStepBtn + '"]').parent().next().children("a"),
+                curInputs = curStep.find("input[type='text'],input[type='url']"),
+                isValid = true;
+    
+                $(".form-group").removeClass("has-error");
+                for(var i=0; i<curInputs.length; i++){
+                    if (!curInputs[i].validity.valid){
+                        isValid = false;
+                        $(curInputs[i]).closest(".form-group").addClass("has-error");
+                    }
+                }
+        
+                if (isValid){
+                    nextStepWizard.removeAttr('disabled').trigger('click');
+                }
+                $scope.dietDetailValid = false;       
+            }
+            
+        });
+    
+        $('div.setup-panel div a.btn-primary').trigger('click');
+    });
 
 
 });
