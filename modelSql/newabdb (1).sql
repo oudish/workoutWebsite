@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 09, 2019 at 07:10 PM
+-- Generation Time: Jun 20, 2019 at 01:42 PM
 -- Server version: 10.1.37-MariaDB
 -- PHP Version: 7.3.0
 
@@ -66,6 +66,29 @@ INSERT INTO `clothing` (`clothing_id`, `clothing_name`, `clothing_description`, 
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `clothing_user`
+--
+
+CREATE TABLE `clothing_user` (
+  `user_id` int(11) NOT NULL,
+  `user_username` varchar(255) DEFAULT NULL,
+  `user_password` varchar(255) DEFAULT NULL,
+  `user_firstname` varchar(255) DEFAULT NULL,
+  `user_lastname` varchar(255) DEFAULT NULL,
+  `user_email` varchar(255) DEFAULT NULL,
+  `user_phoneNum` varchar(255) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `clothing_user`
+--
+
+INSERT INTO `clothing_user` (`user_id`, `user_username`, `user_password`, `user_firstname`, `user_lastname`, `user_email`, `user_phoneNum`) VALUES
+(1, 'adish', 'adish', 'Adish', 'Balkissoon', 'oudish.misrylall4614@gmail.com', '57733091');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `workout_plan`
 --
 
@@ -98,7 +121,7 @@ CREATE TABLE `workout_user` (
   `user_firstname` varchar(255) NOT NULL,
   `user_lastname` varchar(255) NOT NULL,
   `user_email` varchar(255) NOT NULL,
-  `user_code` int(6) NOT NULL
+  `user_code` int(6) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -106,7 +129,7 @@ CREATE TABLE `workout_user` (
 --
 
 INSERT INTO `workout_user` (`user_id`, `user_username`, `user_password`, `user_phoneNum`, `user_firstname`, `user_lastname`, `user_email`, `user_code`) VALUES
-(1, 'adish', 'adish', '599999999', 'Adish', 'Balkissoon', 'adish.balkissoon@gmail.com', 123456);
+(1, 'adish', 'adish', '599999999', 'Adish', 'Balkissoon', 'oudish.misrylall4614@gmail.com', 381144);
 
 -- --------------------------------------------------------
 
@@ -139,6 +162,12 @@ ALTER TABLE `clothing`
   ADD PRIMARY KEY (`clothing_id`);
 
 --
+-- Indexes for table `clothing_user`
+--
+ALTER TABLE `clothing_user`
+  ADD PRIMARY KEY (`user_id`);
+
+--
 -- Indexes for table `workout_plan`
 --
 ALTER TABLE `workout_plan`
@@ -166,6 +195,12 @@ ALTER TABLE `workout_video`
 --
 ALTER TABLE `clothing`
   MODIFY `clothing_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+
+--
+-- AUTO_INCREMENT for table `clothing_user`
+--
+ALTER TABLE `clothing_user`
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `workout_plan`

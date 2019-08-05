@@ -99,6 +99,14 @@
     width: 100%;
   }
 }
+.fa-facebook-square{
+  background:#3B5998;
+  color:white;
+}
+.fab:hover {
+    opacity: 0.7;
+}
+
 </style>
 
 <!-- FOOTER START -->
@@ -156,7 +164,7 @@
   <div class="col social">
     <h2>Social</h2>
     <ul>
-      <li><img src="https://svgshare.com/i/5fq.svg" width="32" style="width: 32px;"></li>
+      <li><a href="https://www.facebook.com/adish.balkissoon" target="_blank" width="32"></a><i class="fab fa-facebook-square"></i></li>
       <li><img src="https://svgshare.com/i/5eA.svg" width="32" style="width: 32px;"></li>
       <li><img src="https://svgshare.com/i/5f_.svg" width="32" style="width: 32px;"></li>
     </ul>

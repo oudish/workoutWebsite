@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!-- <?php   
-session_start(); //to ensure you are using same session
-?>  -->
 <html lang="en">
     <head>
         <meta charset="UTF-8">
@@ -253,7 +250,7 @@ session_start(); //to ensure you are using same session
 
         <div class="row" style="right: 0;left: 0">
             <div class="col"> 
-                <nav class="navbar navbar-expand-md navbar-dark fixed" style="background-color: #070617;">
+                <nav class="navbar navbar-expand-md navbar-dark fixed" style="background-color: #070617;cursor:pointer;">
                     <a class="navbar-brand" href="#">AB</a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="navbar-toggler-icon"></span>
@@ -457,7 +454,7 @@ session_start(); //to ensure you are using same session
                         <div class="card-body">
                             <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
                                 <div class="form-group">
-                                    <label class="font-weight-bold" for="uname1">Username or Email:</label>
+                                    <label class="font-weight-bold" for="uname1">Email:</label>
                                     <input type="text" class="form-control form-control-ms rounded-0" name="uname1" id="uname1" required="">
                                     <div class="invalid-feedback">Oops, you missed this one.</div>
                                 </div>
