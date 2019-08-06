@@ -5,10 +5,12 @@ $data = json_decode(file_get_contents("php://input"));
 require("dbconnect.php");
 $username =  $data->username;
 $password =  $data->password;
-$mailformat = '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/';
+$object = new stdClass();
+// $object->field = '';
+// $object->errMsg = '';
 
 try{
-    $stmt = $pdo->prepare("SELECT * FROM workout_user WHERE user_password=? AND user_email=?");
+    $stmt = $pdo->prepare("SELECT * FROM workout_user WHERE user_email=? AND user_password=?");
     $stmt->execute([$username, $password]);
     $arr = $stmt->fetch();
     // if(!$arr){
@@ -16,24 +18,36 @@ try{
     // } 
     // else
     if($username =='' && $password ==''){
-        echo("Please enter valid data!");
+        $object->field = 'emailpassword';
+        $object->errMsg = '* Please enter valid data!';
+        echo(JSON_encode($object));
     }
     elseif($username =='' ){
-        echo("Please enter your email address.");
+        $object->field = 'email';
+        $object->errMsg = '* Please enter your email address.';
+        echo(JSON_encode($object));
     }
     elseif(!filter_var($username, FILTER_VALIDATE_EMAIL)){
-        echo('Please enter a valid email.');
+        $object->field = 'email2';
+        $object->errMsg = '* Please enter a valid email.';
+        echo(JSON_encode($object));
     }
     elseif($password == '') {
-        echo("Please enter your password.");
+        $object->field = 'password';
+        $object->errMsg = '* Please enter your password.';
+        echo(JSON_encode($object));
     }
     elseif($stmt->rowCount() == 1){
-        echo("Successful Login");
-        
+        $object->field = 'success';
+        $object->errMsg = '* Successful Login';
+        echo(JSON_encode($object));
     }
     else{
-        echo("Please enter a valid password.");
+        $object->field = 'fail';
+        $object->errMsg = '* Please enter a valid email/password.';
+        echo(JSON_encode($object));
     }
+    
     // else{
     //     // var_export($arr);
     //     echo($arr["user_username"]);

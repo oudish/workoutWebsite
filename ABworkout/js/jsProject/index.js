@@ -91,18 +91,58 @@ app.controller('myCtrl', function($scope,$http) {
 
     $scope.workoutplan = [];
 
+    $scope.borderRed = function(idRed, idFocus){
+        if(idRed != "All"){
+         document.getElementById(idRed).style.borderColor = "red";
+         document.getElementById(idFocus).focus();  
+        }
+       else{
+         document.getElementById("uname1").style.borderColor = "grey"; 
+         document.getElementById("pwd1").style.borderColor = "grey"; 
+       }
+    }
     $scope.submitLoginForm = function(){
         // alert("testin");
         var username = $("#uname1").val();
         var password = $("#pwd1").val();
+        $scope.error0 ="";
+        $scope.error1 ="";
+        $scope.error2 ="";
+        $scope.borderRed("All", "");
         $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
-            // if(response.data == "login successfull"){
-            //     window.location.href = "home.php";
-            // }
-            // else{
-            //     alert(JSON.stringify( response.data));
-            // }
-            alert(JSON.stringify(response.data));
+
+            if(response.data.field == "success"){
+                window.location.href = "index.php";//must have another index.php page where there is no login, there is button logout,should make it dynamic
+            }
+            else{
+                if(response.data.field == "emailpassword"){                    
+                    $scope.error0 = response.data.errMsg;
+                    $scope.borderRed("uname1","email");
+                    $scope.borderRed("pwd1","pwd2");
+                }
+                else if(response.data.field == "email"){                
+                    $scope.error1 = response.data.errMsg;                  
+                    // document.getElementById("email").focus();
+                    // document.getElementById("uname1").style.borderColor = "red";
+                    $scope.borderRed("uname1","email"); 
+                }
+                else if(response.data.field == "email2"){                    
+                    $scope.error1 = response.data.errMsg;
+                    $scope.borderRed("uname1","email");
+                }
+                else if(response.data.field == "password"){                   
+                    $scope.error2 = response.data.errMsg;
+                    $scope.borderRed("pwd1","pwd2");
+                }
+                else if(response.data.field == "fail"){
+                    $scope.error2 = response.data.errMsg;
+                    $scope.borderRed("uname1", "email");
+                    $scope.borderRed("pwd1", "pwd2");
+                }
+
+                
+            }
+            //alert(JSON.stringify(response.data));
         });
         
     }

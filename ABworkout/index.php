@@ -225,7 +225,10 @@
                 cursor: pointer;
             }
 
-
+            .error{
+                color:red;
+            }
+           
         </style>
 
     </head>
@@ -452,16 +455,19 @@
                             <h3 class="mb-0" style="text-align: center">Members Login<button type="button" class="close" data-dismiss="modal">&times;</button></h3> 
                         </div>
                         <div class="card-body">
-                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST">
+                            <form class="form" role="form" autocomplete="off" id="formLogin" novalidate="" method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                            <span class="error">{{error0}}</span>
                                 <div class="form-group">
-                                    <label class="font-weight-bold" for="uname1">Email:</label>
-                                    <input type="text" class="form-control form-control-ms rounded-0" name="uname1" id="uname1" required="">
-                                    <div class="invalid-feedback">Oops, you missed this one.</div>
+                                    <label class="font-weight-bold" id="email" for="uname1">Email:</label>
+                                    <input required="" type="text" class="form-control form-control-ms rounded-0" name="uname1" id="uname1" >
+                                    <!-- <div class="invalid-feedback">Oops, you missed this one.</div> -->
+                                    <span class="error">{{error1}}</span>
                                 </div>
                                 <div class="form-group">
-                                    <label class="font-weight-bold">Password:</label>
+                                    <label class="font-weight-bold" id="pwd2" for="pwd1">Password:</label>
                                     <input type="password" class="form-control form-control-ms rounded-0" id="pwd1" required="" autocomplete="new-password">
-                                    <div class="invalid-feedback">Enter your password too!</div>
+                                    <!-- <div class="invalid-feedback">Enter your password too!</div> -->
+                                   <div> <span class="error">{{error2}}</span></div>
                                     <span class="custom-control-description medium font-weight-bold" id="signUpBtn" role="button">Sign Up</span> | <span class="custom-control-description medium font-weight-bold" id="forgotPasswordBtn">Forgot Password ?</span>
                                 </div>
                                 <button type="button" class="btn btn-dark btn-ms float-left rounded-0" id="btnLogin" ng-click="submitLoginForm()">Login</button>
