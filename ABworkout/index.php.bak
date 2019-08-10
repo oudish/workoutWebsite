@@ -228,6 +228,28 @@
             .error{
                 color:red;
             }
+           .testSection{
+                background-image: url("image/workout01.jpg");
+                background-size:     cover;                 
+                background-repeat:   no-repeat;
+                background-position: center center;  
+                height: auto;
+                border-radius: 10px; 
+            }
+            .testSection p{
+                font-size: 2.0rem;
+            }
+
+            .testSection input[type="radio"]{
+                -ms-transform: scale(1.5); /* IE 9 */
+                -webkit-transform: scale(1.5); /* Chrome, Safari, Opera */
+                transform: scale(1.5);
+            }
+
+            .testSection label {
+                font-size: 1.2rem;
+                margin-left: 3px;
+            }
         </style>
 
     </head>
