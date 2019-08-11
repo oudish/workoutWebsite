@@ -18,7 +18,7 @@
             cursor: pointer;
             transition: color 0.5s;
             color: green;
-        }
+        } 
     </style>
 </head>
 <body ng-app="myApp" ng-controller="myCtrl" > 
