@@ -22,22 +22,22 @@ try{
         $object->errMsg = '* Please enter valid data!';
         echo(JSON_encode($object));
     }
-    elseif($username =='' ){
+    else if($username =='' ){
         $object->field = 'email';
         $object->errMsg = '* Please enter your email address.';
         echo(JSON_encode($object));
     }
-    elseif(!filter_var($username, FILTER_VALIDATE_EMAIL)){
+    else if(!filter_var($username, FILTER_VALIDATE_EMAIL)){
         $object->field = 'email2';
         $object->errMsg = '* Please enter a valid email.';
         echo(JSON_encode($object));
     }
-    elseif($password == '') {
+    else if($password == '') {
         $object->field = 'password';
         $object->errMsg = '* Please enter your password.';
         echo(JSON_encode($object));
     }
-    elseif($stmt->rowCount() == 1){
+    else if($stmt->rowCount() == 1){
         $object->field = 'success';
         $object->errMsg = '* Successful Login';
         echo(JSON_encode($object));

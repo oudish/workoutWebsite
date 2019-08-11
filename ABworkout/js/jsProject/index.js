@@ -105,10 +105,30 @@ app.controller('myCtrl', function($scope,$http) {
         // alert("testin");
         var username = $("#uname1").val();
         var password = $("#pwd1").val();
+        var validateEmail = '/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/';
         $scope.error0 ="";
         $scope.error1 ="";
         $scope.error2 ="";
         $scope.borderRed("All", "");
+        if(username =='' && password ==''){
+            $scope.error0 = '* Please enter valid data!';
+            $scope.borderRed("uname1","email");
+            $scope.borderRed("pwd1","pwd2");
+        }
+        else if(username =='' ){
+            $scope.error1 = '* Please enter your email address.';                  
+            $scope.borderRed("uname1","email"); 
+        }
+        // else if(validateEmail.test(username)){
+        //     $scope.error1 = '* Please enter a valid email.';
+        //     $scope.borderRed("uname1","email");
+        // }
+        else if(password == '') {
+            $scope.error2 =  '* Please enter your password.';
+            $scope.borderRed("pwd1","pwd2");
+        }
+        else{        
+        
         $http.post('modelSql/verifyLoginSql.php',{username: username, password: password}).then(function(response){
 
             if(response.data.field == "success"){
@@ -142,8 +162,11 @@ app.controller('myCtrl', function($scope,$http) {
 
                 
             }
+        
             //alert(JSON.stringify(response.data));
         });
+    }
+  
         
     }
 
