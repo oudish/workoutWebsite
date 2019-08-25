@@ -91,6 +91,8 @@ app.controller('myCtrl', function($scope,$http) {
 
     $scope.workoutplan = [];
 
+    $scope.weekNumber = [{idWeek: "week_1", nameWeek: "WEEK 1"},{idWeek: "week_2", nameWeek: "WEEK 2"},{idWeek: "week_3", nameWeek: "WEEK 3"},{idWeek: "week_4", nameWeek: "WEEK 4"},{idWeek: "week_5", nameWeek: "WEEK 5"},{idWeek: "week_6", nameWeek: "WEEK 6"},{idWeek: "week_7", nameWeek: "WEEK 7"},{idWeek: "week_8", nameWeek: "WEEK 8"},{idWeek: "week_9", nameWeek: "WEEK 9"},{idWeek: "week_10", nameWeek: "WEEK 10"},{idWeek: "week_11", nameWeek: "WEEK 11"},{idWeek: "week_12", nameWeek: "WEEK 12"}];
+
     $scope.borderRed = function(idRed, idFocus){
         if(idRed != "All"){
          document.getElementById(idRed).style.borderColor = "red";
@@ -203,6 +205,9 @@ app.controller('myCtrl', function($scope,$http) {
     });
 
     $scope.onInitFunction = function(event) {
+       
+        //alert(JSON.stringify($scope.weekNumber));
+
         $scope.blockIfVideoPresent ="none";
         // alert("in init func");
         $http.post('modelSql/onInitFunction.php').then(function(response){
@@ -418,18 +423,22 @@ app.controller('myCtrl', function($scope,$http) {
         });
     };
 
-    $scope.getDayButtonId = function(event) {
+    $scope.getDayButtonId = function(event, idWeek) {
         var dayBtnId = event.target.id;
         var splitDayBtnId = dayBtnId.split("day");
-        var week_id = $("#dayPTag").text();
+        var week_id_split = idWeek.split("_");
+        var week_id = week_id_split[1];
         $scope.blockIfVideoPresent ="none";
+
+        //alert("day : "+ splitDayBtnId[1] +", "+week_id);
         
         if(week_id == "1"){
+            // alert("good");
             if(splitDayBtnId[1] == "1"){
                 $scope.workoutplan = $scope.week1day1; 
-                if($scope.workoutplan.length > 2){
-                    document.getElementById("showMoreBtn").style.display = "block";
-                }
+                // if($scope.workoutplan.length > 2){
+                //     document.getElementById("showMoreBtn").style.display = "block";
+                // }
             }
             else if(splitDayBtnId[1] == "2"){
                 $scope.workoutplan = $scope.week1day2;
