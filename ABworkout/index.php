@@ -11,7 +11,7 @@
             require('library/fontAwesome.php');
             require('library/OwlcarouselCss.php');
             require('library/Angular.php'); 
-            require('library/MDBootstrapCss.php');
+            // require('library/MDBootstrapCss.php');
             require('library/AnimateCss.php'); 
             require('library/aosCss.php');
         ?>
@@ -335,7 +335,7 @@ h2 {
 }
 
 .pic3 {
-  background-image: url('image/shredding.jpg');
+  background-image: url('image/black.png');
 }
 
 @media (min-width: 768px) {
@@ -346,7 +346,7 @@ h2 {
     background-image: url('image/diet01.jpg');
   }
   .pic3 {
-    background-image: url('image/shredding.jpg');
+    background-image: url('image/black.png');
   }
 }
 
@@ -478,10 +478,10 @@ section .gist-meta {
   margin-top: 30px;
 }
 
-.overlay a {
+/* .overlay a {
   padding: 8px;
   text-decoration: none;
-  /* font-size: 36px; */
+  font-size: 36px;
   color: #818181;
   display: block;
   transition: 0.3s;
@@ -489,7 +489,7 @@ section .gist-meta {
 
 .overlay a:hover, .overlay a:focus {
   color: #f1f1f1;
-}
+} */
 
 .overlay .closebtn {
   position: absolute;
@@ -535,14 +535,185 @@ section .gist-meta {
     transition: 0.8s;
     -webkit-transition:  0.8s;
 }
+
+/* important */
 .fit-image{
 width: 100%;
 object-fit: cover;
 
 }
 
+/* important */
+.landing-col {
+
+    background: url('image/signUp.jpg') no-repeat center;
+    /* -webkit-background-size: 100% auto; */
+    -moz-background-size: 100% auto;
+    -o-background-size: 100% auto;
+    /* background-size: 100% auto; */
+    height: 100vh;
+    /* height: 1024px; */
+    align-self: center;
+
+    -webkit-box-shadow: inset 2px -12px 56px 43px rgba(0,0,0,0.9);
+    -moz-box-shadow: inset 2px -12px 56px 43px rgba(0,0,0,0.9);
+    box-shadow: inset 2px -12px 56px 43px rgba(0,0,0,0.9);
+}
+
+/* important */
+.alignVertical_ColBootstrap {
+    position: absolute;
+    top: 50%; left: 50%;
+    transform: translate(-50%,-50%);
+}
+
+</style>
 
 
+<!-- <style>
+        .card{
+            text-align: center;
+            width: 85%;
+            
+        }
+
+        
+
+    </style> -->
+
+<style>
+            .top-buffer { margin-top:20px; }
+            ul {
+            list-style-type: none;
+            }
+
+            li {
+            display: inline-block;
+            }
+
+            input[type="checkbox"][id^="cb"],[id^="meatcb"],[id^="veggiecb"],[id^="productcb"],[id^="isTruecb"] {
+            display: none;
+            }
+
+            #labelId {
+            border: 1px solid #fff;
+            padding: 10px;
+            display: block;
+            position: relative;
+            margin: 10px;
+            cursor: pointer;
+            }
+
+            #labelId:before {
+            background-color: white;
+            color: white;
+            content: " ";
+            display: block;
+            border-radius: 50%;
+            border: 1px solid grey;
+            position: absolute;
+            top: -5px;
+            left: -5px;
+            width: 25px;
+            height: 25px;
+            text-align: center;
+            line-height: 28px;
+            transition-duration: 0.4s;
+            transform: scale(0);
+            }
+
+            #labelId img {
+            height: 100px;
+            width: 100px;
+            transition-duration: 0.2s;
+            transform-origin: 50% 50%;
+            }
+
+            :checked + #labelId {
+            border-color: #ddd;
+            }
+
+            :checked + #labelId:before {
+            content: "✓";
+            background-color: grey;
+            transform: scale(1);
+            }
+
+            :checked + #labelId img {
+            transform: scale(0.9);
+            box-shadow: 0 0 5px #333;
+            z-index: -1;
+            }
+
+            :checked + #labelId button {
+            transform: scale(0.9);
+            box-shadow: 0 0 5px #333;
+            z-index: -1;
+            }
+        </style>
+
+
+<style>
+@import url('https://fonts.googleapis.com/css?family=Pathway+Gothic+One');
+.graph-container {
+  position: relative;
+  .percent-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 48px;
+    font-family: 'Pathway Gothic One', Arial
+  }
+}
+
+
+</style>
+
+<style>
+
+.stepwizard-step p {
+    margin-top: 10px;
+}
+.stepwizard-row {
+    display: table-row;
+}
+.stepwizard {
+    display: table;
+    width: 50%;
+    position: relative;
+}
+.stepwizard-step button[disabled] {
+    opacity: 1 !important;
+    filter: alpha(opacity=100) !important;
+}
+.stepwizard-row:before {
+    top: 14px;
+    bottom: 0;
+    position: absolute;
+    content: " ";
+    width: 100%;
+    height: 1px;
+    background-color: #ccc;
+    z-order: 0;
+}
+.stepwizard-step {
+    display: table-cell;
+    text-align: center;
+    position: relative;
+}
+.btn-circle {
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    padding: 6px 0;
+    font-size: 12px;
+    line-height: 1.428571429;
+    border-radius: 15px;
+}
+
+.card { background-color: rgba(245, 245, 245, 0.4); }
+.card-header, .card-footer { opacity: 1}
 </style>
         
     </head>
@@ -557,10 +728,10 @@ object-fit: cover;
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav mr-auto">
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" ng-click="workoutMenu()">WORKOUT <span class="sr-only">(current)</span></a>
+                        <a class="nav-link text-white py-0" style="cursor: pointer;" ng-click="workoutMenu()">WORKOUT  <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link text-white py-0" ng-click="nutritionMenu()">NUTRITION</a>
+                        <a class="nav-link text-white py-0" style="cursor: pointer;" ng-click="nutritionMenu()">NUTRITION</a>
                     </li>
                 </ul>
             </div>
@@ -590,12 +761,13 @@ object-fit: cover;
                         <div class="row">
                             <div class="col-md-8 col-centered" align="center">  
                                 
-                                <h2 class="font-weight-bold" data-aos="fade-up" data-aos-duration="1500" style="font-size: 2.5rem">Workout Plan Schedule</h2>
+                                
                                         
                                 <div class="row">
                                 
                                     <div class="col-md-5 col-centered justify-content-center align-self-center" data-aos="zoom-in" data-aos-duration="1000" align="center" > 
                                     <!-- style="border: 3px solid #222;height: 90%;background-color: rgba(85,85,85,0.2)" -->
+                                        <h2 class="font-weight-bold" data-aos="fade-up" data-aos-duration="1500" style="font-size: 2.5rem">Workout Plan Schedule</h2>
                                         <div class="pt-5"></div>
                                         <ul style="padding-right: 50px;padding-left: 50px;">
                                             <li>
@@ -611,7 +783,7 @@ object-fit: cover;
                                             </li>
                                         </ul>
                                         <br>
-                                        <button type="button" class="btn btn-outline-dark" style="font-size: 16px;" onclick="openNav()">GO TO WORKOUT</button> 
+                                        <button type="button" class="btn btn-outline-dark" style="font-size: 16px;" onclick="openNav('workout')">GO TO WORKOUT</button> 
                                     </div>
 
                                     <div class="col-md-5 col-centered"  style="background-color: ">
@@ -628,103 +800,7 @@ object-fit: cover;
         </div>
         </section>
 
-        <div id="myNav" class="overlay">
-            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
-            <div class="overlay-content">
-                <!-- <a href="#">About</a>
-                <a href="#">Services</a>
-                <a href="#">Clients</a>
-                <a href="#">Contact</a> -->
-                <div class="container">
-                    <section class="programSection row justify-content-center align-items-center border shadow bg-white">
-                        <div class="col">
-                            <div class="pb-3"></div>
-                            <div class="text-left">
-                                <button class="btn btn-dark" href="javascript:void(0)" onclick="closeNav()">BACK</button>
-                            </div>    
-                            <div class="text-center">
-                                <p class="font-weight-bold">PROGRAM</p>
-                                <div id="accordion">
-                                    <div class="card" ng-repeat="week in weekNumber">
-                                        <div class="card-header " id="heading{{week.nameWeek}}">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapse{{week.idWeek}}" aria-expanded="true" aria-controls="collapse{{week.idWeek}}">
-                                                {{week.nameWeek}}
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse{{week.idWeek}}" class="collapse" aria-labelledby="heading{{week.nameWeek}}" data-parent="#accordion">
-                                            <div class="card-body text-white">
-                                                <p>
-                                                    <button type="button" class="btn btn-outline-dark  rounded-0" id="day1" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 1</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day2" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 2</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day3" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 3</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day4" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 4</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day5" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 5</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day6" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 6</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day7" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 7</button>
-                                                    <div class="collapse" id="collapseExample">
-                                                        <div class="card card-body">
-                                                                <div ng-repeat="work in workoutplan">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <h1>{{work.video_title}}</h1>
-                                                                        </div>
-                                                                        
-                                                                        <div class="col-md-7">
-    
-                                                                            <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
-                                                                               
-                                                                                <div class="embed-responsive embed-responsive-21by9">
-                                                                                    <video controls="true" class="embed-responsive-item unique-name" >
-                                                                                        <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
-                                                                                    </video>
-                                                                                </div>   
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-5">
-                                                                            <div class="row">
-                                                                                <div class="col-md-6">
-                                                                                    <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/>
-                                                                                </div>
-                                                                                
-                                                                                <div class="col-md-6">
-                                                                                    <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/> 
-                                                                                </div>
-                                                                                
-                                                                                <div class="col-md-6">
-                                                                                    <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/>
-                                                                                </div>
-                                                                                
-                                                                                <div class="col-md-6">
-                                                                                <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/>
-                                                                                </div>
-                                                                                
-                                                                            </div>   
-
-                                                                             
-                                                                        </div>
-                                                                        <hr/>
-                                                                    </div>
-                                                                </div>
-                                                        </div>
-                                                    </div>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pb-3"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
-            </div>
-        </div>
+        
         
         <div class="bg-holder pic2 img-responsive fit-image" data-width="1024" data-height="768">
             <div class="content intro">
@@ -735,8 +811,8 @@ object-fit: cover;
         </div>
         
         <section>
-        <div class="content">
-            <div class="row"  >
+        <div class="content"  id="dietSectionContent">
+            <div class="row" >
                 <div class="col-md-6">
                     <div id="demo" class="carousel slide" data-ride="carousel" data-aos="zoom-in" data-aos-duration="1500">
                         <ul class="carousel-indicators">
@@ -753,39 +829,34 @@ object-fit: cover;
                                 </div>   
                             </div>
                             <div class="carousel-item">
-                                <img src="image/model02.jpg" class="img-responsive fit-image" alt="Chicago" width="1024" height="700"> 
+                                <img src="image/diet03.jpg" class="img-responsive fit-image" alt="Chicago" width="1024" height="700"> 
                                 <div class="carousel-caption animated lightSpeedIn">
                                     <h3 class="animated fadeInRight">Chicago</h3>
                                     <p class="animated fadeInLeft">Thank you, Chicago!</p>
                                 </div>   
                             </div>
                             <div class="carousel-item">
-                                <img src="image/model03.jpg" class="img-responsive fit-image" alt="New York" width="1024" height="700">
+                                <img src="image/diet04.jpg" class="img-responsive fit-image" alt="New York" width="1024" height="700">
                                 <div class="carousel-caption">
                                     <h3 class="animated fadeInLeft">New York</h3>
                                     <p class="animated fadeInRight">We love the Big Apple!</p>
                                 </div>   
                             </div>
                         </div>
-                        <!-- <a class="carousel-control-prev" href="#demo" data-slide="prev">
-                            <span class="carousel-control-prev-icon"></span>
-                        </a>
-                        <a class="carousel-control-next" href="#demo" data-slide="next">
-                            <span class="carousel-control-next-icon"></span>
-                        </a> -->
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="container d-flex h-100">
                         <div class="row justify-content-center align-self-center" style="right: 0;left: 0">
-                            <div class="col-md-12" align="center" id="WorkoutMenuId"> 
+                            <div class="col-md-12" align="center" id="nutritionMenuId"> 
                                 
                                 <div class="pb-5"></div>
                                 <h4 class="font-weight-bold" data-aos="fade-left" data-aos-duration="1500">Diet & Inspiration</h4>
                                 <h4 data-aos="fade-right" data-aos-duration="1500">Get nutritionist-approved recipes and motivational workout tips</h4>
                                 <h4 data-aos="fade-left" data-aos-duration="1500">from our experts.</h4>   
                                 <br>
-                                <button type="button" class="btn btn-outline-dark" data-aos="fade-left" data-aos-duration="1000" style="font-size: 16px;" onclick="openNav()">SEE YOUR DIET</button>
+                                <button type="button" class="btn btn-outline-dark" data-aos="fade-left" data-aos-duration="1000" style="font-size: 16px;" onclick="openNav('diet')">SEE YOUR DIET</button>
+                                <div class="pb-5"></div>
                                 <!-- <div class="row">
                                     <div class="col top-buffer" align="center">
                                         <button id="signUpButton" class="btn btn-success rounded-0" style="display:none">PLEASE SIGN UP</button>
@@ -800,484 +871,46 @@ object-fit: cover;
         </div>
         </section>
         
-        <div class="bg-holder pic3" data-width="1024" data-height="768">
-        <div class="content">
-            <h2>イニシャライズとオプション</h2>
-            <p>Initialization &amp; Options</p>
-        </div>
-        </div>
+        <!-- <div class="bg-holder pic3" data-width="1024" data-height="836">
+            <div class="content"> 
+
+             </div>
+        </div> -->
+        
+        <section>
+            <div class="content">
+                <div class="row" style="background-color: black;" > 
+                    <div class="col-md-12 landing-col" align="center" > 
+
+                        <div id="customerDetailConfirmation" class="alignVertical_ColBootstrap text-white">
+                            <h3 class="" data-aos="fade-left" data-aos-duration="1500">Before signing up we need to take some details about you,</h3>
+                            <h3 class="" data-aos="fade-right" data-aos-duration="1500">Do you want to proceed ?</h3>
+                            <button class="btn btn-outline-light rounded-0" onclick="openNav('diet')">PROCEED</button>  
+                        </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- <hr>
         
         <section>
         <div class="content">
-            <p>To initialize the plugin, call the <code>parallaxScroll</code> method on your background elements.</p>
-            <script src="https://gist.github.com/aentan/cdfee1f0ee4451cece28.js"></script>
-            <p>The plugin accepts one option &ndash; friction. It should be a float value that is more than 0 and less than 1. 0 causes the background to behave as it has <code>background-attachment: scroll</code> (which is useless). 1 (maximum friction) is the same as <code>background-attachment: fixed</code>. A value greater than 1 will cause the background to scroll in reverse!</p>
-            <p>Other features available in Pederan&rsquo;s plugin such as <code>holderMinHeight</code> and <code>coverRatio</code> can be achieved purely with CSS and should be. The fallback option to turn off parallax in mobile devices is unnecessary because this plugin works smoothly on mobile devices.</p>
+   
         </div>
-        </section>
+        </section> -->
         
-        <hr>
-        
-        <section>
-        <div class="content">
-            <h2>Notes</h2>
-            <p>Most likely requires a jQuery of lower version than other plugins you use. If in doubt I recommend 1.8.0 or higher.</p>
-            <p>The only limitation is that the <code>background-size</code> property is not supported by IE&lt;9 so this plugin would not work on that ancient browser.</p>
-            <p>This plugin is loosely based on Peder Andreas Nielsen&rsquo;s <a href="https://github.com/pederan/Parallax-ImageScroll" target="_blank">Parallax ImageScroll</a>. Beautiful tilt-shift photos by <a href="https://www.flickr.com/photos/rolohauck/" target="_blank">rolohauck</a>.</p>
-        </div>
-        </section>
-        
-        <hr>
+        <!-- <hr>
         
         <section class="footer">
         <div class="content">
-            <p>Made by <a href="http://aenism.com/" target="_blank">Aen</a>. Code licensed under <a href="https://github.com/aentan/Parallax-Scroll/blob/master/LICENSE" target="_blank">MIT</a>.</p>
-            <ul class="social">
-            <li><a class="github-button" href="https://github.com/aentan/Parallax-Scroll" data-count-href="/aentan/Parallax-Scroll/stargazers" data-count-api="/repos/aentan/Parallax-Scroll#stargazers_count">Star</a></li>
-            <li><a class="github-button" href="https://github.com/aentan/Parallax-Scroll" data-count-href="/aentan/Parallax-Scroll/network" data-count-api="/repos/aentan/Parallax-Scroll#forks_count">Fork</a></li>
-            <li><a href="https://twitter.com/share" class="twitter-share-button" data-via="Aen" data-show-count="false">Tweet</a></li>
-            <li><a href="https://twitter.com/Aen" class="twitter-follow-button" data-show-count="true">Follow @Aen</a></li>
-            </ul>
-            <script async defer id="github-bjs" src="https://buttons.github.io/buttons.js"></script>
-            <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0],p=/^http:/.test(d.location)?'http':'https';if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src=p+'://platform.twitter.com/widgets.js';fjs.parentNode.insertBefore(js,fjs);}}(document, 'script', 'twitter-wjs');</script>
+
         </div>
-        </section>
+        </section> -->
 
-        <div id="parallax-image">
-            
-            <div class="row">
-                <div class="col-md-12">
-                <!-- <div style="font-size: 1.5em;color: grey; position: absolute;top: 0%;left: 2%;">Welcome <?php echo $_SESSION['firstname']." ".$_SESSION['lastname'] ?></div> -->
-                <!-- <i id="logoutBtn" class="fa fa-sign-out" aria-hidden="true" style="font-size: 2em; color:grey; position: absolute; top:0%; right:3%; cursor: pointer;" ng-click="logout()"></i> -->
-                    <div class="btnMain">
-                        <div id="main" class="is-loading" style="position: fixed">
-                            <h1>
-                                ADISH BALKISSOON 
-                            </h1>
-                            <!-- <h1>  {{firstName + " " + lastName}}</h1> -->
-                        </div>    
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row" style="right: 0;left: 0">
-            <div class="col"> 
-                <nav class="navbar navbar-expand-md navbar-dark fixed" style="background-color: #070617;cursor:pointer;">
-                    <a class="navbar-brand" href="#">AB</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarCollapse">
-                    <ul class="navbar-nav mr-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" ng-click="workoutMenu()">Workout</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" ng-click="nutritionMenu()">Nutrition</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" data-toggle="modal" data-target="#myModal" >LOGIN</a>
-                            <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                Open modal
-                            </button> -->
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="signUp.php">SIGNUP</a>
-                        </li>
-                    </ul>
-                    </div>
-                </nav>
-
-                <div align="center" style="padding-top: 5%" id="workoutMenuId">
-                    <h2 class="font-weight-bold" style="font-size: 2.5rem">Workout Plan Schedule</h2>   
-                    <div class="pb-4"></div>
-
-                    <!-- <div class="container" >
-                        <section class="testSection row justify-content-center align-items-center border shadow bg-white">
-                            <div class="col">
-                                <div class="text-white text-center">
-                                   
-                                        <p class="font-weight-bold">CHOOSE YOUR WORKOUT</p>
-                                        <div class="form-check">
-                                           
-                                            <input type="radio" class="form-check-input" id="radio1" name="optradio" value="option1" checked>
-                                            <label class="form-check-label" for="radio1">
-                                                GAIN MUSCLE WEIGHT
-                                            </label>
-                                        </div>
-                                        <br>
-                                        <div class="form-check">
-                                            <input type="radio" class="form-check-input" id="radio2" name="optradio" value="option2">
-                                            <label class="form-check-label" for="radio2">
-                                                LOOSE WEIGHT
-                                            </label>
-                                        </div>
-                                        <br>
-                                        <div class="form-check">   
-                                            <input type="radio" class="form-check-input" id="radio3" name="optradio" value="option3">
-                                            <label class="form-check-label" for="radio3">
-                                                SHREDDING
-                                            </label>
-                                        </div>
-                                        <br>
-                                  
-                                </div>
-                            </div>
-                        </section>
-                    </div> -->
-                    <div class="row" style="right: 0;left: 0">
-                        <div class="col-md-12" align="center" id="WorkoutMenuId"> 
-                            <!-- <h2 class="font-weight-bold ">Diet & Inspiration</h2>
-                            <h4>Get nutritionist-approved recipes and motivational workout tips</h4>
-                            <h4>from our experts.</h4>    -->
-
-                            <!-- bottom boostrap spacing  -->
-                            <div class="pb-2"></div>
-
-                            <div class="row">
-                                <div class="col-md-4 top-buffer"> 
-                                    <div id="gainWeight" class="card rounded shadow bg-white rounded" >
-                                        <img class="card-img-top" src="image/model01.jpg" alt="Card image cap" style="height:18rem">
-                                        <div class="card-body text-center">
-                                            <label class="card-text font-weight-bold">Diet to gain weight</label>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4 top-buffer"> 
-                                    <div id="loseWeight" class="card rounded shadow bg-white rounded" >
-                                        <img class="card-img-top img-responsive" src="image/model02.jpg" alt="Card image cap" style="height:18rem">
-                                        <div class="card-body text-center">
-                                            <label class="card-text font-weight-bold">Diet to lose weight</label>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div class="col-md-4 top-buffer"> 
-                                    <div id="shredding" class="card rounded shadow bg-white rounded" >
-                                        <img class="card-img-top" src="image/model03.jpg" alt="Card image cap" style="height:18rem">
-                                        <div class="card-body text-center">
-                                            <label class="card-text font-weight-bold">Shredding diet</label>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col top-buffer" align="center">
-                                    <button id="signUpButton" class="btn btn-success rounded-0" style="display:none">PLEASE SIGN UP</button>
-                                </div> 
-                            </div>
-                            
-
-                            
-                            
-                        </div>
-                    </div>
-                    <div class="pb-4"></div>
-
-                    <!-- <div class="btn-group-week">
-                        <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">Select a Country <span class="caret"></span></a>
-                        <ul class="dropdown-menu">
-                            <li class="dropdown-item"><a >Item I</a></li>
-                            <li class="dropdown-item"><a href="#">Item II</a></li>
-                            <li class="dropdown-item"><a href="#">Item III</a></li>
-                            <li class="dropdown-item"><a href="#"><span class="badge badge-primary badge-pill float-right mt-1">new</span> Item IV</a></li>
-                            <li class="dropdown-item"><a href="#">Item V</a></li>
-                            <li class="dropdown-item"><a href="#">Other</a></li>
-                        </ul>
-                    </div> -->
-
-                    <!-- <p>Choose the week</p>
-                    <div class="owl-carousel owl-theme" style="width: 50%;">
-                        <button type="button" class="" id="week1" onclick="getWeekButtonId(this.id)">WEEK 1</button>
-                        <button type="button" class="" id="week2" onclick="getWeekButtonId(this.id)">WEEK 2</button>
-                        <button type="button" class="" id="week3" onclick="getWeekButtonId(this.id)">WEEK 3</button>
-                        <button type="button" class="" id="week4" onclick="getWeekButtonId(this.id)">WEEK 4</button>
-                        <button type="button" class="" id="week5" onclick="getWeekButtonId(this.id)">WEEK 5</button>
-                        <button type="button" class="" id="week6" onclick="getWeekButtonId(this.id)">WEEK 6</button>
-                        <button type="button" class="" id="week7" onclick="getWeekButtonId(this.id)">WEEK 7</button>
-                        <button type="button" class="" id="week8" onclick="getWeekButtonId(this.id)">WEEK 8</button>
-                        <button type="button" class="" id="week9" onclick="getWeekButtonId(this.id)">WEEK 9</button>
-                        <button type="button" class="" id="week10" onclick="getWeekButtonId(this.id)">WEEK 10</button>
-                        <button type="button" class="" id="week11" onclick="getWeekButtonId(this.id)">WEEK 11</button>
-                        <button type="button" class="" id="week12" onclick="getWeekButtonId(this.id)">WEEK 12</button>
-                    </div> -->
-                </div>
-
-                <!-- <div id="dayDiv" align="center" style="padding-top: 1%;display: none">
-                    <p style="display: inline">Choose the day for week </p><p id="dayPTag" style="display: inline"></p><br><br>
-                    <div class="owl-carousel owl-theme" style="width: 50%;">
-                        <button type="button" class="" id="day1" ng-click="getDayButtonId($event)">DAY 1</button>
-                        <button type="button" class="" id="day2" ng-click="getDayButtonId($event)">DAY 2</button>
-                        <button type="button" class="" id="day3" ng-click="getDayButtonId($event)">DAY 3</button>
-                        <button type="button" class="" id="day4" ng-click="getDayButtonId($event)">DAY 4</button>
-                        <button type="button" class="" id="day5" ng-click="getDayButtonId($event)">DAY 5</button>
-                        <button type="button" class="" id="day6" ng-click="getDayButtonId($event)">DAY 6</button>
-                        <button type="button" class="" id="day7" ng-click="getDayButtonId($event)">DAY 7</button>
-                    </div>
-                </div> -->
-                
-                <!-- <div class="content" style="display:{{blockIfVideoPresent}}">
-                    <div class="row">
-                        <div class="col" ng-repeat="work in workoutplan | limitTo : 2">
-                            <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
-                                <h1>{{work.video_title}}</h1>
-                                <div class="embed-responsive embed-responsive-21by9">
-                                    <video controls="true" class="embed-responsive-item">
-                                        <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
-                                    </video>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div id="accordion" role="tablist" aria-multiselectable="true">
-                        <div class="collapse-wrapper">
-                            <div class="card">  
-                                <div id="collapseOne" class="collapse" role="tabpanel" aria-labelledby="headingOne">
-                                    
-                                    <div class="row">
-                                        <div class="col" ng-repeat="work in workoutplan" ng-if="$index >= 2">
-                                            <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
-                                                <h1>{{work.video_title}}</h1>
-                                                <div class="embed-responsive embed-responsive-21by9">
-                                                    <video class="embed-responsive-item" poster="image/model01.jpg">
-                                                        <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
-                                                    </video>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-
-                                </div>
-                                <div class="card-header" role="tab" id="headingOne">
-                                    <h5 class="mb-0">
-                                        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne" id="showMoreBtn" style="display: none">Show More</a>
-                                    </h5>
-                                </div>  
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                
-                <div class="container">
-                    <section class="programSection row justify-content-center align-items-center border shadow bg-white">
-                        <div class="col">
-                            <div class="pb-3"></div>
-                            <div class="text-left">
-                                <button class="btn btn-primary">BACK</button>
-                            </div>    
-                            <div class="text-center">
-                                <p class="font-weight-bold">PROGRAM</p>
-                                <div id="accordion">
-                                    <div class="card" ng-repeat="week in weekNumber">
-                                        <div class="card-header bg-dark" id="heading{{week.nameWeek}}">
-                                            <h5 class="mb-0">
-                                                <button class="btn btn-link text-white" data-toggle="collapse" data-target="#collapse{{week.idWeek}}" aria-expanded="true" aria-controls="collapse{{week.idWeek}}">
-                                                {{week.nameWeek}}
-                                                </button>
-                                            </h5>
-                                        </div>
-                                        <div id="collapse{{week.idWeek}}" class="collapse" aria-labelledby="heading{{week.nameWeek}}" data-parent="#accordion">
-                                            <div class="card-body text-white">
-                                                <p>
-                                                    <button type="button" class="btn btn-outline-dark  rounded-0" id="day1" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 1</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day2" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 2</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day3" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 3</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day4" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 4</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day5" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 5</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day6" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 6</button>
-                                                    <button type="button" class="btn btn-outline-dark rounded-0" id="day7" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample" ng-click="getDayButtonId($event, week.idWeek)">DAY 7</button>
-                                                    <div class="collapse" id="collapseExample">
-                                                        <div class="card card-body">
-                                                            <!-- <div class="row"> -->
-                                                                <div ng-repeat="work in workoutplan">
-                                                                    <div class="row">
-                                                                        <div class="col-md-12">
-                                                                            <h1>{{work.video_title}}</h1>
-                                                                        </div>
-                                                                        
-                                                                        <div class="col-md-7">
-                                                                            <!-- <div class="row">
-                                                                                <div class="col-md-12">
-                                                                                    
-                                                                                </div>
-                                                                            </div> -->
-                                                                            <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
-                                                                               
-                                                                                <div class="embed-responsive embed-responsive-21by9">
-                                                                                    <video controls="true" class="embed-responsive-item unique-name" >
-                                                                                        <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
-                                                                                    </video>
-                                                                                </div>   
-                                                                            </div>
-                                                                        </div>
-                                                                        <div class="col-md-5">
-                                                                            <div class="row">
-                                                                                <div class="col-md-6">
-                                                                                    <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/>
-                                                                                </div>
-                                                                                
-                                                                                <div class="col-md-6">
-                                                                                    <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/> 
-                                                                                </div>
-                                                                                <!-- <div class="pb-3"></div> -->
-                                                                            <!-- </div>   -->
-                                                                            <!-- <div style="margin-top: 1rem;margin-bottom: 1rem;border: 0;"></div> -->
-                                                                            <!-- <div class="row"> -->
-                                                                                
-                                                                                <div class="col-md-6">
-                                                                                    <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/>
-                                                                                </div>
-                                                                                
-                                                                                <div class="col-md-6">
-                                                                                <div class="pt-3"></div>
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" class="img-responsive unique-name" style="object-fit: cover;width: 50%;height: auto"/>
-                                                                                </div>
-                                                                                
-                                                                            </div>   
-
-                                                                             
-                                                                        </div>
-                                                                        <hr/>
-                                                                        <!-- <div class="col-md-4" style="background-color: green"> 
-                                                                        </div> -->
-                                                                    </div>
-
-                                                                    <!-- <div class="col-md-12"> -->
-                                                                        <!-- <div class="col-md-12">
-                                                                            <div class="row">
-                                                                                <div class="column">
-                                                                                    <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
-                                                                                        <h1>{{work.video_title}}</h1>
-                                                                                        <div class="embed-responsive embed-responsive-21by9">
-                                                                                            <video controls="true" class="embed-responsive-item" >
-                                                                                                <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
-                                                                                            </video>
-                                                                                        </div>   
-                                                                                    </div> 
-                                                                                </div>
-                                                                                <div class="column">
-                                                                                    <img src="https://media.giphy.com/media/2xFA2V78EYf8yFbatE/giphy.gif" alt="this slowpoke moves" /> 
-                                                                                </div>
-                                                                            </div>
-                                                                               
-                                                                                    
-                                                                            
-                                                                        </div> -->
-                                                                        <!-- <div class="col-md-6">
-                                                                            
-                                                                        </div>     -->
-                                                                    <!-- </div> -->
-                                                                </div>
-                                                            <!-- </div> -->
-                                                        </div>
-                                                    </div>
-                                                </p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="pb-3"></div>
-                                </div>
-                                <!-- <div class="card">  
-                                    <div class="row">
-                                        <div class="col" ng-repeat="work in workoutplan">
-                                            <div data-aos="zoom-in" id="testvideo" style="display:{{blockIfVideoPresent}}">
-                                                <h1>{{work.video_title}}</h1>
-                                                <div class="embed-responsive embed-responsive-21by9">
-                                                    <video class="embed-responsive-item" controls="true">
-                                                        <source src="{{work.video_url}}" type="video/mp4" allowfullscreen/>
-                                                    </video>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div> -->
-                            </div>
-                        </div>
-                    </section>
-                </div>
-
-                
-
-                <!-- <div class="header">
-                    <div class="progress">
-                        <div class="progress-bar bg-dark" id="myBar"></div>
-                    </div>  
-                </div> -->
-            </div><!-- end of col -->  
-         
-        </div><!-- end of row -->  
+        
 
         <!-- bottom boostrap spacing  -->
-        <div class="pb-5"></div>
-        <hr/>
-        <!-- bottom boostrap spacing  -->
-        <div class="pb-5"></div>
-
-        <div class="row" style="right: 0;left: 0">
-            <div class="col-md-12" align="center" id="nutritionMenuId"> 
-                <h2 class="font-weight-bold ">Diet & Inspiration</h2>
-                <h4>Get nutritionist-approved recipes and motivational workout tips</h4>
-                <h4>from our experts.</h4>   
-
-                <!-- bottom boostrap spacing  -->
-                <div class="pb-2"></div>
-
-                <div class="row">
-                    <div class="col-md-4 top-buffer"> 
-                        <div id="gainWeight" class="card rounded shadow bg-white rounded" >
-                            <img class="card-img-top" src="image/gainMuscle.jpg" alt="Card image cap" style="height:18rem">
-                            <div class="card-body text-center">
-                                <label class="card-text font-weight-bold">Diet to gain weight</label>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 top-buffer"> 
-                        <div id="loseWeight" class="card rounded shadow bg-white rounded" >
-                            <img class="card-img-top img-responsive" src="image/looseWeight.jpg" alt="Card image cap" style="height:18rem">
-                            <div class="card-body text-center">
-                                <label class="card-text font-weight-bold">Diet to lose weight</label>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 top-buffer"> 
-                        <div id="shredding" class="card rounded shadow bg-white rounded" >
-                            <img class="card-img-top" src="image/shredding.jpg" alt="Card image cap" style="height:18rem">
-                            <div class="card-body text-center">
-                                <label class="card-text font-weight-bold">Shredding diet</label>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="row">
-                    <div class="col top-buffer" align="center">
-                        <button id="signUpButton" class="btn btn-success rounded-0" style="display:none">PLEASE SIGN UP</button>
-                    </div> 
-                </div>
-                
-
-                
-                
-            </div>
-        </div>
-      
-        <!-- <div id="parallax-image2">
-            <div class="row">
-                <div class="col-md-12">
-
-                </div>
-            </div>
-        </div>  -->
-
-        <!-- bottom boostrap spacing  -->
-        <div class="pb-5"></div>
+        <!-- <div class="pb-5"></div> -->
 
         <?php 
             require("footer.php");
@@ -1317,11 +950,19 @@ object-fit: cover;
             </div>
         </div>
 
+        <div id="myNav" class="overlay">
+            <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+            <div id="navContentId" class="overlay-content">
+                <div id="workoutPlanVideos" style="display: none">
+                    <?php require("workoutPlanVideos.php"); ?>
+                </div>
 
-
-
-        
-        
+                <div id="dietInfo" style="display: none">
+                    <!-- <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a> -->
+                    <?php require("dietInfo.php"); ?>
+                </div>
+            </div>
+        </div>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
         <?php 
             require('library/jquery.php');
@@ -1338,6 +979,11 @@ object-fit: cover;
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/animation.gsap.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.5/plugins/debug.addIndicators.js"></script>
         <script src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/snap.svg/0.5.1/snap.svg-min.js"></script>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap-wizard/1.2/jquery.bootstrap.wizard.min.js"></script>
 
 
 
@@ -1371,8 +1017,24 @@ $(function(){$(".bg-holder").parallaxScroll({friction:.5,direction:"vertical"})}
 </script>
 
 <script>
-function openNav() {
+function openNav(type) {
   document.getElementById("myNav").style.width = "100%";
+    var element = document.getElementById("navContentId");
+    
+  if(type == "workout"){
+    if(element.className != null && element.className != ""){
+        element.className = "overlay-content";
+    }
+    $("#dietInfo").css("display", "none");  
+    $("#workoutPlanVideos").css("display", "block");
+  }
+  else if(type == "diet"){
+    if(element.className != null && element.className != ""){
+        element.className = "overlay-content alignVertical_ColBootstrap";
+    }
+    $("#workoutPlanVideos").css("display", "none");  
+    $("#dietInfo").css("display", "block");
+  }
 }
 
 function closeNav() {
@@ -1404,7 +1066,10 @@ var myNavBar = {
     add : function() {
         if(this.flagAdd) {
             for(var i=0; i < this.elements.length; i++) {
-                document.getElementById(this.elements[i]).className += " fixed-theme";
+                if(document.getElementById(this.elements[i]).className != null){
+                    document.getElementById(this.elements[i]).className += " fixed-theme";
+                }
+                
             }
             this.flagAdd = false;
         }
@@ -1412,8 +1077,10 @@ var myNavBar = {
 
     remove: function() {
         for(var i=0; i < this.elements.length; i++) {
-            document.getElementById(this.elements[i]).className =
-                    document.getElementById(this.elements[i]).className.replace( /(?:^|\s)fixed-theme(?!\S)/g , '' );
+            if(document.getElementById(this.elements[i]).className != null){
+                document.getElementById(this.elements[i]).className = document.getElementById(this.elements[i]).className.replace( /(?:^|\s)fixed-theme(?!\S)/g , '' );
+            }
+            
         }
         this.flagAdd = true;
     }
@@ -1459,7 +1126,7 @@ window.onscroll = function(e) {
  * We have to do a first detectation of offset because the page
  * could be load with scroll down set.
  */
-offSetManager();
+// offSetManager();
 });
 </script>
 
